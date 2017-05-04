@@ -46,7 +46,9 @@ class ViewController: UIViewController {
     
     func openTableViewController() {
         DispatchQueue.main.async(execute: {
-            self.navigationController!.pushViewController(self.storyboard!.instantiateViewController(withIdentifier: "SiSTableViewController") as! SiSTableViewController, animated: true)
+            let tableViewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSTableViewController") as! SiSTableViewController
+            tableViewController.clothesSet = Set(self.clothesArray)
+            self.navigationController!.pushViewController(tableViewController, animated: true)
             
             return
         })
