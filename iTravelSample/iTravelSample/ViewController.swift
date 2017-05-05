@@ -10,13 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var clothesArray = [String]()
+    var clothesArray = [Cloth]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.activityIndicator.isHidden = true
+        self.maskView.alpha = 0
     }
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var maskView: UIView!
     func makeGetCall() {
 
         let config = URLSessionConfiguration.default // Session Configuration
@@ -32,9 +35,12 @@ class ViewController: UIViewController {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
                         //Implement your logic
-                        let cloth : String = json["context"] as! String
+                        let cloth = Cloth()
+                        cloth.title = json["context"] as! String
+                        cloth.id = json["id"] as! Int
                         self.clothesArray.append(cloth)
-                        self.openTableViewController()
+                        self.startIndicator()
+                        //self.openTableViewController()
                     }
                 } catch {
                     print("error in JSONSerialization")
@@ -46,11 +52,31 @@ class ViewController: UIViewController {
     
     func openTableViewController() {
         DispatchQueue.main.async(execute: {
+            self.stopIndicator()
             let tableViewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSTableViewController") as! SiSTableViewController
             tableViewController.clothesSet = Set(self.clothesArray)
             self.navigationController!.pushViewController(tableViewController, animated: true)
             
             return
+        })
+    }
+    
+    func startIndicator() {
+        DispatchQueue.main.async(execute: {
+            self.maskView.alpha = 0.75
+            self.activityIndicator.isHidden = false
+            self.activityIndicator.startAnimating()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.openTableViewController()
+            }
+        })
+    }
+    
+    func stopIndicator() {
+        DispatchQueue.main.async(execute: {
+            self.maskView.alpha = 0
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
         })
     }
 
@@ -59,4 +85,17 @@ class ViewController: UIViewController {
     }
     
 }
+
+class Cloth: NSObject {
+    var title = ""
+    var id = 0
+}
+
+
+
+
+
+
+
+
 

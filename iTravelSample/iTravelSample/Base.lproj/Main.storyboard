@@ -29,14 +29,30 @@
                                     <action selector="getClothesArray:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XND-x0-Ns7"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkf-Aj-OlH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MNS-e4-lX2">
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Xkf-Aj-OlH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3NP-V5-JqI"/>
                             <constraint firstItem="Pxf-x7-ZJb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="559-u8-TsC"/>
+                            <constraint firstAttribute="trailing" secondItem="Xkf-Aj-OlH" secondAttribute="trailing" id="6vE-Ta-not"/>
                             <constraint firstItem="Pxf-x7-ZJb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gva-zO-9ce"/>
+                            <constraint firstItem="Xkf-Aj-OlH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Kj5-Fa-kFX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xkf-Aj-OlH" secondAttribute="bottom" id="hBS-yc-PJN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Главный экран" id="YRf-L3-JFM"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="MNS-e4-lX2" id="wga-19-ZfV"/>
+                        <outlet property="maskView" destination="Xkf-Aj-OlH" id="IIO-tC-qhl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

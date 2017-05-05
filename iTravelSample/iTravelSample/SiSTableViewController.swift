@@ -10,8 +10,8 @@ import UIKit
 
 class SiSTableViewController: UITableViewController {
 
-    var clothesSet = Set<String>()
-    var clothesArray = [String]()
+    var clothesSet = Set<Cloth>()
+    var clothesArray = [Cloth]()
     
     
     override func viewDidLoad() {
@@ -28,7 +28,9 @@ class SiSTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId: NSString = "Cell"
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellId as String)!
-        cell.textLabel?.text = clothesArray[indexPath.row]
+        let cloth = clothesArray[indexPath.row]
+        cell.textLabel?.text = cloth.title
+        cell.detailTextLabel?.text = "id \(cloth.id)"
         return cell
     }
 }
