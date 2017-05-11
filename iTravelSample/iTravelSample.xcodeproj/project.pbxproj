@@ -19,6 +19,9 @@
 		52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2537C1EC4A73100A76CA2 /* UIViewXRadialGradient.swift */; };
 		52E253871EC4A73100A76CA2 /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2537D1EC4A73100A76CA2 /* UIVisualEffectViewX.swift */; };
 		52E2538A1EC4A85B00A76CA2 /* SiSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253891EC4A85B00A76CA2 /* SiSTableViewCell.swift */; };
+		52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2538B1EC4B16C00A76CA2 /* SiSTripModel.swift */; };
+		52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */; };
+		52E253901EC4C7CA00A76CA2 /* Без названия.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E2538F1EC4C7CA00A76CA2 /* Без названия.png */; };
 		52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5128A1EBB79BD002413CF /* AppDelegate.swift */; };
 		52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5128C1EBB79BD002413CF /* ViewController.swift */; };
 		52F512901EBB79BD002413CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F5128E1EBB79BD002413CF /* Main.storyboard */; };
@@ -59,6 +62,9 @@
 		52E2537C1EC4A73100A76CA2 /* UIViewXRadialGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewXRadialGradient.swift; sourceTree = "<group>"; };
 		52E2537D1EC4A73100A76CA2 /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
 		52E253891EC4A85B00A76CA2 /* SiSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSTableViewCell.swift; sourceTree = "<group>"; };
+		52E2538B1EC4B16C00A76CA2 /* SiSTripModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSTripModel.swift; sourceTree = "<group>"; };
+		52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSNewTripViewController.swift; sourceTree = "<group>"; };
+		52E2538F1EC4C7CA00A76CA2 /* Без названия.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Без названия.png"; sourceTree = "<group>"; };
 		52F512871EBB79BD002413CF /* iTravelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F5128A1EBB79BD002413CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F5128C1EBB79BD002413CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */,
+				52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 		52E253881EC4A83E00A76CA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				52E2538B1EC4B16C00A76CA2 /* SiSTripModel.swift */,
 				52E253891EC4A85B00A76CA2 /* SiSTableViewCell.swift */,
 			);
 			name = Models;
@@ -164,6 +172,7 @@
 				52E253701EC4A36400A76CA2 /* Views */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 				52F512911EBB79BD002413CF /* Assets.xcassets */,
+				52E2538F1EC4C7CA00A76CA2 /* Без названия.png */,
 				52F512931EBB79BD002413CF /* LaunchScreen.storyboard */,
 				52F512961EBB79BD002413CF /* Info.plist */,
 			);
@@ -301,6 +310,7 @@
 			files = (
 				52F512951EBB79BD002413CF /* LaunchScreen.storyboard in Resources */,
 				52F512921EBB79BD002413CF /* Assets.xcassets in Resources */,
+				52E253901EC4C7CA00A76CA2 /* Без названия.png in Resources */,
 				52F512901EBB79BD002413CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +338,7 @@
 			files = (
 				52E253831EC4A73100A76CA2 /* UIViewAnchorPoint.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
+				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
@@ -338,6 +349,7 @@
 				52E253801EC4A73100A76CA2 /* UILabelX.swift in Sources */,
 				52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */,
 				52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */,
+				52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */,
 				52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */,
 				52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */,
 				52E2538A1EC4A85B00A76CA2 /* SiSTableViewCell.swift in Sources */,
