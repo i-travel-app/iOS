@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol SiSPickerVCDelegate {
+    func fillTF(tFTag: Int, text: String)
+}
+
 class SiSPickerVC: UIViewController {
 
     @IBOutlet weak var titleLabelOutlet: UILabel!
     var textFieldTag: Int = 0
     
-    var callback : ((String) -> Void)?
+    var delegate : SiSPickerVCDelegate?
     
     @IBOutlet weak var placesPickerOutlet: UIPickerView!
     @IBOutlet weak var datesPickerOutlet: UIDatePicker!
@@ -38,7 +42,8 @@ class SiSPickerVC: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        callback?("\(self.placesPicker.country!), \(self.placesPicker.town!)")
+        let text = "\(self.placesPicker.country), \(self.placesPicker.town)"
+        delegate?.fillTF(tFTag:textFieldTag, text: text)
         self.dismissPicker((Any).self)
     }
     @IBAction func dismissPicker(_ sender: Any) {

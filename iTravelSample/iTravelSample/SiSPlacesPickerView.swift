@@ -14,13 +14,12 @@ class SiSPlacesPickerView: UIPickerView {
     let townsArray = ["Арош", "Ренато", "Лисаур", "Уиннтито", "Левефазис", "Чипува"]
     let pickerDataArray = [countriesDict, townsDict]
     
-    var country : String? = nil
-    var town : String? = nil
+    var country = ""
+    var town = ""
     
 }
 
 extension SiSPlacesPickerView: UIPickerViewDataSource {
-    //@available(iOS 2.0, *)
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return self.pickerDataArray[0].count
     }
@@ -39,18 +38,17 @@ extension SiSPlacesPickerView: UIPickerViewDelegate {
         //print(String(describing: self.pickerDataArray[component][row]))
         
         if component == 0 {
-            self.country = String(describing: self.pickerDataArray[component][row])
-            if self.town == nil {
-                self.town = String(describing: self.townsArray[0])
+            self.country = "\(self.pickerDataArray[component][row]!)"
+            if self.town == "" {
+                self.town = "\(self.townsArray[0])"
             }
         } else  if component == 1 {
-            self.town = String(describing: self.pickerDataArray[component][row])
-            if self.country == nil {
-                self.country = String(describing: self.countriesArray[0])
+            self.town = "\(self.pickerDataArray[component][row]!)"
+            if self.country == "" {
+                self.country = "\(self.countriesArray[0])"
             }
         }
         
-        print(self.country! + self.town!)
     }
     
 }

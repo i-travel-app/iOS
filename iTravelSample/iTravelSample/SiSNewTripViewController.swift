@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPickerVCDelegate {
     
     let reuseCollectionViewIdentifier = "person"
     var items = ["Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры","Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры"]
@@ -17,6 +17,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var stepper: UIStepper!
     
     @IBOutlet weak var collectionViewPersons: UICollectionView!
+    
+    @IBOutlet weak var targetPlaceTF: UITextFieldX!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +41,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.textFieldTag = textField.tag
-        modalVC.callback = { message in
-            print(message)
-            
-        }
+        modalVC.delegate = self
         present(modalVC, animated: true, completion: nil)
         
         return false
@@ -75,7 +75,17 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     
     @IBAction func dismiss(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - SiSPickerVCDelegate -
+    func fillTF(tFTag: Int, text: String) {
+        switch tFTag {
+        case 1: self.targetPlaceTF.text = text
+            
+        default: break
+        }
+        
     }
     
     
