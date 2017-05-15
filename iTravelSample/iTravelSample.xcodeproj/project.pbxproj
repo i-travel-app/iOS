@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
+		52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */; };
 		52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */; };
 		52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253741EC4A73100A76CA2 /* UIButtonX.swift */; };
 		52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253751EC4A73100A76CA2 /* UIImageViewX.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
+		52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPlacesPickerView.swift; sourceTree = "<group>"; };
 		52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSGeneralViewController.swift; sourceTree = "<group>"; };
 		52E253741EC4A73100A76CA2 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		52E253751EC4A73100A76CA2 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
@@ -116,6 +118,8 @@
 				52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */,
 				52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */,
 				52894EB01EC9A9400052091E /* SiSPickerVC.swift */,
+				52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */,
+				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,7 +180,6 @@
 				52E253731EC4A73100A76CA2 /* DesignableX */,
 				52E253881EC4A83E00A76CA2 /* Models */,
 				52E253701EC4A36400A76CA2 /* Views */,
-				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 				52F512911EBB79BD002413CF /* Assets.xcassets */,
 				52E2538F1EC4C7CA00A76CA2 /* person.png */,
 				52F512931EBB79BD002413CF /* LaunchScreen.storyboard */,
@@ -350,6 +353,7 @@
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
+				52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,

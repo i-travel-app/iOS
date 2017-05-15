@@ -10,16 +10,13 @@ import UIKit
 
 class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let countriesArray = ["Боливия", "ЮАР", "Египет", "Турция", "Кипр", "Италия"]
-    let townsArray = ["Арош", "Ренато", "Лисаур", "Уиннтито", "Левефазис", "Чипува"]
-    let pickerDataArray = [countriesDict, townsDict]
-    
     let reuseCollectionViewIdentifier = "person"
-    var items = ["Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры"]
+    var items = ["Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры","Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры"]
     
     @IBOutlet weak var stepperValue: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var collectionViewPersons: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +27,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     @IBAction func stepperAction(_ sender: Any) {
         self.stepperValue.text = String(Int(stepper.value))
-        print(Int(stepper.value))
+        self.collectionViewPersons.reloadData()
+        //print(Int(stepper.value))
     }
     
     // MARK: - Text Field -
@@ -51,7 +49,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - UICollectionViewDataSource protocol -
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        return Int(stepper.value)
     }
     
     // make a cell for each cell index path
@@ -72,6 +70,11 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         // handle tap events
         let title = self.items[indexPath.item]
         print("You selected cell \(title)!")
+    }
+    
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     

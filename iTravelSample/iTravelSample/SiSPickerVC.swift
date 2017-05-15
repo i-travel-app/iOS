@@ -17,8 +17,17 @@ class SiSPickerVC: UIViewController {
     
     @IBOutlet weak var placesPickerOutlet: UIPickerView!
     @IBOutlet weak var datesPickerOutlet: UIDatePicker!
+    
+    var placesPicker : SiSPlacesPickerView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        placesPicker = SiSPlacesPickerView()
+        
+        self.placesPickerOutlet.delegate = placesPicker
+        self.placesPickerOutlet.dataSource = placesPicker
         
         switch textFieldTag {
         case 1: titleLabelOutlet.text = "Выберите страну и город:"; self.datesPickerOutlet.alpha = 0
