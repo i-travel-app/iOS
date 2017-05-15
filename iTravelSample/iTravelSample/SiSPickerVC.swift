@@ -25,7 +25,6 @@ class SiSPickerVC: UIViewController {
         super.viewDidLoad()
         
         placesPicker = SiSPlacesPickerView()
-        
         self.placesPickerOutlet.delegate = placesPicker
         self.placesPickerOutlet.dataSource = placesPicker
         
@@ -39,7 +38,7 @@ class SiSPickerVC: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        callback?("Hi")
+        callback?("\(self.placesPicker.country!), \(self.placesPicker.town!)")
         self.dismissPicker((Any).self)
     }
     @IBAction func dismissPicker(_ sender: Any) {

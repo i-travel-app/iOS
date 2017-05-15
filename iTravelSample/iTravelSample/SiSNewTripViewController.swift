@@ -39,6 +39,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.textFieldTag = textField.tag
         modalVC.callback = { message in
+            print(message)
             
         }
         present(modalVC, animated: true, completion: nil)
