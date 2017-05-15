@@ -26,6 +26,14 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     }
     
     // MARK: - Text Field -
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC")
+        modalVC?.modalPresentationStyle = .overCurrentContext
+        present(modalVC!, animated: true, completion: nil)
+        
+        return false
+    }
     
     // MARK: - UICollectionViewDataSource protocol -
     // tell the collection view how many cells to make

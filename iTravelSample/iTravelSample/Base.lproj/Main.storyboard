@@ -454,6 +454,24 @@
             </objects>
             <point key="canvasLocation" x="1644.9275362318842" y="716.57608695652175"/>
         </scene>
+        <!--SiS PickerVC-->
+        <scene sceneID="Hyt-Hp-4j7">
+            <objects>
+                <viewController storyboardIdentifier="SiSPickerVC" id="5hG-iT-sat" customClass="SiSPickerVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="PmS-n7-5Ns">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MLE-SS-5jS">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dfj-jf-Vkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352" y="717"/>
+        </scene>
         <!--Список вещей:-->
         <scene sceneID="TRR-81-2vw">
             <objects>
