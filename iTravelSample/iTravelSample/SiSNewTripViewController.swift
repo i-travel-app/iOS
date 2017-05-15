@@ -17,6 +17,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     let reuseCollectionViewIdentifier = "person"
     var items = ["Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры"]
     
+    @IBOutlet weak var stepperValue: UILabel!
+    @IBOutlet weak var stepper: UIStepper!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +28,22 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
 
     }
     
+    @IBAction func stepperAction(_ sender: Any) {
+        self.stepperValue.text = String(Int(stepper.value))
+        print(Int(stepper.value))
+    }
+    
     // MARK: - Text Field -
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
-        let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC")
-        modalVC?.modalPresentationStyle = .overCurrentContext
-        present(modalVC!, animated: true, completion: nil)
+        // show blur VC for PickerView
+        let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
+        modalVC.modalPresentationStyle = .overCurrentContext
+        modalVC.textFieldTag = textField.tag
+        modalVC.callback = { message in
+            
+        }
+        present(modalVC, animated: true, completion: nil)
         
         return false
     }
