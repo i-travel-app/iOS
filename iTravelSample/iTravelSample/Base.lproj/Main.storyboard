@@ -243,7 +243,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OvG-s2-ePh"/>
                                         </constraints>
-                                        <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -266,7 +266,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="tpL-dI-hZT"/>
                                         </constraints>
-                                        <color key="textColor" red="0.74117647060000003" green="0.74117647060000003" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -449,6 +449,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionViewPersons" destination="bYG-8u-6lp" id="0Cu-9E-RTe"/>
+                        <outlet property="endTripDate" destination="vwX-Rh-MW2" id="YpZ-Ys-fkJ"/>
+                        <outlet property="startTripDate" destination="M91-cJ-JBT" id="8l1-Lj-QqM"/>
                         <outlet property="stepper" destination="uKm-io-GcN" id="H8C-Vr-dQc"/>
                         <outlet property="stepperValue" destination="HCa-Uu-1IC" id="OaE-1j-3Bp"/>
                         <outlet property="targetPlaceTF" destination="RoM-Pb-uW1" id="IDf-Uv-eqZ"/>
@@ -493,6 +495,9 @@
                                                 <!--2017-05-15 13:39:45 +0000-->
                                             </date>
                                             <locale key="locale" localeIdentifier="ru_RU"/>
+                                            <connections>
+                                                <action selector="dateChanged:" destination="5hG-iT-sat" eventType="valueChanged" id="ngS-E8-JfP"/>
+                                            </connections>
                                         </datePicker>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf6-Ha-72J">
                                             <rect key="frame" x="97" y="262" width="106" height="30"/>
@@ -551,6 +556,179 @@
             </objects>
             <point key="canvasLocation" x="2350.7246376811595" y="716.57608695652175"/>
         </scene>
+        <!--SiS Person DetailsVC-->
+        <scene sceneID="6xH-wj-FQH">
+            <objects>
+                <viewController storyboardIdentifier="SiSPersonDetailsVC" id="Abp-to-Evh" customClass="SiSPersonDetailsVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8jr-wj-3OP"/>
+                        <viewControllerLayoutGuide type="bottom" id="lY6-QW-Suj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gCx-bd-cKD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbf-WL-AnK" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="25" y="631" width="364" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="RV0-Eh-zUo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Сохранить участника"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismiss:" destination="CGC-Ze-5wJ" eventType="touchUpInside" id="VhZ-vW-1hy"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Face.png" translatesAutoresizingMaskIntoConstraints="NO" id="eFJ-1P-HGF">
+                                <rect key="frame" x="20" y="45" width="120" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="vWq-xj-WfZ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yqv-0D-zXO" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="160" y="100" width="234" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vsd-Ur-B2t"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="CGC-Ze-5wJ" id="YmA-Jp-JXh"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="XHO-6J-0VG" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="160" y="155" width="80" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="uzn-Gd-MVs"/>
+                                    <constraint firstAttribute="height" constant="40" id="xdT-w4-Dfx"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="CGC-Ze-5wJ" id="u7Y-Dq-buW"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VCx-wJ-Vpg" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="248" y="155" width="146" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="9Ar-G3-apl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="CGC-Ze-5wJ" id="G3Y-oK-SnL"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tcP-px-YPi" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="160" y="45" width="234" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="234" id="pVA-nh-Bzr"/>
+                                    <constraint firstAttribute="height" constant="40" id="sBP-Z6-jwL"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="CGC-Ze-5wJ" id="eS0-9h-jT1"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="eFJ-1P-HGF" secondAttribute="leading" id="703-la-QRI"/>
+                            <constraint firstItem="Yqv-0D-zXO" firstAttribute="top" secondItem="tcP-px-YPi" secondAttribute="bottom" constant="15" id="8ia-bJ-Ki6"/>
+                            <constraint firstItem="XHO-6J-0VG" firstAttribute="top" secondItem="Yqv-0D-zXO" secondAttribute="bottom" constant="15" id="Bze-WJ-5ZX"/>
+                            <constraint firstItem="rbf-WL-AnK" firstAttribute="leading" secondItem="gCx-bd-cKD" secondAttribute="leadingMargin" constant="5" id="GBE-6s-QJO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rbf-WL-AnK" secondAttribute="trailing" constant="5" id="QMw-CU-hO2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VCx-wJ-Vpg" secondAttribute="trailing" id="WKV-9D-yvb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tcP-px-YPi" secondAttribute="trailing" id="ecX-YK-L3a"/>
+                            <constraint firstItem="eFJ-1P-HGF" firstAttribute="top" secondItem="8jr-wj-3OP" secondAttribute="bottom" constant="25" id="f6e-a2-xcY"/>
+                            <constraint firstItem="tcP-px-YPi" firstAttribute="top" secondItem="8jr-wj-3OP" secondAttribute="bottom" constant="25" id="icY-tO-oPG"/>
+                            <constraint firstItem="tcP-px-YPi" firstAttribute="leading" secondItem="eFJ-1P-HGF" secondAttribute="trailing" constant="20" id="ipc-Bv-GLK"/>
+                            <constraint firstItem="Yqv-0D-zXO" firstAttribute="leading" secondItem="eFJ-1P-HGF" secondAttribute="trailing" constant="20" id="lKH-by-Ke4"/>
+                            <constraint firstItem="XHO-6J-0VG" firstAttribute="leading" secondItem="eFJ-1P-HGF" secondAttribute="trailing" constant="20" id="maJ-ef-jGy"/>
+                            <constraint firstItem="VCx-wJ-Vpg" firstAttribute="top" secondItem="Yqv-0D-zXO" secondAttribute="bottom" constant="15" id="nzP-0V-B61"/>
+                            <constraint firstItem="lY6-QW-Suj" firstAttribute="top" secondItem="rbf-WL-AnK" secondAttribute="bottom" constant="25" id="oCm-X6-Hca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yqv-0D-zXO" secondAttribute="trailing" id="ogV-H4-j9p"/>
+                            <constraint firstItem="VCx-wJ-Vpg" firstAttribute="leading" secondItem="XHO-6J-0VG" secondAttribute="trailing" constant="8" id="qfE-6a-EzP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ageTF" destination="XHO-6J-0VG" id="3tm-62-0pL"/>
+                        <outlet property="genderTF" destination="VCx-wJ-Vpg" id="6Yv-e8-qED"/>
+                        <outlet property="nameTF" destination="tcP-px-YPi" id="rhF-Zb-LRg"/>
+                        <outlet property="surnameTF" destination="Yqv-0D-zXO" id="qXi-gB-DX6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDy-Aq-ry4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3053.6231884057975" y="716.57608695652175"/>
+        </scene>
         <!--Список вещей:-->
         <scene sceneID="TRR-81-2vw">
             <objects>
@@ -564,18 +742,18 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xdp-FO-cFw" id="zeh-UI-tYG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G0l-bs-bLW">
-                                            <rect key="frame" x="15" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
+                                            <rect key="frame" x="15" y="11" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igP-IQ-s3p">
-                                            <rect key="frame" x="355" y="11.999999999999998" width="44" height="20.333333333333332"/>
+                                            <rect key="frame" x="355" y="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -637,5 +815,8 @@
             <point key="canvasLocation" x="187" y="717"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Face.png" width="91" height="95"/>
+    </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

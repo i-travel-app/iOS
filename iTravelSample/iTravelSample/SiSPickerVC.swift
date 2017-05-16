@@ -16,6 +16,7 @@ class SiSPickerVC: UIViewController {
 
     @IBOutlet weak var titleLabelOutlet: UILabel!
     var textFieldTag: Int = 0
+    var selectedDate: String?
     
     var delegate : SiSPickerVCDelegate?
     
@@ -23,7 +24,6 @@ class SiSPickerVC: UIViewController {
     @IBOutlet weak var datesPickerOutlet: UIDatePicker!
     
     var placesPicker : SiSPlacesPickerView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +42,37 @@ class SiSPickerVC: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        let text = "\(self.placesPicker.country), \(self.placesPicker.town)"
-        delegate?.fillTF(tFTag:textFieldTag, text: text)
+        let text: String? = "\(self.placesPicker.country), \(self.placesPicker.town)"
+        let date = self.selectedDate ?? toString(date: Date())
+        if textFieldTag == 1 {
+            delegate?.fillTF(tFTag:textFieldTag, text: text!)
+        } else if textFieldTag == 2 || textFieldTag == 3 {
+            delegate?.fillTF(tFTag:textFieldTag, text: date)
+        }
+        
         self.dismissPicker((Any).self)
     }
+    
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
+        // Create date formatter
+        let dateFormatter: DateFormatter = DateFormatter()
+        
+        // Set date format
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        
+        // Apply date format
+        self.selectedDate = dateFormatter.string(from: sender.date)
+    }
+    
     @IBAction func dismissPicker(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    func toString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        let date = dateFormatter.string(from: date) //according to date format your date string
+        return date
     }
 }

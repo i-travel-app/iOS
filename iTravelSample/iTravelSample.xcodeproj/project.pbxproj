@@ -33,6 +33,8 @@
 		52F512A01EBB79BD002413CF /* iTravelSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F5129F1EBB79BD002413CF /* iTravelSampleTests.swift */; };
 		52F512AB1EBB79BD002413CF /* iTravelSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F512AA1EBB79BD002413CF /* iTravelSampleUITests.swift */; };
 		52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F512B81EBB9420002413CF /* SiSTableViewController.swift */; };
+		57154ABC1ECAF8C600A0398E /* Face.png in Resources */ = {isa = PBXBuildFile; fileRef = 57154ABB1ECAF8C600A0398E /* Face.png */; };
+		57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		52F512AA1EBB79BD002413CF /* iTravelSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTravelSampleUITests.swift; sourceTree = "<group>"; };
 		52F512AC1EBB79BD002413CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F512B81EBB9420002413CF /* SiSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSTableViewController.swift; sourceTree = "<group>"; };
+		57154ABB1ECAF8C600A0398E /* Face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face.png; sourceTree = "<group>"; };
+		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */,
 				52894EB01EC9A9400052091E /* SiSPickerVC.swift */,
 				52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */,
+				57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
@@ -182,6 +187,7 @@
 				52E253701EC4A36400A76CA2 /* Views */,
 				52F512911EBB79BD002413CF /* Assets.xcassets */,
 				52E2538F1EC4C7CA00A76CA2 /* person.png */,
+				57154ABB1ECAF8C600A0398E /* Face.png */,
 				52F512931EBB79BD002413CF /* LaunchScreen.storyboard */,
 				52F512961EBB79BD002413CF /* Info.plist */,
 			);
@@ -320,6 +326,7 @@
 				52F512951EBB79BD002413CF /* LaunchScreen.storyboard in Resources */,
 				52F512921EBB79BD002413CF /* Assets.xcassets in Resources */,
 				52E253901EC4C7CA00A76CA2 /* person.png in Resources */,
+				57154ABC1ECAF8C600A0398E /* Face.png in Resources */,
 				52F512901EBB79BD002413CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +362,7 @@
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
 				52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
+				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,
 				52E253871EC4A73100A76CA2 /* UIVisualEffectViewX.swift in Sources */,

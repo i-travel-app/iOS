@@ -11,7 +11,7 @@ import UIKit
 class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPickerVCDelegate {
     
     let reuseCollectionViewIdentifier = "person"
-    var items = ["Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры","Степан","Лариса Ивановна","Крошка Сын","сосед Жора","друг Жоры"]
+    var items = [("Степан", "Иванов", 25, "мужской"),("Лариса Ивановна", "Петрова", 47, "женский"),("Крошка Сын", "Николаев", 12, "мужской"),("сосед Жора", "Сидоров", 41, "мужской"),("друг Жоры", "Куликов", 41, "мужской"),("Степан", "Иванов", 25, "мужской"),("Лариса Ивановна", "Петрова", 47, "женский"),("Крошка Сын", "Николаев", 12, "мужской"),("сосед Жора", "Сидоров", 41, "мужской"),("друг Жоры", "Куликов", 41, "мужской")]
     
     @IBOutlet weak var stepperValue: UILabel!
     @IBOutlet weak var stepper: UIStepper!
@@ -19,7 +19,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var collectionViewPersons: UICollectionView!
     
     @IBOutlet weak var targetPlaceTF: UITextFieldX!
-    
+    @IBOutlet weak var startTripDate: UITextFieldX!
+    @IBOutlet weak var endTripDate: UITextFieldX!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +61,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCollectionViewIdentifier, for: indexPath as IndexPath) as! SiSCollectionViewCell
         
         // Use the outlet in our cusyom class to get a reference to the UILabel in the cell
-        cell.myLabel.text = self.items[indexPath.item]
+        cell.myLabel.text = self.items[indexPath.item].0
         cell.backgroundColor = UIColor.white
         cell.imagePersonOutlet.image = UIImage(named:"person.png")
         return cell
@@ -71,6 +72,14 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         // handle tap events
         let title = self.items[indexPath.item]
         print("You selected cell \(title)!")
+        
+        // open SiSPersonDetailVC
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
+        VC.name = title.0
+        VC.surname = title.1
+        VC.age = String(title.2)
+        VC.gender = title.3
+        self.navigationController!.pushViewController(VC, animated: true)
     }
     
     
@@ -82,10 +91,47 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     func fillTF(tFTag: Int, text: String) {
         switch tFTag {
         case 1: self.targetPlaceTF.text = text
-            
+        case 2: self.startTripDate.text = text
+        case 3: self.endTripDate.text = text
         default: break
         }
         
+        if self.startTripDate.text != "" && self.endTripDate.text != "" {
+            checkCorrectTripDates(startDate: self.startTripDate.text!, endDate: self.endTripDate.text!)
+        }
+    }
+    
+    // MARK: - Private functions -
+    
+    func checkCorrectTripDates(startDate: String, endDate: String) {
+        if toDate(date: startDate) > toDate(date: endDate) {
+            self.startTripDate.text = ""
+            self.endTripDate.text = ""
+            warningAlert(title: "Ошибка при указании дат поездки!", message: "Начало поездки не может быть позже ее завершения\nВами указаны даты \nс \(startDate) \nпо \(endDate)")
+        }
+    }
+    
+    func warningAlert(title: String, message: String ){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) -> Void in
+        }))
+        if presentedViewController == nil {
+            self.present(alert, animated: true, completion: nil)
+        } else{
+            self.dismiss(animated: false) { () -> Void in
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func toDate(date: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        let date = dateFormatter.date(from: date) //according to date format your date string
+        print(date ?? "") //Convert String to Date        
+        return date!
     }
     
     
