@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SiSNewTripDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -56,11 +56,18 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
             DispatchQueue.main.async(execute: {
                 //self.stopIndicator()
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSNewTripViewController") as! SiSNewTripViewController
+                viewController.trip = SiSTripModel()
+                viewController.delegate = self
                 self.navigationController!.pushViewController(viewController, animated: true)
                 return
             })
         }
         
+    }
+    
+    func addTripToCellsArray(trip: SiSTripModel) {
+        self.cellsArray.append(trip)
+        self.tableView.reloadData()
     }
 
 }

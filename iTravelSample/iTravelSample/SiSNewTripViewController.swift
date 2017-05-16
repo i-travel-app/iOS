@@ -8,10 +8,16 @@
 
 import UIKit
 
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPickerVCDelegate {
+protocol SiSNewTripDelegate {
+    func addTripToCellsArray(trip: SiSTripModel)
+}
+
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPickerVCDelegate, SiSPersonDetailsVCDelegate {
+    
+    var delegate: SiSNewTripDelegate?
     
     let reuseCollectionViewIdentifier = "person"
-    var items = [("Степан", "Иванов", 25, "мужской"),("Лариса Ивановна", "Петрова", 47, "женский"),("Крошка Сын", "Николаев", 12, "мужской"),("сосед Жора", "Сидоров", 41, "мужской"),("друг Жоры", "Куликов", 41, "мужской"),("Степан", "Иванов", 25, "мужской"),("Лариса Ивановна", "Петрова", 47, "женский"),("Крошка Сын", "Николаев", 12, "мужской"),("сосед Жора", "Сидоров", 41, "мужской"),("друг Жоры", "Куликов", 41, "мужской")]
+    var items = [SiSPersonModel]()
     
     @IBOutlet weak var stepperValue: UILabel!
     @IBOutlet weak var stepper: UIStepper!
@@ -21,18 +27,23 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var targetPlaceTF: UITextFieldX!
     @IBOutlet weak var startTripDate: UITextFieldX!
     @IBOutlet weak var endTripDate: UITextFieldX!
-
+    
+    var trip: SiSTripModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "Создание поездки"
-
     }
     
     @IBAction func stepperAction(_ sender: Any) {
+        if Int(stepper.value) > Int(self.stepperValue.text!)! {
+            openPersonVC(person: SiSPersonModel())
+        } else if Int(stepper.value) < Int(self.stepperValue.text!)!{
+            self.items.removeLast()
+            self.collectionViewPersons.reloadData()
+        }
+        
         self.stepperValue.text = String(Int(stepper.value))
-        self.collectionViewPersons.reloadData()
-        //print(Int(stepper.value))
     }
     
     // MARK: - Text Field -
@@ -51,7 +62,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - UICollectionViewDataSource protocol -
     // tell the collection view how many cells to make
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Int(stepper.value)
+        return self.items.count
     }
     
     // make a cell for each cell index path
@@ -60,8 +71,10 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseCollectionViewIdentifier, for: indexPath as IndexPath) as! SiSCollectionViewCell
         
-        // Use the outlet in our cusyom class to get a reference to the UILabel in the cell
-        cell.myLabel.text = self.items[indexPath.item].0
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        print("indexPath is \(indexPath) and indexPath.row is \(indexPath.row)")
+        let person = self.items[indexPath.row]
+        cell.myLabel.text = person.name + " " + person.surname
         cell.backgroundColor = UIColor.white
         cell.imagePersonOutlet.image = UIImage(named:"person.png")
         return cell
@@ -69,21 +82,19 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     // MARK: - UICollectionViewDelegate protocol - 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // handle tap events
-        let title = self.items[indexPath.item]
-        print("You selected cell \(title)!")
         
         // open SiSPersonDetailVC
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
-        VC.name = title.0
-        VC.surname = title.1
-        VC.age = String(title.2)
-        VC.gender = title.3
-        self.navigationController!.pushViewController(VC, animated: true)
+        openPersonVC(person: items[indexPath.row])
     }
     
     
     @IBAction func dismiss(_ sender: Any) {
+        self.trip?.tripTitle = "Поездка №\(randomInt(maxValue: 100) + 100)"
+        self.trip?.participantsCount = self.items.count
+        let places = self.targetPlaceTF.text?.components(separatedBy: ", ")
+        self.trip?.targetCountry = places?[0]
+        self.trip?.targetTown = places?[1]
+        delegate?.addTripToCellsArray(trip: self.trip!)
         _ = self.navigationController?.popViewController(animated: true)
     }
     
@@ -132,6 +143,19 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let date = dateFormatter.date(from: date) //according to date format your date string
         print(date ?? "") //Convert String to Date        
         return date!
+    }
+    
+    func openPersonVC(person: SiSPersonModel) {
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
+        VC.person = person
+        VC.delegate = self
+        self.navigationController!.pushViewController(VC, animated: true)
+    }
+    
+    func addPersonToItemsArray(person: SiSPersonModel) {
+        self.items.append(person)
+        self.stepperValue.text = String(self.items.count)
+        self.collectionViewPersons.reloadData()
     }
     
     
