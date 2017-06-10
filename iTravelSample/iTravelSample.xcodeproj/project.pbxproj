@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */; };
+		521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D41EEC4DB200226AA9 /* Trips.xcdatamodeld */; };
+		521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D71EEC53A000226AA9 /* APIStack.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
 		52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */; };
@@ -56,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trips.xcdatamodel; sourceTree = "<group>"; };
+		521DA8D71EEC53A000226AA9 /* APIStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStack.swift; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
 		52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPlacesPickerView.swift; sourceTree = "<group>"; };
@@ -155,6 +161,9 @@
 				5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */,
 				52E253891EC4A85B00A76CA2 /* SiSTableViewCell.swift */,
 				52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */,
+				521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */,
+				521DA8D71EEC53A000226AA9 /* APIStack.swift */,
+				521DA8D41EEC4DB200226AA9 /* Trips.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -356,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E253831EC4A73100A76CA2 /* UIViewAnchorPoint.swift in Sources */,
+				521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
 				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
@@ -373,7 +383,9 @@
 				52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */,
 				52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */,
 				52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */,
+				521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */,
 				52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */,
+				521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */,
 				52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */,
 				5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */,
 				52E2538A1EC4A85B00A76CA2 /* SiSTableViewCell.swift in Sources */,
@@ -654,6 +666,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		521DA8D41EEC4DB200226AA9 /* Trips.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */,
+			);
+			currentVersion = 521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */;
+			path = Trips.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 52F5127F1EBB79BD002413CF /* Project object */;
 }
