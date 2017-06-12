@@ -19,6 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().barStyle = .blackOpaque
         
+        let defaults = UserDefaults.standard
+        let isPreloaded = defaults.bool(forKey: "isPreloaded")
+        if !isPreloaded {
+            //copyFile(fileName: "test.sql")
+            self.coreDataStack.preloadData()
+            //defaults.set(true, forKey: "isPreloaded")
+            print("ask to preload DB")
+        }
+        
         return true
     }
 
@@ -42,7 +51,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        self.coreDataStack.saveContext()
+        //self.coreDataStack.saveContext()
     }
 }
+
+//*********************
+
+func getPath(fileName: String) -> String {
+    let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let fileURL = documentsURL.appendingPathComponent(fileName)
+    return fileURL.path
+}
+
+func copyFile(fileName: NSString) {
+    let dbPath: String = getPath(fileName: fileName as String)
+    let fileManager = FileManager.default
+    if !fileManager.fileExists(atPath: dbPath) {
+        let documentsURL = Bundle.main.resourceURL
+        let fromPath = documentsURL!.appendingPathComponent(fileName as String)
+        var error : NSError?
+        do {
+            try fileManager.copyItem(atPath: fromPath.path, toPath: dbPath)
+        } catch let error1 as NSError {
+            error = error1
+        }
+    }
+}
+
 
