@@ -14,7 +14,8 @@
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
 		52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */; };
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
-		52B92CB61EEC93970088F265 /* test.sql in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CB51EEC93970088F265 /* test.sql */; };
+		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
+		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
 		52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */; };
 		52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253741EC4A73100A76CA2 /* UIButtonX.swift */; };
 		52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253751EC4A73100A76CA2 /* UIImageViewX.swift */; };
@@ -60,7 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		520A84FA1EEC5800007F5236 /* test.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.db; sourceTree = "<group>"; };
 		521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trips.xcdatamodel; sourceTree = "<group>"; };
 		521DA8D71EEC53A000226AA9 /* APIStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStack.swift; sourceTree = "<group>"; };
@@ -68,7 +68,8 @@
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
 		52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPlacesPickerView.swift; sourceTree = "<group>"; };
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
-		52B92CB51EEC93970088F265 /* test.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.sql; sourceTree = "<group>"; };
+		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSGeneralViewController.swift; sourceTree = "<group>"; };
 		52E253741EC4A73100A76CA2 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		52E253751EC4A73100A76CA2 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 				52E2537B1EC4A73100A76CA2 /* UIViewX.swift */,
 				52E2537C1EC4A73100A76CA2 /* UIViewXRadialGradient.swift */,
 				52E2537D1EC4A73100A76CA2 /* UIVisualEffectViewX.swift */,
+				52B92CB91EF064560088F265 /* Utils.swift */,
 			);
 			path = DesignableX;
 			sourceTree = "<group>";
@@ -205,8 +207,7 @@
 				57154ABB1ECAF8C600A0398E /* Face.png */,
 				52F512931EBB79BD002413CF /* LaunchScreen.storyboard */,
 				52F512961EBB79BD002413CF /* Info.plist */,
-				520A84FA1EEC5800007F5236 /* test.db */,
-				52B92CB51EEC93970088F265 /* test.sql */,
+				52B92CBB1EF066D70088F265 /* test.csv */,
 			);
 			path = iTravelSample;
 			sourceTree = "<group>";
@@ -340,9 +341,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B92CB61EEC93970088F265 /* test.sql in Resources */,
 				52F512951EBB79BD002413CF /* LaunchScreen.storyboard in Resources */,
 				52F512921EBB79BD002413CF /* Assets.xcassets in Resources */,
+				52B92CBC1EF066D70088F265 /* test.csv in Resources */,
 				52E253901EC4C7CA00A76CA2 /* person.png in Resources */,
 				57154ABC1ECAF8C600A0398E /* Face.png in Resources */,
 				52F512901EBB79BD002413CF /* Main.storyboard in Resources */,
@@ -375,6 +376,7 @@
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
 				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
+				52B92CBA1EF064560088F265 /* Utils.swift in Sources */,
 				52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */,
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
