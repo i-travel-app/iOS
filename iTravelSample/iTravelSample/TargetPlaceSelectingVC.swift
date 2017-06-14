@@ -12,9 +12,14 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var bottomConstant: NSLayoutConstraint!
     
+    @IBOutlet weak var targetCountry: UITextFieldX!
+    @IBOutlet weak var targetCity: UITextFieldX!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.targetCountry.delegate = self
+        self.targetCity.delegate = self
         registerForKeyboardNotifications()
     }
     
@@ -54,7 +59,10 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate {
         
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring)
+        if substring.characters.count > 1 {
+            
+            CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring)
+        }
         
         return true
     }

@@ -161,16 +161,20 @@ extension CoreDataStack {
     }
     
     func getAllTargetsCountryFromDB(withName: String) {
+        var set: Set<String> = []
         let context = self.persistentContainer.viewContext
-        let  fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "country = %@", withName)
-        
+        let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "country CONTAINS[c] %@", withName)
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
                 print("данных нет!")
             } else {
-                print("по предикату \(array.count) записей!!!")
+                for target in array {
+                    set.insert(target.country!)
+                    print(set)
+                }
+                print("по предикату и после переноса в сет \(set.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)
