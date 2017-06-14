@@ -150,9 +150,27 @@ extension CoreDataStack {
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
-                print("них нема!")
+                print("данных нет!")
             } else {
                 print("в кордате аж \(array.count) записей!!!")
+            }
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+        
+    }
+    
+    func getAllTargetsCountryFromDB(withName: String) {
+        let context = self.persistentContainer.viewContext
+        let  fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "country = %@", withName)
+        
+        do {
+            let array = try context.fetch(fetchRequest)
+            if array.isEmpty {
+                print("данных нет!")
+            } else {
+                print("по предикату \(array.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)

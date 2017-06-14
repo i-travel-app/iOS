@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPersonDetailsVCDelegate {
     
     let reuseCollectionViewIdentifier = "person"
     var items = [SiSPersonModel]()
@@ -27,6 +27,19 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Создание поездки"
+        // прячем кнопку Главный экран и назначаем свою
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "<Главный экран", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SiSNewTripViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+    
+    func back(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Введите детали поездки и нажмите кнопку \"Сохранить\" для сохранения поездки.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) -> Void in
+        }))
+        
+        self.navigationController?.present(alert, animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func stepperAction(_ sender: Any) {
@@ -133,6 +146,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     func openPersonVC(person: SiSPersonModel) {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
         VC.person = person
+        VC.delegate = self
         self.navigationController!.pushViewController(VC, animated: true)
     }
     
