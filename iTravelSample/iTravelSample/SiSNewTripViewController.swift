@@ -43,11 +43,19 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - Text Field -
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
-        // show blur VC for PickerView
-        let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
-        modalVC.modalPresentationStyle = .overCurrentContext
-        modalVC.textFieldTag = textField.tag
-        present(modalVC, animated: true, completion: nil)
+        if textField.tag == 1 {
+            // show controller to select Target place
+            print("Здесь открываем выбор страны и города")
+            let modalVC = storyboard?.instantiateViewController(withIdentifier: "TargetPlaceSelectingVC") as! TargetPlaceSelectingVC
+            modalVC.modalPresentationStyle = .overCurrentContext
+            present(modalVC, animated: true, completion: nil)
+        } else {
+            // show blur VC for PickerView
+            let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
+            modalVC.modalPresentationStyle = .overCurrentContext
+            modalVC.textFieldTag = textField.tag
+            present(modalVC, animated: true, completion: nil)
+        }
         
         return false
     }

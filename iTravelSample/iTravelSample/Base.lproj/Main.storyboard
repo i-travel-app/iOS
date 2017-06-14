@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMe-0H-JFX" id="tiK-0E-5F8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5U-C1-JaF" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
@@ -397,6 +397,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32u-yo-X36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1644.9275362318842" y="716.57608695652175"/>
+        </scene>
+        <!--Target Place SelectingVC-->
+        <scene sceneID="gc9-Pz-gTy">
+            <objects>
+                <viewController storyboardIdentifier="TargetPlaceSelectingVC" id="aKw-oB-A6r" customClass="TargetPlaceSelectingVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="XMx-MF-rEp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zg9-0R-Ez0">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLX-dv-88v" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="648" width="364" height="80"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сохранить выбор" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-Mw-y2J">
+                                            <rect key="frame" x="14" y="19" width="336" height="42"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="Efc-G8-61u"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nC9-Mw-y2J" secondAttribute="bottom" constant="19" id="5KE-dQ-iHR"/>
+                                        <constraint firstAttribute="trailing" secondItem="nC9-Mw-y2J" secondAttribute="trailing" constant="14" id="5qX-3m-4Gn"/>
+                                        <constraint firstItem="nC9-Mw-y2J" firstAttribute="leading" secondItem="iLX-dv-88v" secondAttribute="leading" constant="14" id="h9t-Go-JPv"/>
+                                        <constraint firstAttribute="height" constant="80" id="jqp-UP-a1o"/>
+                                        <constraint firstItem="nC9-Mw-y2J" firstAttribute="top" secondItem="iLX-dv-88v" secondAttribute="top" constant="19" id="yer-l2-pdU"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                            <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="0.77498929790000004" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                            <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="addNewTripAction:" destination="Sqp-J1-f1c" eventType="touchUpInside" id="wzw-st-5hT"/>
+                                    </connections>
+                                </view>
+                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте страну направления" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uOy-bS-C6J" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="63" width="364" height="44"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69884417808219179" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="QDz-3Q-m2a"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="CGC-Ze-5wJ" id="PQF-XT-uvu"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте населенный пункт" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-fy-v5G" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                    <rect key="frame" x="25" y="168" width="364" height="44"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69884417808219179" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Xbd-h3-vwY"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="CGC-Ze-5wJ" id="gtA-ln-CHO"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="uOy-bS-C6J" secondAttribute="trailing" constant="25" id="9kt-hF-3xu"/>
+                                <constraint firstItem="AFX-fy-v5G" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="erB-Yp-oTP"/>
+                                <constraint firstItem="uOy-bS-C6J" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="for-Aw-sB9"/>
+                                <constraint firstAttribute="trailing" secondItem="iLX-dv-88v" secondAttribute="trailing" constant="25" id="kMf-cs-SM7"/>
+                                <constraint firstItem="AFX-fy-v5G" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="61" id="tPn-5E-RtE"/>
+                                <constraint firstItem="uOy-bS-C6J" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" constant="63" id="tRT-6k-rjA"/>
+                                <constraint firstItem="iLX-dv-88v" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="uHU-N1-gLG"/>
+                                <constraint firstAttribute="bottom" secondItem="iLX-dv-88v" secondAttribute="bottom" constant="8" id="wsz-75-hgY"/>
+                                <constraint firstAttribute="trailing" secondItem="AFX-fy-v5G" secondAttribute="trailing" constant="25" id="xh0-YD-Jj9"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zBu-DH-Oju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="34"/>
         </scene>
         <!--SiS PickerVC-->
         <scene sceneID="Hyt-Hp-4j7">

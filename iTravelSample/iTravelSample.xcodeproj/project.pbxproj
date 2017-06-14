@@ -15,6 +15,7 @@
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
 		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
 		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
+		52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */; };
 		52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */; };
 		52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253741EC4A73100A76CA2 /* UIButtonX.swift */; };
 		52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E253751EC4A73100A76CA2 /* UIImageViewX.swift */; };
@@ -68,6 +69,7 @@
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
 		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
+		52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetPlaceSelectingVC.swift; sourceTree = "<group>"; };
 		52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSGeneralViewController.swift; sourceTree = "<group>"; };
 		52E253741EC4A73100A76CA2 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		52E253751EC4A73100A76CA2 /* UIImageViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewX.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */,
 				52894EB01EC9A9400052091E /* SiSPickerVC.swift */,
 				57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */,
+				52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */,
 				52E253831EC4A73100A76CA2 /* UIViewAnchorPoint.swift in Sources */,
 				521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
