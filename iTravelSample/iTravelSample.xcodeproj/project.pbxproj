@@ -12,7 +12,6 @@
 		521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D71EEC53A000226AA9 /* APIStack.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
-		52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */; };
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
 		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
 		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
@@ -66,7 +65,6 @@
 		521DA8D71EEC53A000226AA9 /* APIStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStack.swift; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
-		52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPlacesPickerView.swift; sourceTree = "<group>"; };
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
 		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				52E253711EC4A39B00A76CA2 /* SiSGeneralViewController.swift */,
 				52E2538D1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift */,
 				52894EB01EC9A9400052091E /* SiSPickerVC.swift */,
-				52894EB21ECA24FA0052091E /* SiSPlacesPickerView.swift */,
 				57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
@@ -381,7 +378,6 @@
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
-				52894EB31ECA24FA0052091E /* SiSPlacesPickerView.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,

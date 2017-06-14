@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol SiSNewTripDelegate {
-    func addTripToCellsArray(trip: SiSTripModel)
-}
-
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPickerVCDelegate, SiSPersonDetailsVCDelegate {
-    
-    var delegate: SiSNewTripDelegate?
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let reuseCollectionViewIdentifier = "person"
     var items = [SiSPersonModel]()
@@ -53,7 +47,6 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
         modalVC.modalPresentationStyle = .overCurrentContext
         modalVC.textFieldTag = textField.tag
-        modalVC.delegate = self
         present(modalVC, animated: true, completion: nil)
         
         return false
@@ -89,19 +82,12 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     
     @IBAction func dismiss(_ sender: Any) {
-        self.trip?.tripTitle = "Поездка №\(randomInt(maxValue: 100) + 100)"
-        self.trip?.participantsCount = self.items.count
-        let places = self.targetPlaceTF.text?.components(separatedBy: ", ")
-        self.trip?.targetCountry = places?[0]
-        self.trip?.targetTown = places?[1]
-        delegate?.addTripToCellsArray(trip: self.trip!)
-        _ = self.navigationController?.popViewController(animated: true)
+        print("Нажата кнопка Сохранить поездку")
     }
     
     // MARK: - SiSPickerVCDelegate -
     func fillTF(tFTag: Int, text: String) {
         switch tFTag {
-        case 1: self.targetPlaceTF.text = text
         case 2: self.startTripDate.text = text
         case 3: self.endTripDate.text = text
         default: break
@@ -115,7 +101,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - Private functions -
     
     func checkCorrectTripDates(startDate: String, endDate: String) {
-        if toDate(date: startDate) > toDate(date: endDate) {
+        if Date().toDate(date: startDate) > Date().toDate(date: endDate) {
             self.startTripDate.text = ""
             self.endTripDate.text = ""
             warningAlert(title: "Ошибка при указании дат поездки!", message: "Начало поездки не может быть позже ее завершения\nВами указаны даты \nс \(startDate) \nпо \(endDate)")
@@ -136,19 +122,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         }
     }
     
-    func toDate(date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
-        let date = dateFormatter.date(from: date) //according to date format your date string
-        print(date ?? "") //Convert String to Date        
-        return date!
-    }
-    
     func openPersonVC(person: SiSPersonModel) {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
         VC.person = person
-        VC.delegate = self
         self.navigationController!.pushViewController(VC, animated: true)
     }
     

@@ -20,3 +20,23 @@ extension String {
 //        return resultString
 //    }
 }
+
+extension Date {
+    
+    func toString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        let date = dateFormatter.string(from: date) //according to date format your date string
+        return date
+    }
+    
+    func toDate(date: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        let date = dateFormatter.date(from: date) //according to date format your date string
+        print(date ?? "") //Convert String to Date
+        return date!
+    }
+}

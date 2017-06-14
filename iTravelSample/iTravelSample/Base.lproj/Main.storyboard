@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMe-0H-JFX" id="tiK-0E-5F8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5U-C1-JaF" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
@@ -105,9 +105,10 @@
                                     <action selector="addNewTripAction:" destination="Sqp-J1-f1c" eventType="touchUpInside" id="eMn-yg-t75"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Добавить поездку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-fN-q8d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить поездку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-fN-q8d">
                                 <rect key="frame" x="39" y="667" width="336" height="42"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="336" id="Twe-wY-hYj"/>
                                     <constraint firstAttribute="height" constant="42" id="hgn-j6-sLT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -423,9 +424,6 @@
                                 <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-1O-SRr" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
                                     <rect key="frame" x="57" y="218" width="300" height="300"/>
                                     <subviews>
-                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-rU-aJE" customClass="SiSPlacesPickerView" customModule="iTravelSample" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                        </pickerView>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PWr-8C-dij">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                             <date key="date" timeIntervalSinceReferenceDate="516548385.00848198">
@@ -447,13 +445,9 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="w1Z-rU-aJE" firstAttribute="top" secondItem="ePX-1O-SRr" secondAttribute="top" id="2Xx-y6-8xa"/>
                                         <constraint firstItem="PWr-8C-dij" firstAttribute="top" secondItem="ePX-1O-SRr" secondAttribute="top" id="6yV-gh-zMb"/>
-                                        <constraint firstAttribute="bottom" secondItem="w1Z-rU-aJE" secondAttribute="bottom" id="JeK-DS-yhg"/>
                                         <constraint firstAttribute="bottom" secondItem="Gf6-Ha-72J" secondAttribute="bottom" constant="8" id="KCh-rx-DgW"/>
                                         <constraint firstAttribute="trailing" secondItem="Gf6-Ha-72J" secondAttribute="trailing" constant="97" id="R3K-1X-JcD"/>
-                                        <constraint firstAttribute="trailing" secondItem="w1Z-rU-aJE" secondAttribute="trailing" id="ZQI-Ix-YkL"/>
-                                        <constraint firstItem="w1Z-rU-aJE" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" id="d1y-Wa-W2e"/>
                                         <constraint firstItem="PWr-8C-dij" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" id="e9O-Sw-oNf"/>
                                         <constraint firstAttribute="bottom" secondItem="PWr-8C-dij" secondAttribute="bottom" id="ees-BL-HuU"/>
                                         <constraint firstAttribute="trailing" secondItem="PWr-8C-dij" secondAttribute="trailing" id="gii-n7-Iyz"/>
@@ -469,13 +463,13 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="Aht-5l-98g" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" id="0X9-4h-KNo"/>
-                                <constraint firstItem="f71-DJ-wTS" firstAttribute="centerX" secondItem="w1Z-rU-aJE" secondAttribute="centerX" id="4Tb-Go-zgq"/>
                                 <constraint firstItem="ePX-1O-SRr" firstAttribute="centerY" secondItem="MLE-SS-5jS" secondAttribute="centerY" id="7vg-eT-fjm"/>
                                 <constraint firstAttribute="bottom" secondItem="Aht-5l-98g" secondAttribute="bottom" id="9td-zF-1n1"/>
                                 <constraint firstAttribute="trailing" secondItem="f71-DJ-wTS" secondAttribute="trailing" constant="8" id="AHs-qi-3nl"/>
                                 <constraint firstItem="Aht-5l-98g" firstAttribute="top" secondItem="MLE-SS-5jS" secondAttribute="top" id="C9Q-Au-7ed"/>
-                                <constraint firstItem="w1Z-rU-aJE" firstAttribute="top" secondItem="f71-DJ-wTS" secondAttribute="bottom" constant="21" id="Hcx-rs-lkz"/>
                                 <constraint firstItem="ePX-1O-SRr" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" constant="57" id="Kwg-Dz-PEr"/>
+                                <constraint firstItem="f71-DJ-wTS" firstAttribute="centerX" secondItem="Aht-5l-98g" secondAttribute="centerX" id="Wn5-qm-Xo3"/>
+                                <constraint firstItem="ePX-1O-SRr" firstAttribute="top" secondItem="f71-DJ-wTS" secondAttribute="bottom" constant="21" id="hYt-R1-Fv1"/>
                                 <constraint firstItem="ePX-1O-SRr" firstAttribute="centerX" secondItem="MLE-SS-5jS" secondAttribute="centerX" id="rmN-8c-tAT"/>
                                 <constraint firstItem="f71-DJ-wTS" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" constant="8" id="svK-7B-J40"/>
                                 <constraint firstAttribute="trailing" secondItem="Aht-5l-98g" secondAttribute="trailing" id="xQV-qA-PNl"/>
@@ -485,7 +479,6 @@
                     </visualEffectView>
                     <connections>
                         <outlet property="datesPickerOutlet" destination="PWr-8C-dij" id="kEN-3H-HQ0"/>
-                        <outlet property="placesPickerOutlet" destination="w1Z-rU-aJE" id="j1b-58-RiY"/>
                         <outlet property="titleLabelOutlet" destination="f71-DJ-wTS" id="edJ-IW-XTK"/>
                     </connections>
                 </viewController>
