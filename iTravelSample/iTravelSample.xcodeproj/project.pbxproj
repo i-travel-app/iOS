@@ -10,6 +10,7 @@
 		521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */; };
 		521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D41EEC4DB200226AA9 /* Trips.xcdatamodeld */; };
 		521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D71EEC53A000226AA9 /* APIStack.swift */; };
+		523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523B4C761EF3015400B68532 /* UITableViewCellX.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
@@ -64,6 +65,7 @@
 		521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trips.xcdatamodel; sourceTree = "<group>"; };
 		521DA8D71EEC53A000226AA9 /* APIStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStack.swift; sourceTree = "<group>"; };
+		523B4C761EF3015400B68532 /* UITableViewCellX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellX.swift; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				52E2537B1EC4A73100A76CA2 /* UIViewX.swift */,
 				52E2537C1EC4A73100A76CA2 /* UIViewXRadialGradient.swift */,
 				52E2537D1EC4A73100A76CA2 /* UIVisualEffectViewX.swift */,
+				523B4C761EF3015400B68532 /* UITableViewCellX.swift */,
 				52B92CB91EF064560088F265 /* Utils.swift */,
 			);
 			path = DesignableX;
@@ -382,6 +385,7 @@
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
+				523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,

@@ -160,11 +160,11 @@ extension CoreDataStack {
         
     }
     
-    func getAllTargetsCountryFromDB(withName: String) {
+    func getAllTargetsCountryFromDB(withName: String) -> Array<String> {
         var set: Set<String> = []
         let context = self.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "country CONTAINS[c] %@", withName)
+        fetchRequest.predicate = NSPredicate(format: "country BEGINSWITH[c] %@ OR country CONTAINS[c] %@", withName, String(" " + withName))
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
@@ -180,6 +180,14 @@ extension CoreDataStack {
             print(error.userInfo)
         }
         
+        let arr = Array(set)
+        return arr
+    }
+    
+    func getAllTargetsCitiesFromDB(withName: String, andCountry: String) -> Array<String> {
+        
+        let arr = Array<Any>()
+        return arr as! Array<String>
     }
     
 }

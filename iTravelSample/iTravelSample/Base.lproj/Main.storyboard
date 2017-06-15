@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -455,7 +455,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте населенный пункт" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-fy-v5G" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте населенный пункт" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-fy-v5G" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
                                     <rect key="frame" x="25" y="168" width="364" height="44"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69884417808219179" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -479,7 +479,7 @@
                                         <outlet property="delegate" destination="CGC-Ze-5wJ" id="gtA-ln-CHO"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте страну направления" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uOy-bS-C6J" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте страну направления" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uOy-bS-C6J" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
                                     <rect key="frame" x="25" y="63" width="364" height="44"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69884417808219179" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -503,14 +503,92 @@
                                         <outlet property="delegate" destination="CGC-Ze-5wJ" id="PQF-XT-uvu"/>
                                     </connections>
                                 </textField>
+                                <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="oXd-H7-ZLj">
+                                    <rect key="frame" x="25" y="212" width="364" height="60"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="DDc-un-brD"/>
+                                    </constraints>
+                                    <prototypes>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" rowHeight="44" id="HHO-TO-XOM" customClass="UITableViewCellX" customModule="iTravelSample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="1" width="364" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HHO-TO-XOM" id="6nI-MK-lED">
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43.666666666666664"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ci-kH-wOJ">
+                                                        <rect key="frame" x="4" y="12" width="356" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="356" id="acb-4Y-BC6"/>
+                                                            <constraint firstAttribute="height" constant="21" id="mGW-1z-bGU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </tableViewCellContentView>
+                                            <constraints>
+                                                <constraint firstItem="8ci-kH-wOJ" firstAttribute="centerY" secondItem="HHO-TO-XOM" secondAttribute="centerY" id="3LP-ry-odV"/>
+                                                <constraint firstItem="8ci-kH-wOJ" firstAttribute="centerX" secondItem="HHO-TO-XOM" secondAttribute="centerX" id="lhN-b3-uga"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="label" destination="8ci-kH-wOJ" id="N8c-Fs-p1X"/>
+                                            </connections>
+                                        </tableViewCell>
+                                    </prototypes>
+                                </tableView>
+                                <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wuh-yL-lga">
+                                    <rect key="frame" x="25" y="108" width="364" height="60"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="VE0-ed-T6b"/>
+                                    </constraints>
+                                    <prototypes>
+                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="44" id="9v3-M1-Fvb" customClass="UITableViewCellX" customModule="iTravelSample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="1" width="364" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43.666666666666664"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
+                                                        <rect key="frame" x="4" y="12" width="356" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="356" id="F2v-mK-H1n"/>
+                                                            <constraint firstAttribute="height" constant="21" id="a8Y-Z2-He7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </tableViewCellContentView>
+                                            <constraints>
+                                                <constraint firstItem="KoC-wu-XfA" firstAttribute="centerY" secondItem="9v3-M1-Fvb" secondAttribute="centerY" id="6eO-LB-TeI"/>
+                                                <constraint firstItem="KoC-wu-XfA" firstAttribute="centerX" secondItem="9v3-M1-Fvb" secondAttribute="centerX" id="kRd-dO-ygO"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="label" destination="KoC-wu-XfA" id="MwM-pq-ZEd"/>
+                                            </connections>
+                                        </tableViewCell>
+                                    </prototypes>
+                                </tableView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="oXd-H7-ZLj" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="5Ga-8P-pRq"/>
                                 <constraint firstAttribute="trailing" secondItem="Zs6-DP-7Wy" secondAttribute="trailing" id="5jl-IS-Gjz"/>
                                 <constraint firstAttribute="trailing" secondItem="uOy-bS-C6J" secondAttribute="trailing" constant="25" id="9kt-hF-3xu"/>
                                 <constraint firstItem="Zs6-DP-7Wy" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" id="ASx-MX-h6d"/>
+                                <constraint firstAttribute="trailing" secondItem="oXd-H7-ZLj" secondAttribute="trailing" constant="25" id="CDX-E5-SDr"/>
+                                <constraint firstItem="oXd-H7-ZLj" firstAttribute="top" secondItem="AFX-fy-v5G" secondAttribute="bottom" id="EoU-VF-O3M"/>
+                                <constraint firstItem="Wuh-yL-lga" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="1" id="YiD-PI-nof"/>
+                                <constraint firstItem="Wuh-yL-lga" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="cim-Ii-mBM"/>
                                 <constraint firstItem="AFX-fy-v5G" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="erB-Yp-oTP"/>
                                 <constraint firstItem="uOy-bS-C6J" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="for-Aw-sB9"/>
                                 <constraint firstAttribute="trailing" secondItem="iLX-dv-88v" secondAttribute="trailing" constant="25" id="kMf-cs-SM7"/>
+                                <constraint firstAttribute="trailing" secondItem="Wuh-yL-lga" secondAttribute="trailing" constant="25" id="lnI-bk-Slr"/>
                                 <constraint firstItem="AFX-fy-v5G" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="61" id="tPn-5E-RtE"/>
                                 <constraint firstItem="uOy-bS-C6J" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" constant="63" id="tRT-6k-rjA"/>
                                 <constraint firstItem="iLX-dv-88v" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="uHU-N1-gLG"/>
@@ -524,6 +602,10 @@
                     </visualEffectView>
                     <connections>
                         <outlet property="bottomConstant" destination="wsz-75-hgY" id="9hg-3s-jmw"/>
+                        <outlet property="tableViewCities" destination="oXd-H7-ZLj" id="6cf-Qw-vVx"/>
+                        <outlet property="tableViewCountries" destination="Wuh-yL-lga" id="yq6-W4-laJ"/>
+                        <outlet property="tableViewHeightConstr" destination="VE0-ed-T6b" id="ffF-zY-lFK"/>
+                        <outlet property="tableViewHeightConstr2" destination="DDc-un-brD" id="zL7-xa-gaw"/>
                         <outlet property="targetCity" destination="AFX-fy-v5G" id="yYW-yr-Ith"/>
                         <outlet property="targetCountry" destination="uOy-bS-C6J" id="byH-1M-wwh"/>
                     </connections>
