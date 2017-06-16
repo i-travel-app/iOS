@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPersonDetailsVCDelegate {
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPersonDetailsVCDelegate, TargetPlaceDelegate {
     
     let reuseCollectionViewIdentifier = "person"
     var items = [SiSPersonModel]()
@@ -61,6 +61,10 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             print("Здесь открываем выбор страны и города")
             let modalVC = storyboard?.instantiateViewController(withIdentifier: "TargetPlaceSelectingVC") as! TargetPlaceSelectingVC
             modalVC.modalPresentationStyle = .overCurrentContext
+            modalVC.delegate = self
+            if !(textField.text?.isEmpty)! {
+                modalVC.target = textField.text
+            }
             present(modalVC, animated: true, completion: nil)
         } else {
             // show blur VC for PickerView
@@ -154,6 +158,10 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         self.items.append(person)
         self.stepperValue.text = String(self.items.count)
         self.collectionViewPersons.reloadData()
+    }
+    
+    func addTargetPlace(country: String, city: String) {
+        self.targetPlaceTF.text = String("\(city), \(country)")
     }
     
     

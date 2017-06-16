@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="iKR-P8-qT0">
-                                <rect key="frame" x="0.0" y="20" width="414" height="620"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="608"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="aMe-0H-JFX" customClass="SiSTableViewCell" customModule="iTravelSample" customModuleProvider="target">
@@ -78,7 +78,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tV6-fL-qYk" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="25" y="648" width="364" height="80"/>
+                                <rect key="frame" x="25" y="636" width="364" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="z6T-4n-6NE"/>
@@ -106,7 +106,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить поездку" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJF-fN-q8d">
-                                <rect key="frame" x="39" y="667" width="336" height="42"/>
+                                <rect key="frame" x="39" y="655" width="336" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="336" id="Twe-wY-hYj"/>
                                     <constraint firstAttribute="height" constant="42" id="hgn-j6-sLT"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="tV6-fL-qYk" firstAttribute="leading" secondItem="SlP-6j-r5F" secondAttribute="leading" constant="25" id="Fx9-vZ-QhM"/>
                             <constraint firstAttribute="trailing" secondItem="iKR-P8-qT0" secondAttribute="trailing" id="NVY-ui-Rip"/>
                             <constraint firstAttribute="trailing" secondItem="tV6-fL-qYk" secondAttribute="trailing" constant="25" id="ZII-lb-lDo"/>
-                            <constraint firstItem="Mfd-hj-3mS" firstAttribute="top" secondItem="tV6-fL-qYk" secondAttribute="bottom" constant="8" id="fUc-aA-AWt"/>
+                            <constraint firstItem="Mfd-hj-3mS" firstAttribute="top" secondItem="tV6-fL-qYk" secondAttribute="bottom" constant="20" id="fUc-aA-AWt"/>
                             <constraint firstItem="QJF-fN-q8d" firstAttribute="centerX" secondItem="tV6-fL-qYk" secondAttribute="centerX" id="l1s-wp-J3f"/>
                             <constraint firstItem="iKR-P8-qT0" firstAttribute="top" secondItem="Wib-7E-pAV" secondAttribute="bottom" constant="-44" id="wZe-Wk-euQ"/>
                         </constraints>
@@ -169,7 +169,7 @@
                                                 <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -192,7 +192,7 @@
                                                 <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -215,7 +215,7 @@
                                                 <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -322,7 +322,7 @@
                                         <state key="normal" title="Сохранить поездку"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="2"/>
+                                                <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -416,7 +416,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLX-dv-88v" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="648" width="364" height="80"/>
+                                    <rect key="frame" x="25" y="636" width="364" height="80"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сохранить выбор" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-Mw-y2J">
                                             <rect key="frame" x="14" y="19" width="336" height="42"/>
@@ -441,7 +441,7 @@
                                             <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
+                                            <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="20"/>
@@ -454,9 +454,15 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="dismissVC:" destination="aKw-oB-A6r" eventType="touchUpInside" id="Z53-6T-y6g"/>
+                                    </connections>
                                 </view>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mqX-Lg-lhJ">
+                                    <rect key="frame" x="25" y="222" width="364" height="374"/>
+                                </mapView>
                                 <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте населенный пункт" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFX-fy-v5G" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                    <rect key="frame" x="25" y="168" width="364" height="44"/>
+                                    <rect key="frame" x="25" y="138" width="364" height="44"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69884417808219179" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="Xbd-h3-vwY"/>
@@ -472,7 +478,7 @@
                                             <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
+                                            <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -496,7 +502,7 @@
                                             <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                            <real key="value" value="2"/>
+                                            <real key="value" value="1"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -514,7 +520,7 @@
                                             <rect key="frame" x="0.0" y="1" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
@@ -539,9 +545,6 @@
                                         </tableViewCell>
                                     </prototypes>
                                 </tableView>
-                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mqX-Lg-lhJ">
-                                    <rect key="frame" x="25" y="237" width="364" height="386"/>
-                                </mapView>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="mqX-Lg-lhJ" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="4vp-eK-b48"/>
@@ -549,19 +552,19 @@
                                 <constraint firstAttribute="trailing" secondItem="uOy-bS-C6J" secondAttribute="trailing" constant="25" id="9kt-hF-3xu"/>
                                 <constraint firstItem="Zs6-DP-7Wy" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" id="ASx-MX-h6d"/>
                                 <constraint firstAttribute="trailing" secondItem="mqX-Lg-lhJ" secondAttribute="trailing" constant="25" id="Ec9-Wh-Mub"/>
-                                <constraint firstItem="mqX-Lg-lhJ" firstAttribute="top" secondItem="AFX-fy-v5G" secondAttribute="bottom" constant="25" id="Efv-lV-MGl"/>
-                                <constraint firstItem="iLX-dv-88v" firstAttribute="top" secondItem="mqX-Lg-lhJ" secondAttribute="bottom" constant="25" id="IDu-dQ-9tK"/>
+                                <constraint firstItem="mqX-Lg-lhJ" firstAttribute="top" secondItem="AFX-fy-v5G" secondAttribute="bottom" constant="40" id="Efv-lV-MGl"/>
+                                <constraint firstItem="iLX-dv-88v" firstAttribute="top" secondItem="mqX-Lg-lhJ" secondAttribute="bottom" constant="40" id="IDu-dQ-9tK"/>
                                 <constraint firstItem="Wuh-yL-lga" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" id="YiD-PI-nof"/>
                                 <constraint firstItem="Wuh-yL-lga" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="cim-Ii-mBM"/>
                                 <constraint firstItem="AFX-fy-v5G" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="erB-Yp-oTP"/>
                                 <constraint firstItem="uOy-bS-C6J" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="for-Aw-sB9"/>
                                 <constraint firstAttribute="trailing" secondItem="iLX-dv-88v" secondAttribute="trailing" constant="25" id="kMf-cs-SM7"/>
                                 <constraint firstAttribute="trailing" secondItem="Wuh-yL-lga" secondAttribute="trailing" constant="25" id="lnI-bk-Slr"/>
-                                <constraint firstItem="AFX-fy-v5G" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="61" id="tPn-5E-RtE"/>
+                                <constraint firstItem="AFX-fy-v5G" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="31" id="tPn-5E-RtE"/>
                                 <constraint firstItem="uOy-bS-C6J" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" constant="63" id="tRT-6k-rjA"/>
                                 <constraint firstItem="iLX-dv-88v" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="uHU-N1-gLG"/>
                                 <constraint firstItem="Zs6-DP-7Wy" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" id="vJt-9j-lZJ"/>
-                                <constraint firstAttribute="bottom" secondItem="iLX-dv-88v" secondAttribute="bottom" constant="8" id="wsz-75-hgY"/>
+                                <constraint firstAttribute="bottom" secondItem="iLX-dv-88v" secondAttribute="bottom" constant="20" id="wsz-75-hgY"/>
                                 <constraint firstAttribute="trailing" secondItem="AFX-fy-v5G" secondAttribute="trailing" constant="25" id="xh0-YD-Jj9"/>
                                 <constraint firstAttribute="bottom" secondItem="Zs6-DP-7Wy" secondAttribute="bottom" id="z7p-8i-vCF"/>
                             </constraints>

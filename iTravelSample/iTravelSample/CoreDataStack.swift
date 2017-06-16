@@ -172,7 +172,7 @@ extension CoreDataStack {
             } else {
                 for target in array {
                     set.insert(target.country!)
-                    print(set)
+                    //print(set)
                 }
                 print("по предикату и после переноса в сет \(set.count) записей!!!")
             }

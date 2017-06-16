@@ -9,9 +9,14 @@
 import UIKit
 import MapKit
 
+protocol TargetPlaceDelegate {
+    func addTargetPlace(country: String, city: String)
+}
+
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    var coutriesTVActive = false
+    var countriesTVActive = false
+    var target: String?
     
     @IBOutlet weak var bottomConstant: NSLayoutConstraint!
     @IBOutlet weak var targetCountry: UITextFieldX!
@@ -22,9 +27,19 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var map: MKMapView!
     
     var targetsArray = [String]()
+    var geocoder = CLGeocoder()
+    
+    var delegate: TargetPlaceDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.target != nil {
+            let arr = target?.components(separatedBy: ", ")
+            self.targetCity.text = arr?[0]
+            self.targetCountry.text = arr?[1]
+            self.showMapLocation(address: target!)
+        }
         
         self.targetCountry.delegate = self
         self.targetCity.delegate = self
@@ -36,13 +51,12 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         self.tableView.layer.cornerRadius = 15
         self.tableView.separatorColor = Constants.blueColor
         
+        self.map.layer.borderColor = Constants.blueColor.cgColor
+        self.map.layer.borderWidth = 1
+        self.map.layer.cornerRadius = 15
+        
         registerForKeyboardNotifications()
         
-        // работа с картой
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(<#T##addressString: String##String#>) { (<#[CLPlacemark]?#>, <#Error?#>) in
-            <#code#>
-        }
     }
     
     deinit {
@@ -68,7 +82,9 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     }
     
     @IBAction func dismissVC(_ sender: Any) {
+        delegate?.addTargetPlace(country: self.targetCountry.text!, city: self.targetCity.text!)
         dismiss(animated: true, completion: nil)
+        //self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Text functions -
@@ -77,10 +93,10 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
         if textField.tag == 1 {
-            self.coutriesTVActive = true
+            self.countriesTVActive = true
             self.targetsArray = CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring)
         } else if textField.tag == 2 {
-            self.coutriesTVActive = false
+            self.countriesTVActive = false
             if (self.targetCountry.text?.characters.count)! > 1 || substring.characters.count > 1 {
                 self.targetsArray = CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             } else if self.targetCountry.text != "" {
@@ -107,7 +123,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if self.coutriesTVActive {
+        if self.countriesTVActive {
             self.targetCountry.text = self.targetsArray[indexPath.row]
         } else {
             let arrayStr = self.targetsArray[indexPath.row].components(separatedBy: ", ")
@@ -117,6 +133,22 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         self.hideTableView()
         self.targetCountry.endEditing(true)
         self.targetCity.endEditing(true)
+        if (self.targetCity.text?.characters.count)! > 1 && (self.targetCountry.text?.characters.count)! > 1 {
+            self.showMapLocation(address: String("\(self.targetCity.text!), \(self.targetCountry.text!)"))
+        } else if (self.targetCountry.text?.characters.count)! > 1 {
+            self.showMapLocation(address: String("\(self.targetCountry.text!)"))
+        } else if (self.targetCity.text?.characters.count)! > 1 {
+            self.showMapLocation(address: String("\(self.targetCity.text!)"))
+        }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == self.targetCountry {
+            if (self.targetCity.text?.characters.count)! > 1 {
+            self.targetCity.text = ""
+            }
+        }
+        return true
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
@@ -135,7 +167,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         if textField == self.targetCountry {
             self.targetCountry.resignFirstResponder()
             self.targetCity.becomeFirstResponder()
-            self.coutriesTVActive = false
+            self.countriesTVActive = false
         } else {
             self.targetCity.resignFirstResponder()
         }
@@ -156,7 +188,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        if self.coutriesTVActive {
+        if self.countriesTVActive {
             self.tableViewTopConstr.constant = 0
         } else {
             self.tableViewTopConstr.constant = self.targetCity.frame.maxY - self.targetCountry.frame.maxY
@@ -170,5 +202,37 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         self.updateViewConstraints()
         self.tableView.reloadData()
     }
+    
+    func showMapLocation(address: String) {
+        self.geocoder.geocodeAddressString(address) { (placemarks, error) in
+            
+            guard error == nil else { return }
+            guard let placemarks = placemarks else { return }
+            
+            let placemark = placemarks.first!
+            
+            let allAnotations = self.map.annotations
+            self.map.removeAnnotations(allAnotations)
+            
+            let annotation = MKPointAnnotation()
+            annotation.title = address
+            
+            guard let location = placemark.location else { return }
+            annotation.coordinate = location.coordinate
+            
+            self.map.showAnnotations([annotation], animated: true)
+            self.map.selectAnnotation(annotation, animated: true)
+            let span = MKCoordinateSpanMake(30, 30)
+            let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+            self.map.setRegion(region, animated: true)
+            self.map.isZoomEnabled = true
+            self.map.isScrollEnabled = true
+        }
+    }
 
 }
+
+
+
+
+
