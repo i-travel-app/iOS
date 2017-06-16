@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KAP-bK-fBU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -503,44 +503,8 @@
                                         <outlet property="delegate" destination="CGC-Ze-5wJ" id="PQF-XT-uvu"/>
                                     </connections>
                                 </textField>
-                                <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="oXd-H7-ZLj">
-                                    <rect key="frame" x="25" y="212" width="364" height="60"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="DDc-un-brD"/>
-                                    </constraints>
-                                    <prototypes>
-                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" rowHeight="44" id="HHO-TO-XOM" customClass="UITableViewCellX" customModule="iTravelSample" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="1" width="364" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HHO-TO-XOM" id="6nI-MK-lED">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43.666666666666664"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ci-kH-wOJ">
-                                                        <rect key="frame" x="4" y="12" width="356" height="21"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="356" id="acb-4Y-BC6"/>
-                                                            <constraint firstAttribute="height" constant="21" id="mGW-1z-bGU"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </tableViewCellContentView>
-                                            <constraints>
-                                                <constraint firstItem="8ci-kH-wOJ" firstAttribute="centerY" secondItem="HHO-TO-XOM" secondAttribute="centerY" id="3LP-ry-odV"/>
-                                                <constraint firstItem="8ci-kH-wOJ" firstAttribute="centerX" secondItem="HHO-TO-XOM" secondAttribute="centerX" id="lhN-b3-uga"/>
-                                            </constraints>
-                                            <connections>
-                                                <outlet property="label" destination="8ci-kH-wOJ" id="N8c-Fs-p1X"/>
-                                            </connections>
-                                        </tableViewCell>
-                                    </prototypes>
-                                </tableView>
                                 <tableView clipsSubviews="YES" contentMode="center" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wuh-yL-lga">
-                                    <rect key="frame" x="25" y="108" width="364" height="60"/>
+                                    <rect key="frame" x="25" y="107" width="364" height="60"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="VE0-ed-T6b"/>
@@ -550,7 +514,7 @@
                                             <rect key="frame" x="0.0" y="1" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
@@ -577,13 +541,10 @@
                                 </tableView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="oXd-H7-ZLj" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="5Ga-8P-pRq"/>
                                 <constraint firstAttribute="trailing" secondItem="Zs6-DP-7Wy" secondAttribute="trailing" id="5jl-IS-Gjz"/>
                                 <constraint firstAttribute="trailing" secondItem="uOy-bS-C6J" secondAttribute="trailing" constant="25" id="9kt-hF-3xu"/>
                                 <constraint firstItem="Zs6-DP-7Wy" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" id="ASx-MX-h6d"/>
-                                <constraint firstAttribute="trailing" secondItem="oXd-H7-ZLj" secondAttribute="trailing" constant="25" id="CDX-E5-SDr"/>
-                                <constraint firstItem="oXd-H7-ZLj" firstAttribute="top" secondItem="AFX-fy-v5G" secondAttribute="bottom" id="EoU-VF-O3M"/>
-                                <constraint firstItem="Wuh-yL-lga" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" constant="1" id="YiD-PI-nof"/>
+                                <constraint firstItem="Wuh-yL-lga" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" id="YiD-PI-nof"/>
                                 <constraint firstItem="Wuh-yL-lga" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="cim-Ii-mBM"/>
                                 <constraint firstItem="AFX-fy-v5G" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="erB-Yp-oTP"/>
                                 <constraint firstItem="uOy-bS-C6J" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="for-Aw-sB9"/>
@@ -602,10 +563,9 @@
                     </visualEffectView>
                     <connections>
                         <outlet property="bottomConstant" destination="wsz-75-hgY" id="9hg-3s-jmw"/>
-                        <outlet property="tableViewCities" destination="oXd-H7-ZLj" id="6cf-Qw-vVx"/>
-                        <outlet property="tableViewCountries" destination="Wuh-yL-lga" id="yq6-W4-laJ"/>
+                        <outlet property="tableView" destination="Wuh-yL-lga" id="JBv-ax-UOg"/>
                         <outlet property="tableViewHeightConstr" destination="VE0-ed-T6b" id="ffF-zY-lFK"/>
-                        <outlet property="tableViewHeightConstr2" destination="DDc-un-brD" id="zL7-xa-gaw"/>
+                        <outlet property="tableViewTopConstr" destination="YiD-PI-nof" id="6VU-EE-Lf5"/>
                         <outlet property="targetCity" destination="AFX-fy-v5G" id="yYW-yr-Ith"/>
                         <outlet property="targetCountry" destination="uOy-bS-C6J" id="byH-1M-wwh"/>
                     </connections>

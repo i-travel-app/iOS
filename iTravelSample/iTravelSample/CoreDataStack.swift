@@ -181,13 +181,36 @@ extension CoreDataStack {
         }
         
         let arr = Array(set)
-        return arr
+        return arr.sorted()
     }
     
-    func getAllTargetsCitiesFromDB(withName: String, andCountry: String) -> Array<String> {
+    func getAllTargetsCitiesFromDB(withName: String, andCountry: String?) -> Array<String> {
+        var set: Set<String> = []
+        let context = self.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
+        if (andCountry?.characters.count)! > 1 {
+            fetchRequest.predicate = NSPredicate(format: "country BEGINSWITH[c] %@ AND city BEGINSWITH[c] %@", andCountry!, withName)
+        } else {
+            fetchRequest.predicate = NSPredicate(format: "city BEGINSWITH[c] %@", withName)
+        }
         
-        let arr = Array<Any>()
-        return arr as! Array<String>
+        do {
+            let array = try context.fetch(fetchRequest)
+            if array.isEmpty {
+                print("данных нет!")
+            } else {
+                for target in array {
+                    set.insert(String("\(target.city!), \(target.country!)"))
+                    //print(set)
+                }
+                print("по предикату и после переноса в сет \(set.count) записей!!!")
+            }
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+        
+        let arr = Array(set)
+        return arr.sorted()
     }
     
 }

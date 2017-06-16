@@ -11,14 +11,14 @@ import CoreGraphics
 
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var bottomConstant: NSLayoutConstraint!
+    var coutriesTVActive = false
     
+    @IBOutlet weak var bottomConstant: NSLayoutConstraint!
     @IBOutlet weak var targetCountry: UITextFieldX!
     @IBOutlet weak var targetCity: UITextFieldX!
-    @IBOutlet weak var tableViewCountries: UITableView!
-    @IBOutlet weak var tableViewCities: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewTopConstr: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstr: NSLayoutConstraint!
-    @IBOutlet weak var tableViewHeightConstr2: NSLayoutConstraint!
     
     var targetsArray = [String]()
     
@@ -27,15 +27,13 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
         self.targetCountry.delegate = self
         self.targetCity.delegate = self
-        self.tableViewCountries.delegate = self
-        self.tableViewCountries.dataSource = self
-        self.tableViewCities.delegate = self
-        self.tableViewCities.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
-        self.tableViewCountries.layer.borderColor = Constants.blueColor.cgColor
-        self.tableViewCountries.layer.borderWidth = 1
-        self.tableViewCountries.layer.cornerRadius = 15
-        self.tableViewCountries.separatorColor = Constants.blueColor
+        self.tableView.layer.borderColor = Constants.blueColor.cgColor
+        self.tableView.layer.borderWidth = 1
+        self.tableView.layer.cornerRadius = 15
+        self.tableView.separatorColor = Constants.blueColor
         
         registerForKeyboardNotifications()
     }
@@ -71,10 +69,20 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
         let substring = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
-        self.targetsArray = textField.tag == 1 ? CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring) : CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+        if textField.tag == 1 {
+            self.coutriesTVActive = true
+            self.targetsArray = CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring)
+        } else if textField.tag == 2 {
+            self.coutriesTVActive = false
+            if (self.targetCountry.text?.characters.count)! > 1 || substring.characters.count > 1 {
+                self.targetsArray = CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+            } else if self.targetCountry.text != "" {
+                self.targetsArray = CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+            }
+        }
+        
         self.updateViewConstraints()
-        tableViewCountries.reloadData()
-        tableViewCities.reloadData()
+        tableView.reloadData()
         return true
     }
     
@@ -86,21 +94,45 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return targetsArray.count
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.targetCountry.text = self.targetsArray[indexPath.row]
-        
-        if (self.tableViewCountries != nil) {
-            self.hideTableView(tableView: self.tableViewCountries)
-            self.targetCountry.endEditing(true)
+        if self.coutriesTVActive {
+            self.targetCountry.text = self.targetsArray[indexPath.row]
         } else {
-            
+            let arrayStr = self.targetsArray[indexPath.row].components(separatedBy: ", ")
+            self.targetCity.text = arrayStr[0]
+            self.targetCountry.text = arrayStr[1]
         }
+        self.hideTableView()
+        self.targetCountry.endEditing(true)
+        self.targetCity.endEditing(true)
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        self.hideTableView()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.bottomConstant.constant = 20.0
+        UIView.animate(withDuration:0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == self.targetCountry {
+            self.targetCountry.resignFirstResponder()
+            self.targetCity.becomeFirstResponder()
+            self.coutriesTVActive = false
+        } else {
+            self.targetCity.resignFirstResponder()
+        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell:
@@ -117,17 +149,19 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        if (self.tableViewCountries != nil) {
-            self.tableViewHeightConstr.constant = CGFloat(self.targetsArray.count) * 44.0
+        if self.coutriesTVActive {
+            self.tableViewTopConstr.constant = 0
         } else {
-            self.tableViewHeightConstr2.constant = CGFloat(self.targetsArray.count) * 44.0
+            self.tableViewTopConstr.constant = self.targetCity.frame.maxY - self.targetCountry.frame.maxY
         }
+        self.tableViewHeightConstr.constant = CGFloat(self.targetsArray.count) * 44.0
+
     }
     
-    func hideTableView(tableView: UITableView) {
+    func hideTableView() {
         self.targetsArray.removeAll()
         self.updateViewConstraints()
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
 
 }
