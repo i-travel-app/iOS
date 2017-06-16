@@ -42,6 +42,7 @@
 		52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F512B81EBB9420002413CF /* SiSTableViewController.swift */; };
 		57154ABC1ECAF8C600A0398E /* Face.png in Resources */ = {isa = PBXBuildFile; fileRef = 57154ABB1ECAF8C600A0398E /* Face.png */; };
 		57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */; };
+		577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577948961EF3D95100C28A6F /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		52F512B81EBB9420002413CF /* SiSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSTableViewController.swift; sourceTree = "<group>"; };
 		57154ABB1ECAF8C600A0398E /* Face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face.png; sourceTree = "<group>"; };
 		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
+		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +186,7 @@
 				52F5129E1EBB79BD002413CF /* iTravelSampleTests */,
 				52F512A91EBB79BD002413CF /* iTravelSampleUITests */,
 				52F512881EBB79BD002413CF /* Products */,
+				577948951EF3D95100C28A6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +235,14 @@
 				52F512AC1EBB79BD002413CF /* Info.plist */,
 			);
 			path = iTravelSampleUITests;
+			sourceTree = "<group>";
+		};
+		577948951EF3D95100C28A6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				577948961EF3D95100C28A6F /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +316,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 3PTYV272Z4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					52F5129A1EBB79BD002413CF = {
 						CreatedOnToolsVersion = 8.3.1;

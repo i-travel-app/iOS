@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreGraphics
+import MapKit
 
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,6 +19,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewTopConstr: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstr: NSLayoutConstraint!
+    @IBOutlet weak var map: MKMapView!
     
     var targetsArray = [String]()
     
@@ -36,6 +37,12 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         self.tableView.separatorColor = Constants.blueColor
         
         registerForKeyboardNotifications()
+        
+        // работа с картой
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(<#T##addressString: String##String#>) { (<#[CLPlacemark]?#>, <#Error?#>) in
+            <#code#>
+        }
     }
     
     deinit {

@@ -514,7 +514,7 @@
                                             <rect key="frame" x="0.0" y="1" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
@@ -539,11 +539,18 @@
                                         </tableViewCell>
                                     </prototypes>
                                 </tableView>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mqX-Lg-lhJ">
+                                    <rect key="frame" x="25" y="237" width="364" height="386"/>
+                                </mapView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="mqX-Lg-lhJ" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="4vp-eK-b48"/>
                                 <constraint firstAttribute="trailing" secondItem="Zs6-DP-7Wy" secondAttribute="trailing" id="5jl-IS-Gjz"/>
                                 <constraint firstAttribute="trailing" secondItem="uOy-bS-C6J" secondAttribute="trailing" constant="25" id="9kt-hF-3xu"/>
                                 <constraint firstItem="Zs6-DP-7Wy" firstAttribute="top" secondItem="zg9-0R-Ez0" secondAttribute="top" id="ASx-MX-h6d"/>
+                                <constraint firstAttribute="trailing" secondItem="mqX-Lg-lhJ" secondAttribute="trailing" constant="25" id="Ec9-Wh-Mub"/>
+                                <constraint firstItem="mqX-Lg-lhJ" firstAttribute="top" secondItem="AFX-fy-v5G" secondAttribute="bottom" constant="25" id="Efv-lV-MGl"/>
+                                <constraint firstItem="iLX-dv-88v" firstAttribute="top" secondItem="mqX-Lg-lhJ" secondAttribute="bottom" constant="25" id="IDu-dQ-9tK"/>
                                 <constraint firstItem="Wuh-yL-lga" firstAttribute="top" secondItem="uOy-bS-C6J" secondAttribute="bottom" id="YiD-PI-nof"/>
                                 <constraint firstItem="Wuh-yL-lga" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="cim-Ii-mBM"/>
                                 <constraint firstItem="AFX-fy-v5G" firstAttribute="leading" secondItem="zg9-0R-Ez0" secondAttribute="leading" constant="25" id="erB-Yp-oTP"/>
@@ -563,6 +570,7 @@
                     </visualEffectView>
                     <connections>
                         <outlet property="bottomConstant" destination="wsz-75-hgY" id="9hg-3s-jmw"/>
+                        <outlet property="map" destination="mqX-Lg-lhJ" id="Vuz-Gm-CKM"/>
                         <outlet property="tableView" destination="Wuh-yL-lga" id="JBv-ax-UOg"/>
                         <outlet property="tableViewHeightConstr" destination="VE0-ed-T6b" id="ffF-zY-lFK"/>
                         <outlet property="tableViewTopConstr" destination="YiD-PI-nof" id="6VU-EE-Lf5"/>
