@@ -16,6 +16,7 @@ protocol TargetPlaceDelegate {
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var countriesTVActive = false
+    var kbFrameSize: CGRect?
     var target: String?
     
     @IBOutlet weak var bottomConstant: NSLayoutConstraint!
@@ -74,6 +75,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        self.kbFrameSize = kbFrameSize
         self.bottomConstant.constant = kbFrameSize.height + 20
         UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
@@ -193,8 +195,9 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         } else {
             self.tableViewTopConstr.constant = self.targetCity.frame.maxY - self.targetCountry.frame.maxY
         }
-        self.tableViewHeightConstr.constant = CGFloat(self.targetsArray.count) * 44.0
-
+        
+        self.tableViewHeightConstr.constant = CGFloat(self.targetsArray.count) * 44.0 > 200 ? 200.0 : CGFloat(self.targetsArray.count) * 44.0
+        
     }
     
     func hideTableView() {
