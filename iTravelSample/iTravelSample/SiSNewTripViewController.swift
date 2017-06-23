@@ -35,16 +35,20 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     func back(sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Введите детали поездки и нажмите кнопку \"Сохранить\" для сохранения поездки.", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) -> Void in
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
+            Void in
+            _ = self.navigationController?.popViewController(animated: true)
         }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.default, handler: nil))
         
         self.navigationController?.present(alert, animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func stepperAction(_ sender: Any) {
         if Int(stepper.value) > Int(self.stepperValue.text!)! {
-            openPersonVC(person: SiSPersonModel())
+            // Открытие выбора участников в поездке
+            openParticipantsTVC()
         } else if Int(stepper.value) < Int(self.stepperValue.text!)!{
             self.items.removeLast()
             self.collectionViewPersons.reloadData()
@@ -146,6 +150,11 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func openParticipantsTVC() {
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantsTVC") as! ParticipantsTVC
+        self.navigationController!.pushViewController(VC, animated: true)
     }
     
     func openPersonVC(person: SiSPersonModel) {

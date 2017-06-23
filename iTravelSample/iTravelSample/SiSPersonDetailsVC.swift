@@ -114,7 +114,7 @@ class SiSPersonDetailsVC: UIViewController, UITextFieldDelegate {
         self.person?.age = Int(self.ageTF.text!)!
         self.person?.gender = self.genderTF.text!
         delegate?.addPersonToItemsArray(person: self.person!)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     @IBAction func mensBtn(_ sender: UIButton) {
         self.genderTF.text = "мужской"

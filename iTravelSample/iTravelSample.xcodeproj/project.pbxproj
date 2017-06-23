@@ -42,6 +42,7 @@
 		52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F512B81EBB9420002413CF /* SiSTableViewController.swift */; };
 		57154ABC1ECAF8C600A0398E /* Face.png in Resources */ = {isa = PBXBuildFile; fileRef = 57154ABB1ECAF8C600A0398E /* Face.png */; };
 		57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */; };
+		572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */; };
 		577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577948961EF3D95100C28A6F /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		52F512B81EBB9420002413CF /* SiSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSTableViewController.swift; sourceTree = "<group>"; };
 		57154ABB1ECAF8C600A0398E /* Face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face.png; sourceTree = "<group>"; };
 		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
+		572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTVC.swift; sourceTree = "<group>"; };
 		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 				52894EB01EC9A9400052091E /* SiSPickerVC.swift */,
 				57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */,
 				52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */,
+				572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
@@ -394,6 +397,7 @@
 				52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */,
 				52E253831EC4A73100A76CA2 /* UIViewAnchorPoint.swift in Sources */,
 				521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */,
+				572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
 				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
