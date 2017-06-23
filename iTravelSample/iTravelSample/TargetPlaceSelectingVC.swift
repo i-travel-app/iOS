@@ -196,7 +196,15 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             self.tableViewTopConstr.constant = self.targetCity.frame.maxY - self.targetCountry.frame.maxY
         }
         
-        self.tableViewHeightConstr.constant = CGFloat(self.targetsArray.count) * 44.0 > 200 ? 200.0 : CGFloat(self.targetsArray.count) * 44.0
+        if self.kbFrameSize == nil {
+            
+            self.tableViewHeightConstr.constant =  CGFloat(self.targetsArray.count) * 44.0
+        
+        } else {
+            
+            self.tableViewHeightConstr.constant = self.tableView.frame.maxY > (self.kbFrameSize?.origin.y)! ? self.tableViewHeightConstr.constant - (self.tableView.frame.maxY - (self.kbFrameSize?.origin.y)!) : CGFloat(self.targetsArray.count) * 44.0
+        }
+        
         
     }
     

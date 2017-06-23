@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPersonDetailsVCDelegate, TargetPlaceDelegate {
+class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, SiSPersonDetailsVCDelegate, TargetPlaceDelegate, PickerVCDelegate {
     
     let reuseCollectionViewIdentifier = "person"
     var items = [SiSPersonModel]()
@@ -71,6 +71,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             let modalVC = storyboard?.instantiateViewController(withIdentifier: "SiSPickerVC") as! SiSPickerVC
             modalVC.modalPresentationStyle = .overCurrentContext
             modalVC.textFieldTag = textField.tag
+            modalVC.delegate = self
             present(modalVC, animated: true, completion: nil)
         }
         
@@ -163,6 +164,5 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     func addTargetPlace(country: String, city: String) {
         self.targetPlaceTF.text = String("\(city), \(country)")
     }
-    
     
 }

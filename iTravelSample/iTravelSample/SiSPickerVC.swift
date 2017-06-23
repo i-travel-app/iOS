@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PickerVCDelegate {
+    func fillTF(tFTag: Int, text: String)
+}
+
 class SiSPickerVC: UIViewController {
 
     @IBOutlet weak var titleLabelOutlet: UILabel!
@@ -15,6 +19,8 @@ class SiSPickerVC: UIViewController {
     var selectedDate: String?
     
     @IBOutlet weak var datesPickerOutlet: UIDatePicker!
+    
+    var delegate: PickerVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +30,12 @@ class SiSPickerVC: UIViewController {
         case 3: titleLabelOutlet.text = "Выберите конечную дату поездки:";
         default: break
         }
-
     }
     
     @IBAction func done(_ sender: Any) {
         let date = self.selectedDate ?? Date().toString(date: Date())
         if textFieldTag == 2 || textFieldTag == 3 {
-            
+            delegate?.fillTF(tFTag: textFieldTag, text: date)
         }
         
         self.dismissPicker((Any).self)
