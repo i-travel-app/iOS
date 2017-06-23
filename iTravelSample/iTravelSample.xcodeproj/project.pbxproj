@@ -107,6 +107,12 @@
 		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
 		572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTVC.swift; sourceTree = "<group>"; };
 		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		5799D60F1EFD21AD005D5D3E /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5799D6101EFD21AD005D5D3E /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5799D6111EFD21AD005D5D3E /* Participant+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5799D6121EFD21AD005D5D3E /* Participant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5799D6131EFD21AD005D5D3E /* TargetPlace+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetPlace+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5799D6141EFD21AD005D5D3E /* TargetPlace+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetPlace+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +217,7 @@
 				52F512B81EBB9420002413CF /* SiSTableViewController.swift */,
 				52E253731EC4A73100A76CA2 /* DesignableX */,
 				52E253881EC4A83E00A76CA2 /* Models */,
+				5799D60E1EFD2195005D5D3E /* Entities */,
 				52E253701EC4A36400A76CA2 /* Views */,
 				52F512911EBB79BD002413CF /* Assets.xcassets */,
 				52E2538F1EC4C7CA00A76CA2 /* person.png */,
@@ -246,6 +253,19 @@
 				577948961EF3D95100C28A6F /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5799D60E1EFD2195005D5D3E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5799D60F1EFD21AD005D5D3E /* Trip+CoreDataClass.swift */,
+				5799D6101EFD21AD005D5D3E /* Trip+CoreDataProperties.swift */,
+				5799D6111EFD21AD005D5D3E /* Participant+CoreDataClass.swift */,
+				5799D6121EFD21AD005D5D3E /* Participant+CoreDataProperties.swift */,
+				5799D6131EFD21AD005D5D3E /* TargetPlace+CoreDataClass.swift */,
+				5799D6141EFD21AD005D5D3E /* TargetPlace+CoreDataProperties.swift */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

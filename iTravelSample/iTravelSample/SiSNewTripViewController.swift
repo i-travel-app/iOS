@@ -29,7 +29,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         self.title = "Создание поездки"
         // прячем кнопку Главный экран и назначаем свою
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "<Главный экран", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SiSNewTripViewController.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SiSNewTripViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
     

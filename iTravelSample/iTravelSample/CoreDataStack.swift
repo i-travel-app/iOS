@@ -213,4 +213,24 @@ extension CoreDataStack {
         return arr.sorted()
     }
     
+    // MARK - Participants methods - 
+    func getAllParticipantsFromDB() -> Array<Participant> {
+        var array = [Participant]()
+        let context = self.persistentContainer.viewContext
+        let  fetchRequest: NSFetchRequest<Participant> = Participant.fetchRequest()
+        
+        do {
+            array = try context.fetch(fetchRequest)
+            if array.isEmpty {
+                print("данных нет!")
+            } else {
+                print("в кордате аж \(array.count) записей!!!")
+            }
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+        
+        return array
+    }
+    
 }
