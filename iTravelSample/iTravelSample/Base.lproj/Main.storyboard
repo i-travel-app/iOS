@@ -723,7 +723,7 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pcg-sC-q9G" id="XOV-ew-GNk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -968,6 +968,107 @@
             </objects>
             <point key="canvasLocation" x="3053.6231884057975" y="716.57608695652175"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Kx9-4n-qKF">
+            <objects>
+                <viewController id="zaK-TQ-dFm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KzR-6a-znG"/>
+                        <viewControllerLayoutGuide type="bottom" id="dHE-yG-kdO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FCo-N1-NlV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McY-jP-fwf" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="25" y="631" width="364" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5NT-nK-5mY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Сохранить участника"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismiss:" destination="CGC-Ze-5wJ" eventType="touchUpInside" id="NBg-QK-meP"/>
+                                    <action selector="dismissAndSave:" destination="Abp-to-Evh" eventType="touchUpInside" id="5vI-hM-h8r"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="6TX-tf-RYX">
+                                <rect key="frame" x="57" y="68" width="300" height="508"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-1" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-ga-o4Q" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="RGh-TZ-cDj"/>
+                                            <constraint firstAttribute="width" constant="300" id="Wo5-YO-c4k"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.48407280445098877" green="0.80620831251144409" blue="0.93523252010345459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ai3-nR-LiV">
+                                        <rect key="frame" x="0.0" y="340" width="300" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Возраст: 20 лет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sP-V9-DfH">
+                                        <rect key="frame" x="0.0" y="410" width="300" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9l9-gl-GbY">
+                                        <rect key="frame" x="0.0" y="480" width="300" height="29"/>
+                                        <color key="backgroundColor" red="0.48407280445098877" green="0.80620831251144409" blue="0.93523252010345459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <segments>
+                                            <segment title="Мужской"/>
+                                            <segment title="Женский"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6TX-tf-RYX" firstAttribute="leading" secondItem="FCo-N1-NlV" secondAttribute="leading" constant="57" id="5DS-21-wWf"/>
+                            <constraint firstAttribute="trailing" secondItem="McY-jP-fwf" secondAttribute="trailing" constant="25" id="5aX-Wm-YOg"/>
+                            <constraint firstItem="McY-jP-fwf" firstAttribute="leading" secondItem="FCo-N1-NlV" secondAttribute="leading" constant="25" id="6SH-yH-IpE"/>
+                            <constraint firstAttribute="trailing" secondItem="6TX-tf-RYX" secondAttribute="trailing" constant="57" id="lCW-bm-mza"/>
+                            <constraint firstItem="dHE-yG-kdO" firstAttribute="top" secondItem="McY-jP-fwf" secondAttribute="bottom" constant="25" id="m4h-o7-pAS"/>
+                            <constraint firstItem="6TX-tf-RYX" firstAttribute="top" secondItem="KzR-6a-znG" secondAttribute="bottom" constant="48" id="pbv-z6-Ani"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ra-lG-GMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3739.130434782609" y="716.57608695652175"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="A5s-Ru-yo8">
             <objects>
@@ -1000,6 +1101,7 @@
         <image name="foots" width="16" height="22"/>
         <image name="ship" width="22" height="23"/>
         <image name="train" width="26" height="17"/>
+        <image name="user-1" width="512" height="512"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

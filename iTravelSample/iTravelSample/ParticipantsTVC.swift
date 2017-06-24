@@ -17,6 +17,8 @@ class ParticipantsTVC: UITableViewController {
         
         self.title = "Участники поездки"
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ParticipantsTVC.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.rightBarButtonItem = addButton
 
        self.participants = CoreDataStack.instance.getAllParticipantsFromDB()
@@ -48,6 +50,19 @@ class ParticipantsTVC: UITableViewController {
             cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
         }
         return cell
+    }
+    
+    // Переходы по контроллерам
+    
+    func back(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Выберите участников поездки и нажмите кнопку \"Сохранить\".", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
+            Void in
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.default, handler: nil))
+        
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
 
 }
