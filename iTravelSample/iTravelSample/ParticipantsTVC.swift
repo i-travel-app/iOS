@@ -16,8 +16,8 @@ class ParticipantsTVC: UITableViewController {
         super.viewDidLoad()
         
         self.title = "Участники поездки"
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ParticipantsTVC.back(sender:)))
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantDetailVC))
+        let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.rightBarButtonItem = addButton
 
@@ -52,9 +52,13 @@ class ParticipantsTVC: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // Переходы по контроллерам
     
-    func back(sender: UIBarButtonItem) {
+    func back() {
         let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Выберите участников поездки и нажмите кнопку \"Сохранить\".", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
             Void in
@@ -63,6 +67,11 @@ class ParticipantsTVC: UITableViewController {
         alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.default, handler: nil))
         
         self.navigationController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func openParticipantDetailVC() {
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
+        self.navigationController!.pushViewController(VC, animated: true)
     }
 
 }
