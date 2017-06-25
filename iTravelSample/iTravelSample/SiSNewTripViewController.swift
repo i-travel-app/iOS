@@ -51,10 +51,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             openParticipantsTVC()
         } else if Int(stepper.value) < Int(self.stepperValue.text!)!{
             self.items.removeLast()
+            self.stepperValue.text = String(Int(stepper.value))
             self.collectionViewPersons.reloadData()
         }
-        
-        self.stepperValue.text = String(Int(stepper.value))
     }
     
     // MARK: - Text Field -

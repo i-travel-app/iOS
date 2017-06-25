@@ -15,6 +15,7 @@
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
 		5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */; };
+		5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */; };
 		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
 		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
 		52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */; };
@@ -73,6 +74,7 @@
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
 		5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantDetailsVC.swift; sourceTree = "<group>"; };
+		5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetPlaceSelectingVC.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5296AFF71F0002BC00840E06 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		52E253701EC4A36400A76CA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 		52F512891EBB79BD002413CF /* iTravelSample */ = {
 			isa = PBXGroup;
 			children = (
+				5296AFF71F0002BC00840E06 /* Helpers */,
 				52F5128A1EBB79BD002413CF /* AppDelegate.swift */,
 				52F5128C1EBB79BD002413CF /* ViewController.swift */,
 				52F512B81EBB9420002413CF /* SiSTableViewController.swift */,
@@ -432,6 +443,7 @@
 				523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
+				5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,
 				52E253871EC4A73100A76CA2 /* UIVisualEffectViewX.swift in Sources */,
