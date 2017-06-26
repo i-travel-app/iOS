@@ -138,23 +138,11 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBAction func saveParticipant(_ sender: Any) {
         if (nameTF.text?.isEmpty)! || (ageTF.text?.isEmpty)! {
             warningAlert()
-        }
-        
-        func checkDataStore() {
-            let request: NSFetchRequest<Participant> = Participant.fetchRequest()
+        } else {
+            let participant = Participant(context: CoreDataStack().persistentContainer.viewContext)
+            let participantNewID = participant.getParticipantID(context: CoreDataStack().persistentContainer.viewContext)
             
-            let moc = CoreDataStack.instance.persistentContainer.viewContext
-            
-            do {
-                let participantsCount = try moc.count(for: request)
-                
-                if participantsCount == 0 {
-                    print("\n\n\n\n\nНикого нет!!!\n\n\n\n\n\n\n")
-                }
-            }
-            catch {
-                fatalError("Error in counting home record")
-            }
+            participant.saveParticipant(idUser: participantNewID!, name: nameTF.text!, context: CoreDataStack().persistentContainer.viewContext)
         }
     }
     

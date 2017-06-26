@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let isPreloaded = defaults.bool(forKey: "isPreloaded")
         if !isPreloaded {
             print("ask to preload DB")
-            CoreDataStack.instance.preloadData()
+            CoreDataStack().preloadData()
             UserDefaults.standard.set(true, forKey: "isPreloaded")
         }
         
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        CoreDataStack.instance.saveContext()
+        CoreDataStack().saveContext()
     }
 }
 

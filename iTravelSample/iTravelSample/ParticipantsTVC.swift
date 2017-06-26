@@ -21,7 +21,7 @@ class ParticipantsTVC: UITableViewController {
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.rightBarButtonItem = addButton
 
-       self.participants = CoreDataStack.instance.getAllParticipantsFromDB()
+       self.participants = CoreDataStack().getAllParticipantsFromDB()
     }
 
     // MARK: - Table view data source

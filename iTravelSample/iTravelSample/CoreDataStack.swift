@@ -10,14 +10,8 @@ import Foundation
 import CoreData
 
 class CoreDataStack {
-
-    // Singleton
-    static let instance = CoreDataStack()
-    
-    private init() {}
     
     // MARK: - Core Data stack
-    
     lazy var applicationDocumentsDirectory: NSURL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1] as NSURL

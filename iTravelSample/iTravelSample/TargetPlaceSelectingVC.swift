@@ -96,13 +96,13 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
         if textField.tag == 1 {
             self.countriesTVActive = true
-            self.targetsArray = CoreDataStack.instance.getAllTargetsCountryFromDB(withName: substring)
+            self.targetsArray = CoreDataStack().getAllTargetsCountryFromDB(withName: substring)
         } else if textField.tag == 2 {
             self.countriesTVActive = false
             if (self.targetCountry.text?.characters.count)! > 1 || substring.characters.count > 1 {
-                self.targetsArray = CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = CoreDataStack().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             } else if self.targetCountry.text != "" {
-                self.targetsArray = CoreDataStack.instance.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = CoreDataStack().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             }
         }
         
