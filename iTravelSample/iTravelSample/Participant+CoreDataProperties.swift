@@ -2,7 +2,7 @@
 //  Participant+CoreDataProperties.swift
 //  iTravelSample
 //
-//  Created by Stanly Shiyanovskiy on 26.06.17.
+//  Created by Stanly Shiyanovskiy on 27.06.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension Participant {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Participant> {
-        return NSFetchRequest<Participant>(entityName: "Participant")
+        return NSFetchRequest<Participant>(entityName: "Participant");
     }
 
     @NSManaged public var age: Int16

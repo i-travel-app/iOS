@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
-class ParticipantsTVC: UITableViewController {
+class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var participants = [Participant]()
-
+    var fetchedResultController: NSFetchedResultsController<Participant>!
+    lazy var coreData = CoreDataStack()
+    //var participants = [Participant]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,11 +23,23 @@ class ParticipantsTVC: UITableViewController {
         let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton
         self.navigationItem.rightBarButtonItem = addButton
-
-       self.participants = CoreDataStack().getAllParticipantsFromDB()
+        
+        loadData()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        loadData()
+    }
+    
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let sections = fetchedResultController.sections {
+            return sections.count
+        }
+        return 0
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
@@ -35,25 +50,43 @@ class ParticipantsTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.participants.isEmpty ? 1 : self.participants.count
+        if let sections = fetchedResultController.sections {
+            let currentSection = sections[section]
+            print("\n\n\n\nThere are \(currentSection.numberOfObjects) objects==rows")
+            return currentSection.numberOfObjects
+        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-        if participants.isEmpty {
-            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath as IndexPath)
-            cell.textLabel?.numberOfLines = 0
-            cell.textLabel?.textAlignment = .center
-            cell.textLabel?.textColor = .red
-            cell.textLabel?.text = "Здесь отображаются все участники Ваших поездок.\nК сожалению, у Вас нет ни одного участника.\nДобавьте первого, нажав на плюс в верхнем углу экрана."
-        } else {
-            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        }
-        return cell
-    }
+        //let section = fetchedResultController.sections?.first
+        //if !(section?.numberOfObjects == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! ParticipantTVCell
+            let participant = fetchedResultController.object(at: indexPath)
+            cell.configure(participant: participant)
+            return cell
+
+        //} else {
+            
+            //let cell: UITableViewCell
+            //cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath as IndexPath)
+            //cell.textLabel?.numberOfLines = 0
+            //cell.textLabel?.textAlignment = .center
+            //cell.textLabel?.textColor = .red
+            //cell.textLabel?.text = "Здесь отображаются все участники Ваших поездок.\nК сожалению, у Вас нет ни одного участника.\nДобавьте первого, нажав на плюс в верхнем углу экрана."
+            //return cell
+        //}
+}
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: Private function
+    
+    private func loadData() {
+        fetchedResultController = Participant.getParticipants(managedObjectContext: self.coreData.persistentContainer.viewContext)
+        fetchedResultController.delegate = self
     }
     
     // Переходы по контроллерам

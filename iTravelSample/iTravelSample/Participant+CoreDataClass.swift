@@ -13,14 +13,15 @@ public class Participant: NSManagedObject {
     
     internal func getParticipantID(context: NSManagedObjectContext) -> Int? {
         let request: NSFetchRequest<Participant> = Participant.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "idUser", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
+        //let sortDescriptor = NSSortDescriptor(key: "idUser", ascending: true)
+        //request.sortDescriptors = [sortDescriptor]
         
         do {
             let results = try context.fetch(request)
             
             if results.count > 0 {
                 let participant = results.last!
+                print("\n\n\n\n\nparticipant is \(participant.name) - \(participant.idUser)")
                 return Int(participant.idUser) + 1
             } else {
                 print("There are no Participants")
@@ -34,19 +35,24 @@ public class Participant: NSManagedObject {
         return nil
     }
     
-    internal func saveParticipant(idUser: Int, name: String, context: NSManagedObjectContext) {
+    internal static func getParticipants(managedObjectContext: NSManagedObjectContext) -> NSFetchedResultsController<Participant> {
+        let fetchedResultController: NSFetchedResultsController<Participant>
         
-        let entity = NSEntityDescription.entity(forEntityName: "Participant", in: context)
-        let participant = NSManagedObject(entity: entity!, insertInto: context)
-        participant.setValue(idUser, forKey: "idUser")
+        let request: NSFetchRequest<Participant> = Participant.fetchRequest()
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sort]
+        
+        fetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         do {
-            try context.save()
-            print("Saved! Good Job!")
+            try fetchedResultController.performFetch()
+            
         } catch {
-            print(error.localizedDescription)
+            
+            fatalError("Error in fetching records")
         }
         
+        return fetchedResultController
     }
     
 }

@@ -139,11 +139,39 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         if (nameTF.text?.isEmpty)! || (ageTF.text?.isEmpty)! {
             warningAlert()
         } else {
-            let participant = Participant(context: CoreDataStack().persistentContainer.viewContext)
-            let participantNewID = participant.getParticipantID(context: CoreDataStack().persistentContainer.viewContext)
+            let moc = CoreDataStack().persistentContainer.viewContext
+            let participant = Participant(context: moc)
             
-            participant.saveParticipant(idUser: participantNewID!, name: nameTF.text!, context: CoreDataStack().persistentContainer.viewContext)
+            if let newID = participant.getParticipantID(context: moc) {
+                participant.idUser = Int16(newID)
+                //print("\n\n\nnewID = \(newID)")
+            }
+            
+            if let name = nameTF.text {
+                participant.name = name
+                //print("\n\n\nname = \(name)")
+            }
+            
+            if let age = ageTF.text {
+                participant.age = Int16(age)!
+                //print("\n\n\nage = \(age)")
+            }
+            
+            switch segmentedGender.selectedSegmentIndex {
+            case 0: participant.isMan = true; print("\n\n\nisMan = true")
+            case 1: participant.isMan = false; print("\n\n\nisMan = false")
+            default: break
+            }
+            
+            if let img = imgUser.image {
+                let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
+                participant.image = imageData
+            }
+            
+            CoreDataStack().saveContext()
         }
+        
+        back()
     }
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {

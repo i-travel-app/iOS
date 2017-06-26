@@ -2,7 +2,7 @@
 //  TargetPlace+CoreDataProperties.swift
 //  iTravelSample
 //
-//  Created by Stanly Shiyanovskiy on 26.06.17.
+//  Created by Stanly Shiyanovskiy on 27.06.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension TargetPlace {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<TargetPlace> {
-        return NSFetchRequest<TargetPlace>(entityName: "TargetPlace")
+        return NSFetchRequest<TargetPlace>(entityName: "TargetPlace");
     }
 
     @NSManaged public var city: String?
