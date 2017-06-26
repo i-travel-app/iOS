@@ -16,6 +16,12 @@
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
 		5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */; };
 		5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */; };
+		5296B0021F01284900840E06 /* TargetPlace+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFFC1F01284900840E06 /* TargetPlace+CoreDataClass.swift */; };
+		5296B0031F01284900840E06 /* TargetPlace+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFFD1F01284900840E06 /* TargetPlace+CoreDataProperties.swift */; };
+		5296B0041F01284900840E06 /* Trip+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFFE1F01284900840E06 /* Trip+CoreDataClass.swift */; };
+		5296B0051F01284900840E06 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFFF1F01284900840E06 /* Trip+CoreDataProperties.swift */; };
+		5296B0061F01284900840E06 /* Participant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296B0001F01284900840E06 /* Participant+CoreDataClass.swift */; };
+		5296B0071F01284900840E06 /* Participant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296B0011F01284900840E06 /* Participant+CoreDataProperties.swift */; };
 		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
 		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
 		52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */; };
@@ -75,6 +81,12 @@
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
 		5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantDetailsVC.swift; sourceTree = "<group>"; };
 		5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		5296AFFC1F01284900840E06 /* TargetPlace+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetPlace+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5296AFFD1F01284900840E06 /* TargetPlace+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TargetPlace+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5296AFFE1F01284900840E06 /* Trip+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5296AFFF1F01284900840E06 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5296B0001F01284900840E06 /* Participant+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5296B0011F01284900840E06 /* Participant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetPlaceSelectingVC.swift; sourceTree = "<group>"; };
@@ -266,6 +278,12 @@
 		5799D60E1EFD2195005D5D3E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				5296AFFC1F01284900840E06 /* TargetPlace+CoreDataClass.swift */,
+				5296AFFD1F01284900840E06 /* TargetPlace+CoreDataProperties.swift */,
+				5296AFFE1F01284900840E06 /* Trip+CoreDataClass.swift */,
+				5296AFFF1F01284900840E06 /* Trip+CoreDataProperties.swift */,
+				5296B0001F01284900840E06 /* Participant+CoreDataClass.swift */,
+				5296B0011F01284900840E06 /* Participant+CoreDataProperties.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -417,14 +435,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */,
+				5296B0071F01284900840E06 /* Participant+CoreDataProperties.swift in Sources */,
 				52E253831EC4A73100A76CA2 /* UIViewAnchorPoint.swift in Sources */,
 				521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */,
 				572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
 				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
+				5296B0031F01284900840E06 /* TargetPlace+CoreDataProperties.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
 				52B92CBA1EF064560088F265 /* Utils.swift in Sources */,
 				52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */,
+				5296B0061F01284900840E06 /* Participant+CoreDataClass.swift in Sources */,
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
@@ -437,14 +458,17 @@
 				52E253871EC4A73100A76CA2 /* UIVisualEffectViewX.swift in Sources */,
 				5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */,
 				52E253801EC4A73100A76CA2 /* UILabelX.swift in Sources */,
+				5296B0041F01284900840E06 /* Trip+CoreDataClass.swift in Sources */,
 				52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */,
 				52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */,
 				52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */,
 				521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */,
+				5296B0021F01284900840E06 /* TargetPlace+CoreDataClass.swift in Sources */,
 				52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */,
 				521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */,
 				52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */,
 				5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */,
+				5296B0051F01284900840E06 /* Trip+CoreDataProperties.swift in Sources */,
 				52E2538A1EC4A85B00A76CA2 /* SiSTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

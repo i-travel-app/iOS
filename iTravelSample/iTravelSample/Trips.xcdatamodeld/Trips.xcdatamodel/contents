@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Participant" representedClassName=".Participant" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Participant" representedClassName=".Participant" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idUser" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="trips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="participants" inverseEntity="Trip" syncable="YES"/>
     </entity>
-    <entity name="TargetPlace" representedClassName=".TargetPlace" syncable="YES" codeGenerationType="class">
+    <entity name="TargetPlace" representedClassName=".TargetPlace" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="idTargetPlace" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -17,7 +17,7 @@
         <attribute name="regionR" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="idTrip" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trip" inverseName="targetPlace" inverseEntity="Trip" syncable="YES"/>
     </entity>
-    <entity name="Trip" representedClassName=".Trip" syncable="YES" codeGenerationType="class">
+    <entity name="Trip" representedClassName=".Trip" syncable="YES">
         <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idTrip" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
