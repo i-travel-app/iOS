@@ -33,7 +33,7 @@ class ParticipantTVCell: UITableViewCell {
         age.text = String(participant.age)
         gender.text = participant.isMan ? "Мужской" : "Женский"
         
-        let imageData = participant.image as! Data
+        let imageData = participant.image! as Data
         img.image = UIImage(data: imageData)
     }
 

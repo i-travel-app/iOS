@@ -13,15 +13,15 @@ public class Participant: NSManagedObject {
     
     internal func getParticipantID(context: NSManagedObjectContext) -> Int? {
         let request: NSFetchRequest<Participant> = Participant.fetchRequest()
-        //let sortDescriptor = NSSortDescriptor(key: "idUser", ascending: true)
-        //request.sortDescriptors = [sortDescriptor]
+        let sortDescriptor = NSSortDescriptor(key: "idUser", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         
         do {
             let results = try context.fetch(request)
             
             if results.count > 0 {
                 let participant = results.last!
-                print("\n\n\n\n\nparticipant is \(participant.name) - \(participant.idUser)")
+                print("\n\n\n\n\nparticipant is \(String(describing: participant.name)) - \(participant.idUser)")
                 return Int(participant.idUser) + 1
             } else {
                 print("There are no Participants")
