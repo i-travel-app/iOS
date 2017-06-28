@@ -9,21 +9,27 @@
 import UIKit
 import CoreData
 
-class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate {
+class ParticipantsTVC: UITableViewController {
     
     // MARK: - Properties -
-    var fetchedResultController: NSFetchedResultsController<Participant>!
+    lazy var participants = [Participant]()
+    lazy var checkedParticipants = [Participant]()
     lazy var coreData = CoreDataStack()
     var participantToDelete: Participant?
+    
+    var isEditingMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Участники поездки"
+        let checkButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(switchEditingMode))
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
         let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
-        self.navigationItem.leftBarButtonItem = newBackButton
-        self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
+        self.navigationItem.setRightBarButtonItems([addButton, checkButton], animated: true)
+        
+        tableView.tableFooterView = UIView()
         
         loadData()
     }
@@ -34,15 +40,7 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
         tableView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        loadData()
-        tableView.reloadData()
-    }
-    
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -52,16 +50,12 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let objects = fetchedResultController.fetchedObjects {
-            return objects.count + 1
-        }
-        
-        return 0
+        return participants.isEmpty ? 1 : participants.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == (fetchedResultController.fetchedObjects?.count)! {
+        if indexPath.row == participants.count {
             
             let cell: UITableViewCell
             cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath as IndexPath)
@@ -69,14 +63,15 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .red
             cell.textLabel?.text = "Здесь отображаются все участники Ваших поездок.\nК сожалению, у Вас нет ни одного участника.\nДобавьте первого, нажав на плюс в верхнем углу экрана."
-            cell.isHidden = (fetchedResultController.fetchedObjects?.count)! > 0 ? true : false
+            cell.isHidden = participants.count > 0 ? true : false
             return cell
             
         } else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! ParticipantTVCell
-            let participant = fetchedResultController.object(at: indexPath)
+            let participant = participants[indexPath.row]
             cell.configure(participant: participant)
+            cell.accessoryType = isEditingMode ? .none : .disclosureIndicator
             
             return cell
         }
@@ -84,20 +79,39 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
-        openParticipantChangesVC(indexPath: indexPath)
+        if indexPath.row != participants.count && !isEditingMode {
+            openParticipantChangesVC(indexPath: indexPath)
+        } else if isEditingMode {
+            let cell = tableView.cellForRow(at: indexPath)
+            if cell?.accessoryType != .checkmark {
+                cell?.accessoryType = .checkmark
+                checkedParticipants.append(participants[indexPath.row])
+                print("There are \(checkedParticipants.count) participants in checkedArray")
+            } else {
+                cell?.accessoryType = .none
+                let participant = participants[indexPath.row]
+                for (index, value) in checkedParticipants.enumerated() {
+                    if value.idUser == participant.idUser {
+                        checkedParticipants.remove(at: index)
+                        print("There are \(checkedParticipants.count) participants in checkedArray")
+                    }
+                }
+                
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row == (fetchedResultController.fetchedObjects?.count)! ? false : true
+        return indexPath.row == participants.count ? false : true
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let managedObjectContext = coreData.persistentContainer.viewContext
         
         if editingStyle == .delete {
-            participantToDelete = fetchedResultController.object(at: indexPath)
+            participantToDelete = participants[indexPath.row]
             
-            let confirmDeleteAlertController = UIAlertController(title: "Удалить участника из списка?", message: "Вы уверены, что хотите удалить \"\((participantToDelete?.name!)!)\" из базы данных?", preferredStyle: UIAlertControllerStyle.actionSheet)
+            let confirmDeleteAlertController = UIAlertController(title: "Удалить участника из списка?", message: "Вы уверены, что хотите удалить\n\"\((participantToDelete?.name!)!)\"\nиз базы данных?", preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let deleteAction = UIAlertAction(title: "Удалить", style: UIAlertActionStyle.default, handler: { [weak self] (action: UIAlertAction) -> Void in
                 managedObjectContext.delete((self?.participantToDelete!)!)
@@ -118,42 +132,39 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
         
     }
     
-    // MARK: Private function
+    // MARK: - Private function -
     private func loadData() {
-        fetchedResultController = Participant.getParticipants(managedObjectContext: coreData.persistentContainer.viewContext)
-        print("There are participants: \(String(describing: fetchedResultController.fetchedObjects?.count))")
-        fetchedResultController.delegate = self
-        self.tableView.reloadData()
+        participants = Participant.getParticipants(context: coreData.persistentContainer.viewContext)
+        print("There are participants: \(participants.count)")
+        tableView.reloadData()
     }
     
-    // MARK: - Fetched Results Controller Delegate Methods -
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case NSFetchedResultsChangeType.delete:
-            print("NSFetchedResultsChangeType.Delete detected")
-            if let deleteIndexPath = indexPath {
-                tableView.deleteRows(at: [deleteIndexPath], with: UITableViewRowAnimation.fade)
-            }
-        case NSFetchedResultsChangeType.insert:
-            print("NSFetchedResultsChangeType.Insert detected")
-        case NSFetchedResultsChangeType.move:
-            print("NSFetchedResultsChangeType.Move detected")
-        case NSFetchedResultsChangeType.update:
-            print("NSFetchedResultsChangeType.Update detected")
-            tableView.reloadRows(at: [indexPath!], with: UITableViewRowAnimation.fade)
+    func switchEditingMode() {
+        isEditingMode = isEditingMode ? false : true
+        if isEditingMode {
+            checkedParticipants.removeAll()
+            self.navigationItem.rightBarButtonItems = nil
+            self.navigationItem.leftBarButtonItems = nil
+            self.navigationItem.hidesBackButton = true
+            let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(switchEditingMode))
+            self.navigationItem.rightBarButtonItem = saveButton
+            self.view.setNeedsDisplay()
+            tableView.reloadData()
+        } else {
+            self.navigationItem.rightBarButtonItems = nil
+            self.navigationItem.leftBarButtonItems = nil
+            let checkButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(switchEditingMode))
+            let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
+            let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
+            self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
+            self.navigationItem.setRightBarButtonItems([addButton, checkButton], animated: true)
         }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+        
+        
+        tableView.reloadData()
     }
     
     // Переходы по контроллерам
-    
     func back() {
         let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Выберите участников поездки и нажмите кнопку \"Сохранить\".", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
@@ -168,19 +179,16 @@ class ParticipantsTVC: UITableViewController, NSFetchedResultsControllerDelegate
     func openParticipantCreationVC() {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
         VC.isNewParticipant = true
-        VC.participant = Participant(context: coreData.persistentContainer.viewContext)
-        VC.coreData = self.coreData
         self.navigationController!.pushViewController(VC, animated: true)
     }
     
     func openParticipantChangesVC(indexPath: IndexPath) {
         var participant: Participant!
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
-        participant = fetchedResultController.object(at: indexPath)
+        participant = participants[indexPath.row]
         VC.isNewParticipant = false
         VC.participant = participant
         VC.coreData = self.coreData
         self.navigationController!.pushViewController(VC, animated: true)
     }
-
 }

@@ -95,42 +95,48 @@ extension CoreDataStack {
     }
     
     func preloadData() {
+        let startTime = Date()
         if let contentsOfURL = Bundle.main.url(forResource: "test", withExtension: "csv"){
-            if let items = parseCSV(contentsOfURL: contentsOfURL as NSURL, encoding: String.Encoding.utf8) {
-                // Preload the menu items
-                print("Targets were preloaded and it's count = \(items.count)")
-                savePreloadedData(items: items)
+            DispatchQueue.global(qos: .background).async {
+                if let items = self.parseCSV(contentsOfURL: contentsOfURL as NSURL, encoding: String.Encoding.utf8) {
+                    DispatchQueue.main.async() {
+                        // Preload the menu items
+                        print("Targets were preloaded and it's count = \(items.count)")
+                        // Show preload time
+                        print("It takes time: \(Date().timeIntervalSince(startTime))")
+                        self.savePreloadedData(items: items)
+                    }
+                }
             }
-            
         }
     }
     
     func savePreloadedData(items: [(id:Int, city:String, regionR: String?, regionO: String?, country: String)]) {
-        let context = self.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "TargetPlace", in: context)
-        
-        for value in items {
-            let target = NSManagedObject(entity: entity!, insertInto: context) as! TargetPlace
-            target.idTargetPlace = Int16(value.id)
-            target.city = value.city
-            target.country = value.country
-            
-            if let regionR = value.regionR {
-                target.regionR = regionR
+        //let context = self.persistentContainer.viewContext
+        //let entity = NSEntityDescription.entity(forEntityName: "TargetPlace", in: context)
+        let managedObjectContext = CoreDataStack().persistentContainer.viewContext
+        managedObjectContext.perform({
+            do {
+            for value in items {
+                let target = TargetPlace(context: managedObjectContext)
+                target.idTargetPlace = Int16(value.id)
+                target.city = value.city
+                target.country = value.country
+                
+                if let regionR = value.regionR {
+                    target.regionR = regionR
+                }
+                
+                if let regionO = value.regionO {
+                    target.regionO = regionO
+                }
             }
-            
-            if let regionO = value.regionO {
-                target.regionO = regionO
+            try managedObjectContext.save()
+        }
+        catch let error as NSError {
+            print("Error in parsing JSON data: \(error.localizedDescription)")
             }
-            
-        }
-        
-        do {
-            try context.save()
-            print("Saved! Good Job!")
-        } catch {
-            print(error.localizedDescription)
-        }
+        })
         
         // пытаюсь проверить наполнение кордаты
         getAllTargetsFromDB()
@@ -151,7 +157,6 @@ extension CoreDataStack {
         } catch let error as NSError {
             print(error.userInfo)
         }
-        
     }
     
     func getAllTargetsCountryFromDB(withName: String) -> Array<String> {

@@ -35,24 +35,18 @@ public class Participant: NSManagedObject {
         return nil
     }
     
-    internal static func getParticipants(managedObjectContext: NSManagedObjectContext) -> NSFetchedResultsController<Participant> {
-        let fetchedResultController: NSFetchedResultsController<Participant>
-        
+    internal static func getParticipants(context: NSManagedObjectContext) -> [Participant] {
         let request: NSFetchRequest<Participant> = Participant.fetchRequest()
         let sort = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [sort]
         
-        fetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        
         do {
-            try fetchedResultController.performFetch()
+            let results = try context.fetch(request)
+            return results
             
         } catch {
-            
-            fatalError("Error in fetching records")
+            fatalError("Cannot get movie info")
         }
-        
-        return fetchedResultController
     }
     
 }

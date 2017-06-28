@@ -22,7 +22,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
     var isNewParticipant: Bool = false
-    var coreData: CoreDataStack!
+    var coreData = CoreDataStack()
     var participant: Participant!
     
     override func viewDidLoad() {
@@ -42,18 +42,31 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         imgUser.isUserInteractionEnabled = true
         imgUser.addGestureRecognizer(tapGestureRecognizer)
-        imgUser.contentMode = .scaleAspectFill
-        imgUser.layer.cornerRadius = imgUser.frame.height / 2
-        imgUser.clipsToBounds = true
-        imgUser.borderWidth = 1.0
         
         // check textFields
-        nameTF.text = participant.name
-        ageTF.text = String(participant.age)
-        
-        if let imgData = participant.image {
-            imgUser.image = UIImage(data: (imgData as Data?)!)
+        if !isNewParticipant {
+            nameTF.text = participant.name
+            ageTF.text = String(participant.age)
+            segmentedGender.selectedSegmentIndex = participant.isMan ? 0 : 1
+            
+            if let imgData = participant.image {
+                imgUser.image = UIImage(data: (imgData as Data?)!)
+            }
+        } else {
+            participant = Participant(context: coreData.persistentContainer.viewContext)
         }
+        
+        // imageView properties
+        imgUser.contentMode = .scaleAspectFill
+        imgUser.borderWidth = 1.0
+
+    }
+    
+    override func viewWillLayoutSubviews() {
+        imgUser.layer.cornerRadius = imgUser.frame.size.width / 2
+        imgUser.clipsToBounds = true
+        
+        super .viewWillLayoutSubviews()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -155,28 +168,24 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
             warningAlert()
         } else {
             let moc = coreData.persistentContainer.viewContext
-//            let participant = Participant(context: moc)
             
             if isNewParticipant {
                 if let newID = participant.getParticipantID(context: moc) {
                     participant.idUser = Int16(newID)
-                    //print("\n\n\nnewID = \(newID)")
                 }
             }
             
             if let name = nameTF.text {
                 participant.name = name
-                //print("\n\n\nname = \(name)")
             }
             
             if let age = ageTF.text {
                 participant.age = Int16(age)!
-                //print("\n\n\nage = \(age)")
             }
             
             switch segmentedGender.selectedSegmentIndex {
-            case 0: participant.isMan = true; //print("\n\n\nisMan = true")
-            case 1: participant.isMan = false; //print("\n\n\nisMan = false")
+            case 0: participant.isMan = true;
+            case 1: participant.isMan = false;
             default: break
             }
             
@@ -186,13 +195,6 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
             }
             
             self.coreData.saveContext()
-            
-//            do {
-//                try moc.save()
-//            }
-//            catch {
-//                fatalError("Error is storing to data")
-//            }
         }
         
         back()

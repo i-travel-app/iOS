@@ -161,10 +161,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUg-Ws-d01">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="5" y="20" width="404" height="716"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Добавьте место поездки" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RoM-Pb-uW1" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="25" width="374" height="44"/>
+                                        <rect key="frame" x="15" y="25" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="ati-gj-dye"/>
                                         </constraints>
@@ -187,7 +187,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Выберите начальную дату поездки" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="M91-cJ-JBT" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="89" width="374" height="44"/>
+                                        <rect key="frame" x="15" y="89" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="OvG-s2-ePh"/>
                                         </constraints>
@@ -210,7 +210,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Выберите конечную дату поездки" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vwX-Rh-MW2" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="153" width="374" height="44"/>
+                                        <rect key="frame" x="15" y="153" width="374" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="tpL-dI-hZT"/>
                                         </constraints>
@@ -233,13 +233,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цель поездки:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6i-gl-qlL">
-                                        <rect key="frame" x="20" y="217" width="115.33333333333334" height="20.333333333333314"/>
+                                        <rect key="frame" x="15" y="217" width="115.33333333333334" height="20.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PgV-jP-rtb">
-                                        <rect key="frame" x="20" y="242.33333333333331" width="374" height="29"/>
+                                        <rect key="frame" x="15" y="242.33333333333331" width="374" height="29"/>
                                         <segments>
                                             <segment title="Деловая"/>
                                             <segment title="Отпуск"/>
@@ -247,10 +247,10 @@
                                         <color key="tintColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-nW-oI8">
-                                        <rect key="frame" x="20" y="359.33333333333331" width="374" height="30"/>
+                                        <rect key="frame" x="15" y="358.66666666666669" width="374" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Участников:" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bKC-xR-phx">
-                                                <rect key="frame" x="0.0" y="5" width="97" height="20.333333333333371"/>
+                                                <rect key="frame" x="0.0" y="5" width="97" height="20.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -262,7 +262,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-io-GcN">
-                                                <rect key="frame" x="280" y="0.66666666666668561" width="94" height="29"/>
+                                                <rect key="frame" x="280" y="0.66666666666662877" width="94" height="29"/>
                                                 <color key="tintColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
                                                     <action selector="stepperAction:" destination="CGC-Ze-5wJ" eventType="valueChanged" id="ZGi-rF-hWU"/>
@@ -271,7 +271,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bYG-8u-6lp">
-                                        <rect key="frame" x="20" y="399.33333333333337" width="374" height="159.00000000000011"/>
+                                        <rect key="frame" x="15" y="398.66666666666663" width="374" height="158.99999999999989"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="159" id="FFV-KL-Ssb"/>
@@ -284,7 +284,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="person" id="JFo-Co-sl9" customClass="SiSCollectionViewCell" customModule="iTravelSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-6" width="120" height="170"/>
+                                                <rect key="frame" x="0.0" y="-5" width="120" height="170"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="170"/>
@@ -326,7 +326,7 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34a-DI-vhh" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="578.33333333333337" width="374" height="80"/>
+                                        <rect key="frame" x="15" y="577.66666666666663" width="374" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="R64-Qv-X8M"/>
                                         </constraints>
@@ -355,7 +355,7 @@
                                         </connections>
                                     </button>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-5m-Lae">
-                                        <rect key="frame" x="20" y="320.66666666666669" width="374" height="29"/>
+                                        <rect key="frame" x="15" y="320.66666666666669" width="374" height="29"/>
                                         <segments>
                                             <segment title="" image="air"/>
                                             <segment title="" image="train"/>
@@ -367,7 +367,7 @@
                                         <color key="tintColor" red="0.33836060762405396" green="0.75620108842849731" blue="0.91808402538299561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вид транспорта:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAH-Qu-wej">
-                                        <rect key="frame" x="20" y="290.33333333333331" width="133" height="20.333333333333371"/>
+                                        <rect key="frame" x="15" y="290.33333333333331" width="133" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -388,6 +388,7 @@
                                     <constraint firstItem="vwX-Rh-MW2" firstAttribute="trailing" secondItem="PgV-jP-rtb" secondAttribute="trailing" id="Oxc-h0-MXd"/>
                                     <constraint firstItem="bYG-8u-6lp" firstAttribute="trailing" secondItem="bTd-nW-oI8" secondAttribute="trailing" id="P3Y-gX-p6p"/>
                                     <constraint firstItem="lAH-Qu-wej" firstAttribute="top" secondItem="PgV-jP-rtb" secondAttribute="bottom" constant="20" id="RRf-ZH-Lby"/>
+                                    <constraint firstItem="RoM-Pb-uW1" firstAttribute="trailing" secondItem="qUg-Ws-d01" secondAttribute="trailingMargin" id="Sks-hk-5Ml"/>
                                     <constraint firstItem="RaY-5m-Lae" firstAttribute="trailing" secondItem="PgV-jP-rtb" secondAttribute="trailing" id="V6W-OH-h4f"/>
                                     <constraint firstItem="g6i-gl-qlL" firstAttribute="top" secondItem="vwX-Rh-MW2" secondAttribute="bottom" constant="20" id="ZeJ-jx-b8L"/>
                                     <constraint firstItem="RoM-Pb-uW1" firstAttribute="centerX" secondItem="qUg-Ws-d01" secondAttribute="centerX" id="Ztc-jf-aT3"/>
@@ -395,7 +396,6 @@
                                     <constraint firstItem="lAH-Qu-wej" firstAttribute="leading" secondItem="g6i-gl-qlL" secondAttribute="leading" id="dQf-ye-S7y"/>
                                     <constraint firstItem="vwX-Rh-MW2" firstAttribute="leading" secondItem="g6i-gl-qlL" secondAttribute="leading" id="dxN-Eh-quE"/>
                                     <constraint firstItem="RaY-5m-Lae" firstAttribute="leading" secondItem="PgV-jP-rtb" secondAttribute="leading" id="g56-Ua-TAR"/>
-                                    <constraint firstAttribute="trailing" secondItem="RoM-Pb-uW1" secondAttribute="trailing" constant="20" id="iKd-KS-IiM"/>
                                     <constraint firstItem="RoM-Pb-uW1" firstAttribute="top" secondItem="qUg-Ws-d01" secondAttribute="top" constant="25" id="lKw-ci-MIV"/>
                                     <constraint firstItem="vwX-Rh-MW2" firstAttribute="top" secondItem="M91-cJ-JBT" secondAttribute="bottom" constant="20" id="mOk-tL-s0T"/>
                                     <constraint firstAttribute="bottom" secondItem="34a-DI-vhh" secondAttribute="bottom" constant="25" id="ng7-y7-47A"/>
@@ -408,10 +408,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qUg-Ws-d01" secondAttribute="trailing" id="01f-py-bir"/>
-                            <constraint firstItem="RoM-Pb-uW1" firstAttribute="leading" secondItem="PKB-ra-0yE" secondAttribute="leadingMargin" id="Fws-aw-Xr1"/>
+                            <constraint firstAttribute="trailing" secondItem="qUg-Ws-d01" secondAttribute="trailing" constant="5" id="01f-py-bir"/>
                             <constraint firstItem="qUg-Ws-d01" firstAttribute="top" secondItem="NYS-PL-SvM" secondAttribute="bottom" id="WcT-Hk-3Os"/>
-                            <constraint firstItem="qUg-Ws-d01" firstAttribute="leading" secondItem="PKB-ra-0yE" secondAttribute="leading" id="bFI-Zy-xjz"/>
+                            <constraint firstItem="qUg-Ws-d01" firstAttribute="leading" secondItem="PKB-ra-0yE" secondAttribute="leading" constant="5" id="bFI-Zy-xjz"/>
                             <constraint firstItem="KUP-N8-c5l" firstAttribute="top" secondItem="qUg-Ws-d01" secondAttribute="bottom" id="cHc-QX-FLP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RoM-Pb-uW1" secondAttribute="trailing" id="fh8-xY-eDh"/>
                         </constraints>
@@ -708,10 +707,11 @@
         <scene sceneID="0fe-Jf-PFT">
             <objects>
                 <tableViewController storyboardIdentifier="ParticipantsTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nfc-xi-Px5" customClass="ParticipantsTVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="GnE-K5-XGf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="GnE-K5-XGf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.33797180650000003" green="0.75552886720000001" blue="0.91690272090000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="fk8-TU-KJg" customClass="ParticipantTVCell" customModule="iTravelSample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
@@ -816,6 +816,7 @@
                                         <constraint firstItem="EQg-tO-Noi" firstAttribute="leading" secondItem="3Ln-4K-HKw" secondAttribute="leading" constant="10" id="ul3-LV-YqW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.33797180650000003" green="0.75552886720000001" blue="0.91690272090000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="age" destination="1Qd-z4-5gq" id="9P8-d9-2S8"/>
                                     <outlet property="gender" destination="smt-RG-GTu" id="hmA-lS-u9a"/>
@@ -1087,7 +1088,7 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="lxB-2C-Hst">
                                 <rect key="frame" x="25" y="45" width="364" height="666"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" image="Man" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-ga-o4Q" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" image="Man" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-ga-o4Q" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="364"/>
                                         <gestureRecognizers/>
                                         <constraints>
@@ -1096,9 +1097,6 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
