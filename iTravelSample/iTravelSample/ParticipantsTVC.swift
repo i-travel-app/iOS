@@ -9,25 +9,28 @@
 import UIKit
 import CoreData
 
+protocol ParticipantsTVCDelegate {
+    func checkedParticipants(context: NSManagedObjectContext, array: [Participant])
+}
+
 class ParticipantsTVC: UITableViewController {
     
     // MARK: - Properties -
     lazy var participants = [Participant]()
     lazy var checkedParticipants = [Participant]()
+    lazy var temp = [Participant]()
     lazy var coreData = CoreDataStack()
     var participantToDelete: Participant?
-    
-    var isEditingMode = false
+    var delegate: ParticipantsTVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Участники поездки"
-        let checkButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(switchEditingMode))
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
         let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
         self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
-        self.navigationItem.setRightBarButtonItems([addButton, checkButton], animated: true)
+        self.navigationItem.setRightBarButtonItems([addButton], animated: true)
         
         tableView.tableFooterView = UIView()
         
@@ -36,6 +39,7 @@ class ParticipantsTVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkedParticipants.removeAll()
         loadData()
         tableView.reloadData()
     }
@@ -70,8 +74,8 @@ class ParticipantsTVC: UITableViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! ParticipantTVCell
             let participant = participants[indexPath.row]
+            cell.accessoryType = isChecked(participant: participant) ? .checkmark : .none
             cell.configure(participant: participant)
-            cell.accessoryType = isEditingMode ? .none : .disclosureIndicator
             
             return cell
         }
@@ -79,39 +83,33 @@ class ParticipantsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row != participants.count && !isEditingMode {
-            openParticipantChangesVC(indexPath: indexPath)
-        } else if isEditingMode {
-            let cell = tableView.cellForRow(at: indexPath)
-            if cell?.accessoryType != .checkmark {
-                cell?.accessoryType = .checkmark
-                checkedParticipants.append(participants[indexPath.row])
-                print("There are \(checkedParticipants.count) participants in checkedArray")
-            } else {
-                cell?.accessoryType = .none
-                let participant = participants[indexPath.row]
-                for (index, value) in checkedParticipants.enumerated() {
-                    if value.idUser == participant.idUser {
-                        checkedParticipants.remove(at: index)
-                        print("There are \(checkedParticipants.count) participants in checkedArray")
-                    }
+        let cell = tableView.cellForRow(at: indexPath)
+        if cell?.accessoryType != .checkmark {
+            cell?.accessoryType = .checkmark
+            checkedParticipants.append(participants[indexPath.row])
+            print("There are \(checkedParticipants.count) participants checked")
+        } else {
+            cell?.accessoryType = .none
+            let participantToUncheck = participants[indexPath.row]
+            for (index, value) in checkedParticipants.enumerated() {
+                if value.idUser == participantToUncheck.idUser {
+                    checkedParticipants.remove(at: index)
                 }
-                
             }
+            print("There are \(checkedParticipants.count) participants checked")
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.row == participants.count ? false : true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let managedObjectContext = coreData.persistentContainer.viewContext
-        
-        if editingStyle == .delete {
-            participantToDelete = participants[indexPath.row]
-            
-            let confirmDeleteAlertController = UIAlertController(title: "Удалить участника из списка?", message: "Вы уверены, что хотите удалить\n\"\((participantToDelete?.name!)!)\"\nиз базы данных?", preferredStyle: UIAlertControllerStyle.actionSheet)
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Удалить") { (action, indexPath) in
+            let managedObjectContext = self.coreData.persistentContainer.viewContext
+            self.participantToDelete = self.participants[indexPath.row]
+            let confirmDeleteAlertController = UIAlertController(title: "Удалить участника из списка?", message: "Вы уверены, что хотите удалить\n\"\((self.participantToDelete?.name!)!)\"\nиз базы данных?", preferredStyle: UIAlertControllerStyle.actionSheet)
             
             let deleteAction = UIAlertAction(title: "Удалить", style: UIAlertActionStyle.default, handler: { [weak self] (action: UIAlertAction) -> Void in
                 managedObjectContext.delete((self?.participantToDelete!)!)
@@ -122,14 +120,23 @@ class ParticipantsTVC: UITableViewController {
             
             let cancelAction = UIAlertAction(title: "Отмена", style: UIAlertActionStyle.cancel, handler: { [weak self] (action: UIAlertAction) -> Void in
                 self?.participantToDelete = nil
+                tableView.isEditing = false
             })
             
             confirmDeleteAlertController.addAction(deleteAction)
             confirmDeleteAlertController.addAction(cancelAction)
             
-            present(confirmDeleteAlertController, animated: true, completion: nil)
+            self.present(confirmDeleteAlertController, animated: true, completion: nil)
+            
         }
         
+        let edit = UITableViewRowAction(style: .normal, title: "Редактировать") { (action, indexPath) in
+            self.openParticipantChangesVC(indexPath: indexPath)
+        }
+        
+        edit.backgroundColor = Constants.blueColor
+        
+        return [delete, edit]
     }
     
     // MARK: - Private function -
@@ -139,41 +146,21 @@ class ParticipantsTVC: UITableViewController {
         tableView.reloadData()
     }
     
-    func switchEditingMode() {
-        isEditingMode = isEditingMode ? false : true
-        if isEditingMode {
-            checkedParticipants.removeAll()
-            self.navigationItem.rightBarButtonItems = nil
-            self.navigationItem.leftBarButtonItems = nil
-            self.navigationItem.hidesBackButton = true
-            let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(switchEditingMode))
-            self.navigationItem.rightBarButtonItem = saveButton
-            self.view.setNeedsDisplay()
-            tableView.reloadData()
-        } else {
-            self.navigationItem.rightBarButtonItems = nil
-            self.navigationItem.leftBarButtonItems = nil
-            let checkButton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(switchEditingMode))
-            let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
-            let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
-            self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
-            self.navigationItem.setRightBarButtonItems([addButton, checkButton], animated: true)
+    private func isChecked(participant: Participant) -> Bool {
+        for value in temp {
+            if participant.idUser == value.idUser {
+                checkedParticipants.append(participant)
+                return true
+            }
         }
-        
-        
-        tableView.reloadData()
+        return false
     }
+    
     
     // Переходы по контроллерам
     func back() {
-        let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Выберите участников поездки и нажмите кнопку \"Сохранить\".", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
-            Void in
-            _ = self.navigationController?.popViewController(animated: true)
-        }))
-        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertActionStyle.default, handler: nil))
-        
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        delegate?.checkedParticipants(context: coreData.persistentContainer.viewContext, array: checkedParticipants)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func openParticipantCreationVC() {

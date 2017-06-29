@@ -64,7 +64,7 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         if indexPath.row == self.cellsArray.count && !self.cellsArray.isEmpty {
             DispatchQueue.main.async(execute: {
                 let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSNewTripViewController") as! SiSNewTripViewController
-                viewController.trip = SiSTripModel()
+                //viewController.trip = SiSTripModel()
                 self.navigationController!.pushViewController(viewController, animated: true)
                 return
             })

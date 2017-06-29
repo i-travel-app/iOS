@@ -27,8 +27,7 @@ public class Participant: NSManagedObject {
                 print("There are no Participants")
                 return 1
             }
-        }
-        catch {
+        } catch {
             fatalError("Cannot get movie info")
         }
         
