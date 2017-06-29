@@ -37,6 +37,12 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        collectionViewPersons.reloadData()
+    }
+    
     func back(sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Введите детали поездки и нажмите кнопку \"Сохранить\" для сохранения поездки.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
