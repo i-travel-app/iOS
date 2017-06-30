@@ -245,6 +245,9 @@
                                             <segment title="Отпуск"/>
                                         </segments>
                                         <color key="tintColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="tripPurposeChanges:" destination="CGC-Ze-5wJ" eventType="valueChanged" id="naL-el-Tby"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-nW-oI8">
                                         <rect key="frame" x="15" y="358.66666666666669" width="374" height="30"/>
@@ -368,6 +371,9 @@
                                             <segment title="" image="foots"/>
                                         </segments>
                                         <color key="tintColor" red="0.33836060762405396" green="0.75620108842849731" blue="0.91808402538299561" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="transportKindChanges:" destination="CGC-Ze-5wJ" eventType="valueChanged" id="zRx-ky-o0o"/>
+                                        </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вид транспорта:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAH-Qu-wej">
                                         <rect key="frame" x="15" y="290.33333333333331" width="133" height="20.333333333333371"/>

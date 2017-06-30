@@ -209,10 +209,11 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         } else {
             
             let frameKB = self.view.convert(kbFrameSize!, from: self.view)
-            print("frame is \(frameKB)")
+            //print("frame is \(frameKB)")
             let heightRecalc = self.countriesTVActive ? frameKB.origin.y - targetCountry.frame.maxY : frameKB.origin.y - targetCity.frame.maxY
+            let variable = self.countriesTVActive ? targetCountry.frame.maxY : targetCity.frame.maxY
             
-            if heightDefault >= frameKB.origin.y {
+            if (heightDefault + variable) >= frameKB.origin.y {
                 
                 self.tableViewHeightConstr.constant = heightRecalc
                 
@@ -222,8 +223,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
                 
             }
             
-//            self.tableViewHeightConstr.constant = (tableView.frame.maxY >= frameKB.origin.y) ? heightRecalc : heightDefault
-            print("else height is \(self.tableViewHeightConstr.constant) = \(frameKB.origin.y) - \(targetCity.frame.maxY) - \(tableView.frame.maxY)")
+            //print("else height is \(self.tableViewHeightConstr.constant) = \(frameKB.origin.y) - \(targetCity.frame.maxY) - \(tableView.frame.maxY)")
         }
     }
     

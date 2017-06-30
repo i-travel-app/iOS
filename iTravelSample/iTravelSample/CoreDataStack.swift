@@ -150,9 +150,9 @@ extension CoreDataStack {
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
-                print("данных нет!")
+                //print("данных нет!")
             } else {
-                print("в кордате аж \(array.count) записей!!!")
+                //print("в кордате аж \(array.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)
@@ -167,13 +167,13 @@ extension CoreDataStack {
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
-                print("данных нет!")
+                //print("данных нет!")
             } else {
                 for target in array {
                     set.insert(target.country!)
                     //print(set)
                 }
-                print("по предикату и после переноса в сет \(set.count) записей!!!")
+                //print("по предикату и после переноса в сет \(set.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)
@@ -196,13 +196,13 @@ extension CoreDataStack {
         do {
             let array = try context.fetch(fetchRequest)
             if array.isEmpty {
-                print("данных нет!")
+                //print("данных нет!")
             } else {
                 for target in array {
                     set.insert(String("\(target.city!), \(target.country!)"))
                     //print(set)
                 }
-                print("по предикату и после переноса в сет \(set.count) записей!!!")
+                //print("по предикату и после переноса в сет \(set.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)
@@ -221,9 +221,9 @@ extension CoreDataStack {
         do {
             array = try context.fetch(fetchRequest)
             if array.isEmpty {
-                print("данных нет!")
+                //print("данных нет!")
             } else {
-                print("в кордате аж \(array.count) записей!!!")
+                //print("в кордате аж \(array.count) записей!!!")
             }
         } catch let error as NSError {
             print(error.userInfo)

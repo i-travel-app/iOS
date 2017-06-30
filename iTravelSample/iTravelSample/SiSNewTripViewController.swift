@@ -16,6 +16,10 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - Properties - 
     var participants = [Participant]()
     var context: NSManagedObjectContext!
+    var country: String?
+    var city: String?
+    var tripPurposeValue: String?
+    var transportKindValue: String?
     
     // MARK: - Outlets -
     @IBOutlet weak var stepperValue: UILabel!
@@ -25,8 +29,6 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var startTripDate: UITextFieldX!
     @IBOutlet weak var endTripDate: UITextFieldX!
     
-    //var trip: SiSTripModel? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Создание поездки"
@@ -35,12 +37,6 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SiSNewTripViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
 
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        collectionViewPersons.reloadData()
     }
     
     func back(sender: UIBarButtonItem) {
@@ -114,7 +110,13 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        print("Нажата кнопка Сохранить поездку")
+        print("*************************************\n\nОтдаю серверу такой запрос на получение товаров:\n\nСтрана: \(country!)\n\nГород: \(city!)\n\nНачало путешествия: \(startTripDate.text!)\n\nЗавершение путешествия: \(endTripDate.text!)\n\nЦель поездки: \(tripPurposeValue!)\n\nТранспорт: \(transportKindValue!)\n\nУчастников всего: \(participants.count)\n\nРаспечатка данных об участниках:\n\t{")
+        
+        for (index, value) in participants.enumerated() {
+            print("Участник № \(index+1) -> Возраст: \(value.age), Пол: \(value.isMan ? "Мужской" : "Женский")")
+        }
+        
+        print("\t}")
     }
     
     // MARK: - SiSPickerVCDelegate -
@@ -138,7 +140,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         stepperValue.text = String(participants.count)
         stepper.value = Double(participants.count)
         collectionViewPersons.reloadData()
-        print("There are in CV \(participants.count) participants")
+        //print("There are in CV \(participants.count) participants")
     }
     
     // MARK: - Private functions -
@@ -180,7 +182,25 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
 //    }
     
     func addTargetPlace(country: String, city: String) {
+        self.country = country
+        self.city = city
         self.targetPlaceTF.text = String("\(city), \(country)")
     }
     
+    // MARK: - Actions -
+    @IBAction func tripPurposeChanges(_ sender: UISegmentedControl) {
+        tripPurposeValue = sender.titleForSegment(at: sender.selectedSegmentIndex)
+    }
+    
+    @IBAction func transportKindChanges(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: transportKindValue = "Самолет"
+        case 1: transportKindValue = "Паровоз"
+        case 2: transportKindValue = "Автобус"
+        case 3: transportKindValue = "Корабль"
+        case 4: transportKindValue = "Авто"
+        case 5: transportKindValue = "Туризм"
+        default: break
+        }
+    }
 }
