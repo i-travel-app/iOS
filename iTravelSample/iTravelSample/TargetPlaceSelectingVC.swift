@@ -60,6 +60,11 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateViewConstraints()
+    }
+    
     deinit {
         removeKeyboardNotifications()
     }
@@ -196,16 +201,30 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             self.tableViewTopConstr.constant = self.targetCity.frame.maxY - self.targetCountry.frame.maxY
         }
         
+        let heightDefault = CGFloat(self.targetsArray.count) * 44.0
         if self.kbFrameSize == nil {
             
-            self.tableViewHeightConstr.constant =  CGFloat(self.targetsArray.count) * 44.0
+            self.tableViewHeightConstr.constant = heightDefault
         
         } else {
             
-            self.tableViewHeightConstr.constant = self.tableView.frame.maxY > (self.kbFrameSize?.origin.y)! ? self.tableViewHeightConstr.constant - (self.tableView.frame.maxY - (self.kbFrameSize?.origin.y)!) : CGFloat(self.targetsArray.count) * 44.0
+            let frameKB = self.view.convert(kbFrameSize!, from: self.view)
+            print("frame is \(frameKB)")
+            let heightRecalc = self.countriesTVActive ? frameKB.origin.y - targetCountry.frame.maxY : frameKB.origin.y - targetCity.frame.maxY
+            
+            if heightDefault >= frameKB.origin.y {
+                
+                self.tableViewHeightConstr.constant = heightRecalc
+                
+            } else {
+                
+                self.tableViewHeightConstr.constant = heightDefault
+                
+            }
+            
+//            self.tableViewHeightConstr.constant = (tableView.frame.maxY >= frameKB.origin.y) ? heightRecalc : heightDefault
+            print("else height is \(self.tableViewHeightConstr.constant) = \(frameKB.origin.y) - \(targetCity.frame.maxY) - \(tableView.frame.maxY)")
         }
-        
-        
     }
     
     func hideTableView() {

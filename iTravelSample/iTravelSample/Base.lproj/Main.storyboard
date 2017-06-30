@@ -631,69 +631,78 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aht-5l-98g">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="736"/>
                                     <connections>
                                         <action selector="dismissPicker:" destination="5hG-iT-sat" eventType="touchUpInside" id="KBG-Nf-Z6T"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f71-DJ-wTS">
-                                    <rect key="frame" x="8" y="176" width="398" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-1O-SRr" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
-                                    <rect key="frame" x="57" y="218" width="300" height="300"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kJl-oZ-ABQ">
+                                    <rect key="frame" x="40" y="175.66666666666663" width="334" height="385"/>
                                     <subviews>
-                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PWr-8C-dij">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                            <date key="date" timeIntervalSinceReferenceDate="516548385.00848198">
-                                                <!--2017-05-15 13:39:45 +0000-->
-                                            </date>
-                                            <locale key="locale" localeIdentifier="ru_RU"/>
-                                            <connections>
-                                                <action selector="dateChanged:" destination="5hG-iT-sat" eventType="valueChanged" id="ngS-E8-JfP"/>
-                                            </connections>
-                                        </datePicker>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf6-Ha-72J">
-                                            <rect key="frame" x="97" y="262" width="106" height="30"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal" title="Сохранить"/>
-                                            <connections>
-                                                <action selector="done:" destination="5hG-iT-sat" eventType="touchUpInside" id="u7Z-ic-INN"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f71-DJ-wTS">
+                                            <rect key="frame" x="17" y="0.0" width="300" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="6At-a0-RPR"/>
+                                                <constraint firstAttribute="height" constant="21" id="OzQ-pY-stL"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePX-1O-SRr" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="51" width="334" height="334"/>
+                                            <subviews>
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PWr-8C-dij">
+                                                    <rect key="frame" x="7" y="25" width="320" height="284"/>
+                                                    <date key="date" timeIntervalSinceReferenceDate="516548385.00848198">
+                                                        <!--2017-05-15 13:39:45 +0000-->
+                                                    </date>
+                                                    <locale key="locale" localeIdentifier="ru_RU"/>
+                                                    <connections>
+                                                        <action selector="dateChanged:" destination="5hG-iT-sat" eventType="valueChanged" id="ngS-E8-JfP"/>
+                                                    </connections>
+                                                </datePicker>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf6-Ha-72J">
+                                                    <rect key="frame" x="8" y="296" width="319" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="319" id="i4V-E1-8XZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Сохранить"/>
+                                                    <connections>
+                                                        <action selector="done:" destination="5hG-iT-sat" eventType="touchUpInside" id="u7Z-ic-INN"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Gf6-Ha-72J" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" constant="8" id="ANc-D7-7Ge"/>
+                                                <constraint firstAttribute="width" secondItem="ePX-1O-SRr" secondAttribute="height" id="SzG-co-Rg3"/>
+                                                <constraint firstAttribute="trailing" secondItem="PWr-8C-dij" secondAttribute="trailing" constant="7" id="XMe-hl-2ke"/>
+                                                <constraint firstAttribute="bottom" secondItem="PWr-8C-dij" secondAttribute="bottom" constant="25" id="akL-jU-8eS"/>
+                                                <constraint firstItem="PWr-8C-dij" firstAttribute="centerY" secondItem="ePX-1O-SRr" secondAttribute="centerY" id="fzP-bw-8Gh"/>
+                                                <constraint firstItem="PWr-8C-dij" firstAttribute="top" secondItem="ePX-1O-SRr" secondAttribute="top" constant="25" id="q1j-gk-WQf"/>
+                                                <constraint firstItem="PWr-8C-dij" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" constant="7" id="qiW-So-yiY"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gf6-Ha-72J" secondAttribute="bottom" constant="8" id="rqZ-To-EtP"/>
+                                                <constraint firstItem="PWr-8C-dij" firstAttribute="centerX" secondItem="ePX-1O-SRr" secondAttribute="centerX" id="uKm-lU-XLW"/>
+                                                <constraint firstItem="Gf6-Ha-72J" firstAttribute="centerX" secondItem="ePX-1O-SRr" secondAttribute="centerX" id="xTO-vT-VzR"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="40"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="PWr-8C-dij" firstAttribute="top" secondItem="ePX-1O-SRr" secondAttribute="top" id="6yV-gh-zMb"/>
-                                        <constraint firstAttribute="bottom" secondItem="Gf6-Ha-72J" secondAttribute="bottom" constant="8" id="KCh-rx-DgW"/>
-                                        <constraint firstAttribute="trailing" secondItem="Gf6-Ha-72J" secondAttribute="trailing" constant="97" id="R3K-1X-JcD"/>
-                                        <constraint firstItem="PWr-8C-dij" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" id="e9O-Sw-oNf"/>
-                                        <constraint firstAttribute="bottom" secondItem="PWr-8C-dij" secondAttribute="bottom" id="ees-BL-HuU"/>
-                                        <constraint firstAttribute="trailing" secondItem="PWr-8C-dij" secondAttribute="trailing" id="gii-n7-Iyz"/>
-                                        <constraint firstItem="Gf6-Ha-72J" firstAttribute="leading" secondItem="ePX-1O-SRr" secondAttribute="leading" constant="97" id="snN-du-gaa"/>
-                                        <constraint firstAttribute="width" secondItem="ePX-1O-SRr" secondAttribute="height" multiplier="1:1" id="tHl-FI-Sjb"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="40"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
+                                </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Aht-5l-98g" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" id="0X9-4h-KNo"/>
-                                <constraint firstItem="ePX-1O-SRr" firstAttribute="centerY" secondItem="MLE-SS-5jS" secondAttribute="centerY" id="7vg-eT-fjm"/>
-                                <constraint firstAttribute="bottom" secondItem="Aht-5l-98g" secondAttribute="bottom" id="9td-zF-1n1"/>
-                                <constraint firstAttribute="trailing" secondItem="f71-DJ-wTS" secondAttribute="trailing" constant="8" id="AHs-qi-3nl"/>
-                                <constraint firstItem="Aht-5l-98g" firstAttribute="top" secondItem="MLE-SS-5jS" secondAttribute="top" id="C9Q-Au-7ed"/>
-                                <constraint firstItem="ePX-1O-SRr" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" constant="57" id="Kwg-Dz-PEr"/>
-                                <constraint firstItem="f71-DJ-wTS" firstAttribute="centerX" secondItem="Aht-5l-98g" secondAttribute="centerX" id="Wn5-qm-Xo3"/>
-                                <constraint firstItem="ePX-1O-SRr" firstAttribute="top" secondItem="f71-DJ-wTS" secondAttribute="bottom" constant="21" id="hYt-R1-Fv1"/>
-                                <constraint firstItem="ePX-1O-SRr" firstAttribute="centerX" secondItem="MLE-SS-5jS" secondAttribute="centerX" id="rmN-8c-tAT"/>
-                                <constraint firstItem="f71-DJ-wTS" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" constant="8" id="svK-7B-J40"/>
-                                <constraint firstAttribute="trailing" secondItem="Aht-5l-98g" secondAttribute="trailing" id="xQV-qA-PNl"/>
+                                <constraint firstItem="kJl-oZ-ABQ" firstAttribute="width" secondItem="MLE-SS-5jS" secondAttribute="height" multiplier="167:368" id="6qS-jx-mbG"/>
+                                <constraint firstItem="kJl-oZ-ABQ" firstAttribute="centerX" secondItem="MLE-SS-5jS" secondAttribute="centerX" id="9Pf-UN-L7e"/>
+                                <constraint firstItem="Aht-5l-98g" firstAttribute="leading" secondItem="MLE-SS-5jS" secondAttribute="leading" id="NDl-fY-t1k"/>
+                                <constraint firstItem="Aht-5l-98g" firstAttribute="top" secondItem="MLE-SS-5jS" secondAttribute="top" id="NHq-ei-YfK"/>
+                                <constraint firstItem="Aht-5l-98g" firstAttribute="centerY" secondItem="kJl-oZ-ABQ" secondAttribute="centerY" id="Qlg-nK-oQc"/>
+                                <constraint firstItem="kJl-oZ-ABQ" firstAttribute="centerY" secondItem="MLE-SS-5jS" secondAttribute="centerY" id="lzF-cl-Ces"/>
                             </constraints>
                         </view>
                         <blurEffect style="light"/>
