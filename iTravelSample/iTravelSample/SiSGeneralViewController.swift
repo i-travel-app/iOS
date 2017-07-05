@@ -24,6 +24,11 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.dataSource = self
         
         // здесь реализуется логика загрузки историии всех поездок пользователя и добавление их в массив cellsArray
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTripAction))
+        self.navigationItem.setRightBarButtonItems([addButton], animated: true)
+        
+        tableView.tableFooterView = UIView()
     }
     
     // MARK: - TableView dataSource -
@@ -72,7 +77,7 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    @IBAction func addNewTripAction(_ sender: Any) {
+    func addNewTripAction() {
         // открываем контроллер для создания новой поездки
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSNewTripViewController") as! SiSNewTripViewController
         self.navigationController!.pushViewController(viewController, animated: true)
