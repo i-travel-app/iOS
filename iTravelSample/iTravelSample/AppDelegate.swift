@@ -15,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().barStyle = .blackOpaque
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        //UINavigationBar.appearance().isTranslucent = false
+        //UINavigationBar.appearance().isOpaque = true
+        UINavigationBar.appearance().barTintColor = Constants.blueColor
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         
         let defaults = UserDefaults.standard
         let isPreloaded = defaults.bool(forKey: "isPreloaded")

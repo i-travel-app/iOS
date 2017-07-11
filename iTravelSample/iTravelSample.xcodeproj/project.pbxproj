@@ -10,6 +10,10 @@
 		521DA8D31EEC4C7200226AA9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */; };
 		521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D41EEC4DB200226AA9 /* Trips.xcdatamodeld */; };
 		521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521DA8D71EEC53A000226AA9 /* APIStack.swift */; };
+		521EBFC71F15326F00DB1614 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC61F15326F00DB1614 /* LoginVC.swift */; };
+		521EBFCA1F15336800DB1614 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */; };
+		521EBFCB1F15336800DB1614 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */; };
+		521EBFCD1F1533BA00DB1614 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFCC1F1533BA00DB1614 /* String+Extension.swift */; };
 		523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523B4C761EF3015400B68532 /* UITableViewCellX.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
@@ -76,6 +80,10 @@
 		521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trips.xcdatamodel; sourceTree = "<group>"; };
 		521DA8D71EEC53A000226AA9 /* APIStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIStack.swift; sourceTree = "<group>"; };
+		521EBFC61F15326F00DB1614 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
+		521EBFCC1F1533BA00DB1614 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		523B4C761EF3015400B68532 /* UITableViewCellX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellX.swift; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
@@ -157,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */,
+				521EBFCC1F1533BA00DB1614 /* String+Extension.swift */,
+				521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */,
+				521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -171,6 +182,7 @@
 				52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */,
 				572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */,
 				5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */,
+				521EBFC61F15326F00DB1614 /* LoginVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
@@ -459,6 +471,7 @@
 				5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,
+				521EBFC71F15326F00DB1614 /* LoginVC.swift in Sources */,
 				52E253871EC4A73100A76CA2 /* UIVisualEffectViewX.swift in Sources */,
 				5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */,
 				52E253801EC4A73100A76CA2 /* UILabelX.swift in Sources */,
@@ -474,6 +487,9 @@
 				5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */,
 				5296B0051F01284900840E06 /* Trip+CoreDataProperties.swift in Sources */,
 				52E2538A1EC4A85B00A76CA2 /* SiSTableViewCell.swift in Sources */,
+				521EBFCB1F15336800DB1614 /* TouchIDAuthentication.swift in Sources */,
+				521EBFCA1F15336800DB1614 /* KeychainPasswordItem.swift in Sources */,
+				521EBFCD1F1533BA00DB1614 /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

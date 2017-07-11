@@ -16,7 +16,7 @@
         <!--Главный экран-->
         <scene sceneID="OcB-KV-pDP">
             <objects>
-                <viewController id="Sqp-J1-f1c" customClass="SiSGeneralViewController" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SiSGeneralViewController" storyboardIdentifier="SiSGeneralViewController" id="Sqp-J1-f1c" customClass="SiSGeneralViewController" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wib-7E-pAV"/>
                         <viewControllerLayoutGuide type="bottom" id="Mfd-hj-3mS"/>
@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="iKR-P8-qT0">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="-33" width="414" height="769"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="aMe-0H-JFX" customClass="SiSTableViewCell" customModule="iTravelSample" customModuleProvider="target">
@@ -93,7 +93,7 @@
                             <constraint firstItem="iKR-P8-qT0" firstAttribute="leading" secondItem="SlP-6j-r5F" secondAttribute="leading" id="69w-vN-lpv"/>
                             <constraint firstItem="iKR-P8-qT0" firstAttribute="bottom" secondItem="Mfd-hj-3mS" secondAttribute="top" id="BgO-Mi-cSW"/>
                             <constraint firstAttribute="trailing" secondItem="iKR-P8-qT0" secondAttribute="trailing" id="NVY-ui-Rip"/>
-                            <constraint firstItem="iKR-P8-qT0" firstAttribute="top" secondItem="Wib-7E-pAV" secondAttribute="bottom" constant="-44" id="wZe-Wk-euQ"/>
+                            <constraint firstItem="iKR-P8-qT0" firstAttribute="top" secondItem="Wib-7E-pAV" secondAttribute="bottom" constant="-53" id="wZe-Wk-euQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Главный экран" id="Joa-XE-1Ng"/>
@@ -1159,10 +1159,10 @@
             </objects>
             <point key="canvasLocation" x="3739.130434782609" y="716.57608695652175"/>
         </scene>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="Asb-nS-CzF">
             <objects>
-                <viewController id="xWq-n9-6DI" sceneMemberID="viewController">
+                <viewController id="xWq-n9-6DI" customClass="LoginVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a6m-Wh-REs"/>
                         <viewControllerLayoutGuide type="bottom" id="hIC-cH-ZZ0"/>
@@ -1171,46 +1171,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="suitcase_PNG10776" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-GA-cv7" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="107" y="101" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-mh-B1f">
-                                <rect key="frame" x="0.0" y="660" width="414" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-QE-QfR">
-                                        <rect key="frame" x="8" y="8" width="398" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Введите e-mail и пароль, чтобы зарегистрироваться в приложении. Или используйте их, чтобы восстановить историю поездок, участников и собранных чемоданов.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="0.77498929790000004" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aRh-mL-QF8" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="80" y="541" width="254" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRh-mL-QF8" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="80" y="602" width="254" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
@@ -1230,9 +1192,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q2-Bd-jgI" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="80" y="541" width="254" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q2-Bd-jgI" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="80" y="602" width="254" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Войти!">
@@ -1242,101 +1203,160 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginAction:" destination="xWq-n9-6DI" eventType="touchUpInside" id="vke-PY-efS"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="80" y="378" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                <rect key="frame" x="80" y="430" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-mh-B1f">
+                                <rect key="frame" x="0.0" y="668" width="414" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-QE-QfR">
+                                        <rect key="frame" x="8" y="8" width="398" height="52"/>
+                                        <string key="text">Введите e-mail и пароль, чтобы зарегистрироваться в приложении. Или используйте их, чтобы восстановить историю поездок, участников и собранных чемоданов.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="0.77498929790000004" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YSl-QE-QfR" secondAttribute="bottom" constant="8" id="1UH-Ji-yQK"/>
+                                    <constraint firstItem="YSl-QE-QfR" firstAttribute="centerX" secondItem="dJj-mh-B1f" secondAttribute="centerX" id="5Xz-m1-yim"/>
+                                    <constraint firstItem="YSl-QE-QfR" firstAttribute="centerY" secondItem="dJj-mh-B1f" secondAttribute="centerY" id="F36-JL-9Ua"/>
+                                    <constraint firstItem="YSl-QE-QfR" firstAttribute="leading" secondItem="dJj-mh-B1f" secondAttribute="leading" constant="8" id="MCZ-db-Qp5"/>
+                                    <constraint firstAttribute="trailing" secondItem="YSl-QE-QfR" secondAttribute="trailing" constant="8" id="e5c-1p-h5c"/>
+                                    <constraint firstAttribute="height" constant="67.666666666666629" id="jOU-hd-12i"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="uim-B4-scG">
+                                <rect key="frame" x="40" y="20" width="334" height="393"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suitcase_PNG10776" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-GA-cv7" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="0.0" width="200" height="200"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Stk-LX-7kY"/>
+                                            <constraint firstAttribute="width" constant="200" id="XCe-B2-JSA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="222" width="254" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="750" constant="254" id="EO8-Ru-7aI"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="xWq-n9-6DI" id="Lyo-TB-aWX"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="274" width="254" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="750" constant="254" id="9cx-aq-55Y"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="xWq-n9-6DI" id="ZrV-nF-cLB"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-3Q-pon">
+                                        <rect key="frame" x="134" y="326" width="66" height="67"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="66" id="j1B-eB-dFS"/>
+                                            <constraint firstAttribute="height" constant="67" id="rZM-sQ-gSx"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Touch-icon-lg"/>
+                                        <connections>
+                                            <action selector="touchIDLoginAction:" destination="xWq-n9-6DI" eventType="touchUpInside" id="FGy-Nq-K0K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="centerX" secondItem="aRh-mL-QF8" secondAttribute="centerX" id="3Hz-6u-1gs"/>
+                            <constraint firstAttribute="trailing" secondItem="dJj-mh-B1f" secondAttribute="trailing" id="5T8-Lf-H1G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aRh-mL-QF8" secondAttribute="trailing" constant="60" id="Aql-rC-ekY"/>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="centerY" secondItem="aRh-mL-QF8" secondAttribute="centerY" id="HUE-F8-r9L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uim-B4-scG" secondAttribute="trailing" constant="20" id="LRz-tk-0TB"/>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="width" secondItem="aRh-mL-QF8" secondAttribute="width" id="Lc0-BY-B6a"/>
+                            <constraint firstItem="dJj-mh-B1f" firstAttribute="top" secondItem="aRh-mL-QF8" secondAttribute="bottom" constant="20" id="MVp-1s-JFL"/>
+                            <constraint firstItem="dJj-mh-B1f" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leading" id="gW0-9F-4ey"/>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="height" secondItem="aRh-mL-QF8" secondAttribute="height" id="igZ-ua-AzR"/>
+                            <constraint firstItem="aRh-mL-QF8" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leadingMargin" constant="60" id="npr-yR-mlA"/>
+                            <constraint firstItem="uim-B4-scG" firstAttribute="top" secondItem="a6m-Wh-REs" secondAttribute="bottom" id="rc4-fo-wnI"/>
+                            <constraint firstItem="uim-B4-scG" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leadingMargin" constant="20" id="v1v-eY-nUu"/>
+                            <constraint firstItem="hIC-cH-ZZ0" firstAttribute="top" secondItem="dJj-mh-B1f" secondAttribute="bottom" id="zuj-EU-UTM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createInfoLabel" destination="YSl-QE-QfR" id="74V-44-Ard"/>
+                        <outlet property="loginButton" destination="7q2-Bd-jgI" id="rmZ-eR-TZN"/>
+                        <outlet property="passwordTextField" destination="T1g-VK-D4n" id="3s1-E5-INf"/>
+                        <outlet property="touchIDButton" destination="2oV-3Q-pon" id="rIu-uR-b6u"/>
+                        <outlet property="usernameTextField" destination="lrC-yc-G55" id="VUU-SO-sDp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPT-Kj-358" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594.20289855072474" y="716.57608695652175"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="A5s-Ru-yo8">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KAP-bK-fBU" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="74O-R7-hdU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.28235294117647058" green="0.70196078431372544" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Sqp-J1-f1c" kind="relationship" relationship="rootViewController" id="QUY-wa-7ic"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IkB-Vo-F42" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="187" y="717"/>
+            <point key="canvasLocation" x="248" y="717"/>
         </scene>
     </scenes>
     <resources>
         <image name="Face.png" width="91" height="95"/>
         <image name="Man" width="512" height="512"/>
+        <image name="Touch-icon-lg" width="138" height="137"/>
         <image name="air" width="26" height="19"/>
         <image name="auto" width="30" height="14"/>
         <image name="bus" width="27" height="15"/>

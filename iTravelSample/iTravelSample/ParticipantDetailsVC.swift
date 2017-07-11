@@ -22,6 +22,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
     var isNewParticipant: Bool = false
+    var isNewUser: Bool = false
     var coreData = CoreDataStack()
     var participant: Participant!
     
@@ -59,6 +60,12 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         // imageView properties
         imgUser.contentMode = .scaleAspectFill
         imgUser.borderWidth = 1.0
+        
+        // check newUserCreation
+        if isNewUser {
+            nameTF.placeholder = "Введите Ваше имя"
+            ageTF.placeholder = "Введите Ваш возраст"
+        }
 
     }
     
