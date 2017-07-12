@@ -55,6 +55,7 @@
 		57154ABC1ECAF8C600A0398E /* Face.png in Resources */ = {isa = PBXBuildFile; fileRef = 57154ABB1ECAF8C600A0398E /* Face.png */; };
 		57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */; };
 		5718D21A1F01A0C800A73754 /* ParticipantTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718D2191F01A0C800A73754 /* ParticipantTVCell.swift */; };
+		5728E70A1F1614B3008271BB /* NewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728E7091F1614B3008271BB /* NewUserVC.swift */; };
 		572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */; };
 		577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577948961EF3D95100C28A6F /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
 		5718D2191F01A0C800A73754 /* ParticipantTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTVCell.swift; sourceTree = "<group>"; };
 		57192C1E1F1610ED00114B4D /* iTravelSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTravelSample.entitlements; sourceTree = "<group>"; };
+		5728E7091F1614B3008271BB /* NewUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
 		572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTVC.swift; sourceTree = "<group>"; };
 		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */,
 				572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */,
 				5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */,
+				5728E7091F1614B3008271BB /* NewUserVC.swift */,
 				521EBFC61F15326F00DB1614 /* LoginVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
@@ -474,6 +477,7 @@
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */,
+				5728E70A1F1614B3008271BB /* NewUserVC.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,
 				521EBFC71F15326F00DB1614 /* LoginVC.swift in Sources */,

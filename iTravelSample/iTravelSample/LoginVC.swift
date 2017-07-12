@@ -263,10 +263,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func openUserCreationVC() {
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
+        let VC = ParticipantDetailsVC()
         VC.isNewParticipant = true
-        VC.isNewUser = true
-        present(VC, animated: true, completion: nil)
+        self.present(VC, animated: true, completion: nil)
     }
     
     func openUserTripsVC() {
@@ -275,3 +274,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.present(navController, animated: true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+

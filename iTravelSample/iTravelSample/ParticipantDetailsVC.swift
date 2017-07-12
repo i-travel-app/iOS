@@ -22,7 +22,6 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
     var isNewParticipant: Bool = false
-    var isNewUser: Bool = false
     var coreData = CoreDataStack()
     var participant: Participant!
     
@@ -33,16 +32,16 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.navigationItem.leftBarButtonItem = newBackButton
         
         // textfields delegates
-        nameTF.delegate = self
-        ageTF.delegate = self
-        nameTF.addPoleForButtonsToKeyboard(myAction: nil, buttonNeeds: false)
-        ageTF.addPoleForButtonsToKeyboard(myAction: #selector(ageTF.resignFirstResponder), buttonNeeds: true)
+        nameTF?.delegate = self
+        ageTF?.delegate = self
+        nameTF?.addPoleForButtonsToKeyboard(myAction: nil, buttonNeeds: false)
+        ageTF?.addPoleForButtonsToKeyboard(myAction: #selector(ageTF.resignFirstResponder), buttonNeeds: true)
         registerForKeyboardNotifications()
         
         // imgUser gesture
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        imgUser.isUserInteractionEnabled = true
-        imgUser.addGestureRecognizer(tapGestureRecognizer)
+        imgUser?.isUserInteractionEnabled = true
+        imgUser?.addGestureRecognizer(tapGestureRecognizer)
         
         // check textFields
         if !isNewParticipant {
@@ -58,20 +57,14 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         }
         
         // imageView properties
-        imgUser.contentMode = .scaleAspectFill
-        imgUser.borderWidth = 1.0
-        
-        // check newUserCreation
-        if isNewUser {
-            nameTF.placeholder = "Введите Ваше имя"
-            ageTF.placeholder = "Введите Ваш возраст"
-        }
+        imgUser?.contentMode = .scaleAspectFill
+        imgUser?.borderWidth = 1.0
 
     }
     
     override func viewWillLayoutSubviews() {
-        imgUser.layer.cornerRadius = imgUser.frame.size.width / 2
-        imgUser.clipsToBounds = true
+        imgUser?.layer.cornerRadius = imgUser.frame.size.width / 2
+        imgUser?.clipsToBounds = true
         
         super.viewWillLayoutSubviews()
     }
