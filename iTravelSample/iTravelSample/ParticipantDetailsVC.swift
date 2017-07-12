@@ -73,7 +73,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         imgUser.layer.cornerRadius = imgUser.frame.size.width / 2
         imgUser.clipsToBounds = true
         
-        super .viewWillLayoutSubviews()
+        super.viewWillLayoutSubviews()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

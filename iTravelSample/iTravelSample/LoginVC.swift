@@ -25,6 +25,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     var kbFrameSize: CGFloat = 0
     
     // MARK: - Outlets -
+    @IBOutlet weak var suitLogo: UIImageViewX!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField! {
         didSet {
@@ -67,12 +68,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         kbFrameSize = kbFrame.height
         UIView.animate(withDuration:0.3) {
             if self.isKBShown == false {
-                print("!!!")
-                for view in self.view.subviews {
-                    print(view.center.y)
-                    view.center.y -= self.kbFrameSize
-                    print(view.center.y)
+                self.view.frame.origin.y -= self.kbFrameSize
+                if UIScreen.main.bounds.size.height > 600.0 {
+                    self.suitLogo.isHidden = true
                 }
+
+//                print("!!!")
+//                for view in self.view.subviews {
+//                    print(view.center.y)
+//                    view.center.y -= self.kbFrameSize
+//                    print(view.center.y)
+//                }
                 self.view.layoutSubviews()
             }
         }
@@ -82,12 +88,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
-                print("???")
-                for view in self.view.subviews {
-                    print("*", view.center.y)
-                    view.center.y += self.kbFrameSize
-                    print("*", view.center.y)
-                }
+                self.view.frame.origin.y += self.kbFrameSize
+                self.suitLogo.isHidden = false
                 self.view.layoutSubviews()
             }
         }

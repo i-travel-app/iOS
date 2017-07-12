@@ -131,6 +131,7 @@
 		57154ABB1ECAF8C600A0398E /* Face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Face.png; sourceTree = "<group>"; };
 		57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonDetailsVC.swift; sourceTree = "<group>"; };
 		5718D2191F01A0C800A73754 /* ParticipantTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTVCell.swift; sourceTree = "<group>"; };
+		57192C1E1F1610ED00114B4D /* iTravelSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTravelSample.entitlements; sourceTree = "<group>"; };
 		572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTVC.swift; sourceTree = "<group>"; };
 		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -246,6 +247,7 @@
 		52F512891EBB79BD002413CF /* iTravelSample */ = {
 			isa = PBXGroup;
 			children = (
+				57192C1E1F1610ED00114B4D /* iTravelSample.entitlements */,
 				5296AFF71F0002BC00840E06 /* Helpers */,
 				52F5128A1EBB79BD002413CF /* AppDelegate.swift */,
 				52F5128C1EBB79BD002413CF /* ViewController.swift */,
@@ -375,6 +377,9 @@
 						DevelopmentTeam = 3PTYV272Z4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
@@ -641,6 +646,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -655,6 +661,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

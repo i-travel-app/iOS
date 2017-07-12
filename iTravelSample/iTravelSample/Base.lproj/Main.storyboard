@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xWq-n9-6DI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xWq-n9-6DI">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMe-0H-JFX" id="tiK-0E-5F8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5U-C1-JaF" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
@@ -81,7 +81,7 @@
                                         <rect key="frame" x="0.0" y="101" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zrk-OT-gEW" id="6rV-nA-iRq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -517,7 +517,7 @@
                                             <rect key="frame" x="0.0" y="1" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
@@ -693,7 +693,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fk8-TU-KJg" id="3Ln-4K-HKw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EQg-tO-Noi">
@@ -803,7 +803,7 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pcg-sC-q9G" id="XOV-ew-GNk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1211,7 +1211,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-mh-B1f">
                                 <rect key="frame" x="0.0" y="668" width="414" height="68"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-QE-QfR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-QE-QfR">
                                         <rect key="frame" x="8" y="8" width="398" height="52"/>
                                         <string key="text">Введите e-mail и пароль, чтобы зарегистрироваться в приложении. Или используйте их, чтобы восстановить историю поездок, участников и собранных чемоданов.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -1230,14 +1230,14 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="uim-B4-scG">
-                                <rect key="frame" x="40" y="20" width="334" height="393"/>
+                                <rect key="frame" x="40" y="60" width="334" height="393"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suitcase_PNG10776" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-GA-cv7" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
                                         <rect key="frame" x="67" y="0.0" width="200" height="200"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Stk-LX-7kY"/>
-                                            <constraint firstAttribute="width" constant="200" id="XCe-B2-JSA"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="Stk-LX-7kY"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="XCe-B2-JSA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -1257,10 +1257,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="222" width="254" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="222" width="250" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" priority="750" constant="254" id="EO8-Ru-7aI"/>
+                                            <constraint firstAttribute="width" priority="750" constant="250" id="EO8-Ru-7aI"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -1283,10 +1283,10 @@
                                             <outlet property="delegate" destination="xWq-n9-6DI" id="Lyo-TB-aWX"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="40" y="274" width="254" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="274" width="250" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" priority="750" constant="254" id="9cx-aq-55Y"/>
+                                            <constraint firstAttribute="width" priority="750" constant="250" id="9cx-aq-55Y"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -1332,10 +1332,11 @@
                             <constraint firstAttribute="trailingMargin" secondItem="uim-B4-scG" secondAttribute="trailing" constant="20" id="LRz-tk-0TB"/>
                             <constraint firstItem="7q2-Bd-jgI" firstAttribute="width" secondItem="aRh-mL-QF8" secondAttribute="width" id="Lc0-BY-B6a"/>
                             <constraint firstItem="dJj-mh-B1f" firstAttribute="top" secondItem="aRh-mL-QF8" secondAttribute="bottom" constant="20" id="MVp-1s-JFL"/>
+                            <constraint firstItem="uim-B4-scG" firstAttribute="top" secondItem="a6m-Wh-REs" secondAttribute="bottom" constant="40" id="ePa-Y3-YdX"/>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uim-B4-scG" secondAttribute="bottom" constant="42" id="eV5-Gf-Efo"/>
                             <constraint firstItem="dJj-mh-B1f" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leading" id="gW0-9F-4ey"/>
                             <constraint firstItem="7q2-Bd-jgI" firstAttribute="height" secondItem="aRh-mL-QF8" secondAttribute="height" id="igZ-ua-AzR"/>
                             <constraint firstItem="aRh-mL-QF8" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leadingMargin" constant="60" id="npr-yR-mlA"/>
-                            <constraint firstItem="uim-B4-scG" firstAttribute="top" secondItem="a6m-Wh-REs" secondAttribute="bottom" id="rc4-fo-wnI"/>
                             <constraint firstItem="uim-B4-scG" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leadingMargin" constant="20" id="v1v-eY-nUu"/>
                             <constraint firstItem="hIC-cH-ZZ0" firstAttribute="top" secondItem="dJj-mh-B1f" secondAttribute="bottom" id="zuj-EU-UTM"/>
                         </constraints>
@@ -1344,6 +1345,7 @@
                         <outlet property="createInfoLabel" destination="YSl-QE-QfR" id="74V-44-Ard"/>
                         <outlet property="loginButton" destination="7q2-Bd-jgI" id="rmZ-eR-TZN"/>
                         <outlet property="passwordTextField" destination="T1g-VK-D4n" id="3s1-E5-INf"/>
+                        <outlet property="suitLogo" destination="ALr-GA-cv7" id="68O-4o-zln"/>
                         <outlet property="touchIDButton" destination="2oV-3Q-pon" id="rIu-uR-b6u"/>
                         <outlet property="usernameTextField" destination="lrC-yc-G55" id="VUU-SO-sDp"/>
                     </connections>
