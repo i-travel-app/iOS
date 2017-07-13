@@ -26,39 +26,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9H-dl-U3t">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="606"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zai-bs-Eaq" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="22" y="462" width="364" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="c8l-CY-ylD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Сохранить"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="20"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                                <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
-                                                <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="saveUser:" destination="jdR-H9-7Zc" eventType="touchUpInside" id="BdC-bZ-Aks"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Введите информацию о себе для корректной работы приложения:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKY-s6-oWS">
-                                        <rect key="frame" x="8" y="0.0" width="398" height="64"/>
+                                        <rect key="frame" x="8" y="10" width="398" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="uth-YU-EXa"/>
                                         </constraints>
@@ -66,8 +37,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-if-WIV">
-                                        <rect key="frame" x="82" y="64" width="250" height="373"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-if-WIV">
+                                        <rect key="frame" x="82" y="89" width="250" height="348"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Man" translatesAutoresizingMaskIntoConstraints="NO" id="Kkr-zm-OHx" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="0.0" width="200" height="200"/>
@@ -85,8 +56,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-3R-uMc">
-                                                <rect key="frame" x="0.0" y="230" width="250" height="25"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-3R-uMc">
+                                                <rect key="frame" x="0.0" y="220" width="250" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="Luc-S0-brn"/>
                                                 </constraints>
@@ -94,8 +65,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Укажите Ваш возраст" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hxM-Eb-QnH">
-                                                <rect key="frame" x="0.0" y="285" width="250" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Укажите Ваш возраст" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hxM-Eb-QnH">
+                                                <rect key="frame" x="0.0" y="270" width="250" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="250" id="Z4k-rt-XLn"/>
                                                 </constraints>
@@ -103,8 +74,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="phonePad"/>
                                             </textField>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ll6-em-ELd">
-                                                <rect key="frame" x="51.666666666666657" y="345" width="147.00000000000003" height="29"/>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ll6-em-ELd">
+                                                <rect key="frame" x="52" y="320" width="146" height="29"/>
                                                 <segments>
                                                     <segment title="Мужской"/>
                                                     <segment title="Женский"/>
@@ -115,28 +86,60 @@
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ll6-em-ELd" firstAttribute="leading" secondItem="T6i-if-WIV" secondAttribute="leading" constant="52" id="Bmd-QA-dCl"/>
+                                            <constraint firstItem="WYD-3R-uMc" firstAttribute="leading" secondItem="T6i-if-WIV" secondAttribute="leading" id="OQY-VE-5Pg"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="zai-bs-Eaq" secondAttribute="trailing" constant="28" id="6l9-nq-HfK"/>
-                                    <constraint firstItem="zai-bs-Eaq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="T6i-if-WIV" secondAttribute="bottom" constant="25" id="QNI-VP-Vgh"/>
-                                    <constraint firstItem="NKY-s6-oWS" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="top" id="TM7-UG-6XN"/>
-                                    <constraint firstItem="zai-bs-Eaq" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="top" constant="462" id="Yxb-sL-Vyj"/>
+                                    <constraint firstAttribute="bottom" secondItem="T6i-if-WIV" secondAttribute="bottom" constant="3" id="0Cm-dJ-pUA"/>
+                                    <constraint firstAttribute="trailing" secondItem="T6i-if-WIV" secondAttribute="trailing" constant="10" id="1Ky-X5-Qaa"/>
+                                    <constraint firstItem="NKY-s6-oWS" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="top" constant="10" id="TM7-UG-6XN"/>
+                                    <constraint firstItem="T6i-if-WIV" firstAttribute="top" secondItem="NKY-s6-oWS" secondAttribute="bottom" constant="15" id="ZmK-BG-e82"/>
                                     <constraint firstItem="T6i-if-WIV" firstAttribute="centerX" secondItem="o9H-dl-U3t" secondAttribute="centerX" id="dec-hh-fG5"/>
-                                    <constraint firstAttribute="bottom" secondItem="zai-bs-Eaq" secondAttribute="bottom" constant="25" id="eBM-7q-ost"/>
-                                    <constraint firstItem="T6i-if-WIV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NKY-s6-oWS" secondAttribute="bottom" id="qwn-02-VDD"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zai-bs-Eaq" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                <rect key="frame" x="25" y="631" width="364" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ptP-fL-gVf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Сохранить"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                        <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                        <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveUser:" destination="jdR-H9-7Zc" eventType="touchUpInside" id="BdC-bZ-Aks"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zai-bs-Eaq" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leadingMargin" constant="2" id="Hgf-iN-KZt"/>
+                            <constraint firstItem="zai-bs-Eaq" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="bottom" constant="25" id="Eiu-LP-h2G"/>
+                            <constraint firstAttribute="trailing" secondItem="zai-bs-Eaq" secondAttribute="trailing" constant="25" id="HCp-Xe-e21"/>
                             <constraint firstItem="o9H-dl-U3t" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leading" id="JHk-xO-5eQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NKY-s6-oWS" secondAttribute="trailing" constant="-12" id="P9b-rm-QaA"/>
-                            <constraint firstItem="z8M-Oe-IHv" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="bottom" id="QLU-wD-ZZG"/>
+                            <constraint firstItem="zai-bs-Eaq" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leading" constant="25" id="RRE-6Q-DCf"/>
                             <constraint firstItem="NKY-s6-oWS" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leadingMargin" constant="-12" id="WIf-I5-xdn"/>
                             <constraint firstAttribute="trailing" secondItem="o9H-dl-U3t" secondAttribute="trailing" id="Z6m-zj-pWt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zai-bs-Eaq" secondAttribute="trailing" constant="8" id="pwK-9o-j80"/>
+                            <constraint firstItem="z8M-Oe-IHv" firstAttribute="top" secondItem="zai-bs-Eaq" secondAttribute="bottom" constant="25" id="hAz-pb-yv0"/>
                             <constraint firstItem="o9H-dl-U3t" firstAttribute="top" secondItem="XYj-Iw-VIZ" secondAttribute="top" id="vMy-ak-H68"/>
                         </constraints>
                     </view>
@@ -172,7 +175,7 @@
                                         <rect key="frame" x="0.0" y="1" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMe-0H-JFX" id="tiK-0E-5F8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5U-C1-JaF" customClass="UIViewX" customModule="iTravelSample" customModuleProvider="target">
@@ -220,7 +223,7 @@
                                         <rect key="frame" x="0.0" y="101" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zrk-OT-gEW" id="6rV-nA-iRq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -656,7 +659,7 @@
                                             <rect key="frame" x="0.0" y="1" width="364" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9v3-M1-Fvb" id="avp-0B-KdX">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="43"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KoC-wu-XfA">
@@ -832,7 +835,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fk8-TU-KJg" id="3Ln-4K-HKw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EQg-tO-Noi">
@@ -942,7 +945,7 @@
                                 <rect key="frame" x="0.0" y="108" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pcg-sC-q9G" id="XOV-ew-GNk">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
