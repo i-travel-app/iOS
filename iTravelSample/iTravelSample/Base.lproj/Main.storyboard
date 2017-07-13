@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xWq-n9-6DI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jdR-H9-7Zc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,145 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--New UserVC-->
+        <scene sceneID="alW-SY-iQv">
+            <objects>
+                <viewController storyboardIdentifier="NewUserVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jdR-H9-7Zc" customClass="NewUserVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8RL-9E-MT3"/>
+                        <viewControllerLayoutGuide type="bottom" id="z8M-Oe-IHv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XYj-Iw-VIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9H-dl-U3t">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zai-bs-Eaq" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="22" y="462" width="364" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="c8l-CY-ylD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Сохранить"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                                <color key="value" red="0.28235294119999998" green="0.70196078429999997" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                                <color key="value" red="0.44705882349999998" green="0.7725490196" blue="0.92156862750000001" alpha="0.68709867290000004" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalGradient" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="saveUser:" destination="jdR-H9-7Zc" eventType="touchUpInside" id="BdC-bZ-Aks"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Введите информацию о себе для корректной работы приложения:" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKY-s6-oWS">
+                                        <rect key="frame" x="8" y="0.0" width="398" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="uth-YU-EXa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="T6i-if-WIV">
+                                        <rect key="frame" x="82" y="64" width="250" height="373"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Man" translatesAutoresizingMaskIntoConstraints="NO" id="Kkr-zm-OHx" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
+                                                <rect key="frame" x="25" y="0.0" width="200" height="200"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="GqB-IV-ubw"/>
+                                                    <constraint firstAttribute="width" secondItem="Kkr-zm-OHx" secondAttribute="height" multiplier="1:1" id="gMz-Du-asn"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.48407280450000001" green="0.80620831250000002" blue="0.93523252010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ваше имя" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="WYD-3R-uMc">
+                                                <rect key="frame" x="0.0" y="230" width="250" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="Luc-S0-brn"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Укажите Ваш возраст" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="hxM-Eb-QnH">
+                                                <rect key="frame" x="0.0" y="285" width="250" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="Z4k-rt-XLn"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="phonePad"/>
+                                            </textField>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ll6-em-ELd">
+                                                <rect key="frame" x="51.666666666666657" y="345" width="147.00000000000003" height="29"/>
+                                                <segments>
+                                                    <segment title="Мужской"/>
+                                                    <segment title="Женский"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.48126566409999999" green="0.80874133110000002" blue="0.93284732100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="segmentedGender:" destination="jdR-H9-7Zc" eventType="valueChanged" id="IdC-L5-pXY"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zai-bs-Eaq" secondAttribute="trailing" constant="28" id="6l9-nq-HfK"/>
+                                    <constraint firstItem="zai-bs-Eaq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="T6i-if-WIV" secondAttribute="bottom" constant="25" id="QNI-VP-Vgh"/>
+                                    <constraint firstItem="NKY-s6-oWS" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="top" id="TM7-UG-6XN"/>
+                                    <constraint firstItem="zai-bs-Eaq" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="top" constant="462" id="Yxb-sL-Vyj"/>
+                                    <constraint firstItem="T6i-if-WIV" firstAttribute="centerX" secondItem="o9H-dl-U3t" secondAttribute="centerX" id="dec-hh-fG5"/>
+                                    <constraint firstAttribute="bottom" secondItem="zai-bs-Eaq" secondAttribute="bottom" constant="25" id="eBM-7q-ost"/>
+                                    <constraint firstItem="T6i-if-WIV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NKY-s6-oWS" secondAttribute="bottom" id="qwn-02-VDD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zai-bs-Eaq" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leadingMargin" constant="2" id="Hgf-iN-KZt"/>
+                            <constraint firstItem="o9H-dl-U3t" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leading" id="JHk-xO-5eQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NKY-s6-oWS" secondAttribute="trailing" constant="-12" id="P9b-rm-QaA"/>
+                            <constraint firstItem="z8M-Oe-IHv" firstAttribute="top" secondItem="o9H-dl-U3t" secondAttribute="bottom" id="QLU-wD-ZZG"/>
+                            <constraint firstItem="NKY-s6-oWS" firstAttribute="leading" secondItem="XYj-Iw-VIZ" secondAttribute="leadingMargin" constant="-12" id="WIf-I5-xdn"/>
+                            <constraint firstAttribute="trailing" secondItem="o9H-dl-U3t" secondAttribute="trailing" id="Z6m-zj-pWt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zai-bs-Eaq" secondAttribute="trailing" constant="8" id="pwK-9o-j80"/>
+                            <constraint firstItem="o9H-dl-U3t" firstAttribute="top" secondItem="XYj-Iw-VIZ" secondAttribute="top" id="vMy-ak-H68"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="ageTF" destination="hxM-Eb-QnH" id="y56-cf-k3N"/>
+                        <outlet property="imgUser" destination="Kkr-zm-OHx" id="l3E-kS-hLS"/>
+                        <outlet property="nameTF" destination="WYD-3R-uMc" id="s3w-QF-dTa"/>
+                        <outlet property="segmentedGender" destination="ll6-em-ELd" id="Nry-eA-b87"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o3r-Kk-e54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286.95652173913044" y="716.57608695652175"/>
+        </scene>
         <!--Главный экран-->
         <scene sceneID="OcB-KV-pDP">
             <objects>
@@ -1192,7 +1331,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q2-Bd-jgI" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7q2-Bd-jgI" customClass="UIButtonX" customModule="iTravelSample" customModuleProvider="target">
                                 <rect key="frame" x="80" y="602" width="254" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -1229,15 +1368,15 @@
                                     <constraint firstAttribute="height" constant="67.666666666666629" id="jOU-hd-12i"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="uim-B4-scG">
-                                <rect key="frame" x="40" y="60" width="334" height="393"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uim-B4-scG">
+                                <rect key="frame" x="40" y="60" width="334" height="337"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="suitcase_PNG10776" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-GA-cv7" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="67" y="0.0" width="200" height="200"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="suitcase_PNG10776" translatesAutoresizingMaskIntoConstraints="NO" id="ALr-GA-cv7" customClass="UIImageViewX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="0.0" width="150" height="150"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="Stk-LX-7kY"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="XCe-B2-JSA"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="Stk-LX-7kY"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="XCe-B2-JSA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
@@ -1257,8 +1396,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="42" y="222" width="250" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите свой e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-yc-G55" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="170" width="250" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="250" id="EO8-Ru-7aI"/>
                                         </constraints>
@@ -1283,8 +1422,8 @@
                                             <outlet property="delegate" destination="xWq-n9-6DI" id="Lyo-TB-aWX"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
-                                        <rect key="frame" x="42" y="274" width="250" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T1g-VK-D4n" customClass="UITextFieldX" customModule="iTravelSample" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="220" width="250" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" priority="750" constant="250" id="9cx-aq-55Y"/>
                                         </constraints>
@@ -1310,7 +1449,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oV-3Q-pon">
-                                        <rect key="frame" x="134" y="326" width="66" height="67"/>
+                                        <rect key="frame" x="134" y="270" width="66" height="67"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="66" id="j1B-eB-dFS"/>
                                             <constraint firstAttribute="height" constant="67" id="rZM-sQ-gSx"/>
@@ -1333,7 +1472,7 @@
                             <constraint firstItem="7q2-Bd-jgI" firstAttribute="width" secondItem="aRh-mL-QF8" secondAttribute="width" id="Lc0-BY-B6a"/>
                             <constraint firstItem="dJj-mh-B1f" firstAttribute="top" secondItem="aRh-mL-QF8" secondAttribute="bottom" constant="20" id="MVp-1s-JFL"/>
                             <constraint firstItem="uim-B4-scG" firstAttribute="top" secondItem="a6m-Wh-REs" secondAttribute="bottom" constant="40" id="ePa-Y3-YdX"/>
-                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uim-B4-scG" secondAttribute="bottom" constant="42" id="eV5-Gf-Efo"/>
+                            <constraint firstItem="7q2-Bd-jgI" firstAttribute="top" relation="lessThanOrEqual" secondItem="uim-B4-scG" secondAttribute="bottom" priority="750" constant="350" id="eV5-Gf-Efo"/>
                             <constraint firstItem="dJj-mh-B1f" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leading" id="gW0-9F-4ey"/>
                             <constraint firstItem="7q2-Bd-jgI" firstAttribute="height" secondItem="aRh-mL-QF8" secondAttribute="height" id="igZ-ua-AzR"/>
                             <constraint firstItem="aRh-mL-QF8" firstAttribute="leading" secondItem="MxT-Td-CSw" secondAttribute="leadingMargin" constant="60" id="npr-yR-mlA"/>
@@ -1352,7 +1491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPT-Kj-358" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="248" y="717"/>
+            <point key="canvasLocation" x="-381" y="717"/>
         </scene>
     </scenes>
     <resources>

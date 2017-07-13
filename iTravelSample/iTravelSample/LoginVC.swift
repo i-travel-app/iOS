@@ -68,17 +68,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         kbFrameSize = kbFrame.height
         UIView.animate(withDuration:0.3) {
             if self.isKBShown == false {
-                self.view.frame.origin.y -= self.kbFrameSize
-                if UIScreen.main.bounds.size.height > 600.0 {
-                    self.suitLogo.isHidden = true
-                }
-
-//                print("!!!")
-//                for view in self.view.subviews {
-//                    print(view.center.y)
-//                    view.center.y -= self.kbFrameSize
-//                    print(view.center.y)
-//                }
+                self.view.frame.origin.y -= self.kbFrameSize 
+                self.suitLogo.isHidden = true
                 self.view.layoutSubviews()
             }
         }
@@ -263,8 +254,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func openUserCreationVC() {
-        let VC = ParticipantDetailsVC()
-        VC.isNewParticipant = true
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
         self.present(VC, animated: true, completion: nil)
     }
     
