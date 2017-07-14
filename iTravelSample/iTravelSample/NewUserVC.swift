@@ -24,6 +24,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
     var coreData = CoreDataStack()
     var user: User!
     var login: String?
+    var password: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,8 +190,22 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
                 let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
                 user.image = imageData
             }
+            user.isCurrent = true
             
             self.coreData.saveContext()
+        }
+        
+        // Сохранение пароля в KeyChain
+        do {
+            // This is a new account, create a new keychain item with the account name.
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                                    account: login!,
+                                                    accessGroup: KeychainConfiguration.accessGroup)
+            
+            // Save the password for the new item.
+            try passwordItem.savePassword(password!)
+        } catch {
+            fatalError("Error updating keychain - \(error)")
         }
         
         openUserTripsVC()

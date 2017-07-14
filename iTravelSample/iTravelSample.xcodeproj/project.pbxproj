@@ -14,6 +14,7 @@
 		521EBFCA1F15336800DB1614 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */; };
 		521EBFCB1F15336800DB1614 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */; };
 		521EBFCD1F1533BA00DB1614 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFCC1F1533BA00DB1614 /* String+Extension.swift */; };
+		5226AE541F19035100F29368 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226AE531F19035100F29368 /* User+CoreDataProperties.swift */; };
 		523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523B4C761EF3015400B68532 /* UITableViewCellX.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
@@ -56,7 +57,6 @@
 		57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57154ABD1ECAFB4000A0398E /* SiSPersonDetailsVC.swift */; };
 		5718D21A1F01A0C800A73754 /* ParticipantTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718D2191F01A0C800A73754 /* ParticipantTVCell.swift */; };
 		571A3AE41F174FFB000ADE9C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A3AE21F174FFB000ADE9C /* User+CoreDataClass.swift */; };
-		571A3AE51F174FFB000ADE9C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571A3AE31F174FFB000ADE9C /* User+CoreDataProperties.swift */; };
 		5728E70A1F1614B3008271BB /* NewUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5728E7091F1614B3008271BB /* NewUserVC.swift */; };
 		572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */; };
 		577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577948961EF3D95100C28A6F /* MapKit.framework */; };
@@ -87,6 +87,7 @@
 		521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 		521EBFCC1F1533BA00DB1614 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5226AE531F19035100F29368 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		523B4C761EF3015400B68532 /* UITableViewCellX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellX.swift; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		5718D2191F01A0C800A73754 /* ParticipantTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantTVCell.swift; sourceTree = "<group>"; };
 		57192C1E1F1610ED00114B4D /* iTravelSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTravelSample.entitlements; sourceTree = "<group>"; };
 		571A3AE21F174FFB000ADE9C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		571A3AE31F174FFB000ADE9C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5728E7091F1614B3008271BB /* NewUserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserVC.swift; sourceTree = "<group>"; };
 		572D40931EFD1CDE0079ECB4 /* ParticipantsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantsTVC.swift; sourceTree = "<group>"; };
 		577948961EF3D95100C28A6F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -303,7 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				571A3AE21F174FFB000ADE9C /* User+CoreDataClass.swift */,
-				571A3AE31F174FFB000ADE9C /* User+CoreDataProperties.swift */,
+				5226AE531F19035100F29368 /* User+CoreDataProperties.swift */,
 				5296AFFC1F01284900840E06 /* TargetPlace+CoreDataClass.swift */,
 				5296AFFD1F01284900840E06 /* TargetPlace+CoreDataProperties.swift */,
 				5296AFFE1F01284900840E06 /* Trip+CoreDataClass.swift */,
@@ -481,7 +481,7 @@
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
 				523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
-				571A3AE51F174FFB000ADE9C /* User+CoreDataProperties.swift in Sources */,
+				5226AE541F19035100F29368 /* User+CoreDataProperties.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */,
 				5728E70A1F1614B3008271BB /* NewUserVC.swift in Sources */,
@@ -659,12 +659,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.iTravelSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -674,12 +676,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SiS.iTravelSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

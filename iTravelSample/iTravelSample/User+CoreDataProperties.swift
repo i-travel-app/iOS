@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  iTravelSample
 //
-//  Created by Stanly Shiyanovskiy on 13.07.17.
+//  Created by Stanly Shiyanovskiy on 14.07.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
@@ -13,15 +13,16 @@ import CoreData
 extension User {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
-        return NSFetchRequest<User>(entityName: "User");
+        return NSFetchRequest<User>(entityName: "User")
     }
 
+    @NSManaged public var age: Int16
     @NSManaged public var idUser: Int16
+    @NSManaged public var image: NSData?
+    @NSManaged public var isMan: Bool
     @NSManaged public var login: String?
     @NSManaged public var name: String?
-    @NSManaged public var age: Int16
-    @NSManaged public var isMan: Bool
-    @NSManaged public var image: NSData?
+    @NSManaged public var isCurrent: Bool
     @NSManaged public var trips: NSSet?
 
 }

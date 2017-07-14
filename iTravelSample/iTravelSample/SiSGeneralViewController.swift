@@ -24,6 +24,7 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.dataSource = self
         
         // здесь реализуется логика загрузки историии всех поездок пользователя и добавление их в массив cellsArray
+        cellsArray = Trip.getTripsForCurrentUser(context: CoreDataStack().persistentContainer.viewContext)
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTripAction))
         self.navigationItem.setRightBarButtonItems([addButton], animated: true)

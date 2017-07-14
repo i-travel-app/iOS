@@ -18,8 +18,10 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     var context: NSManagedObjectContext!
     var country: String?
     var city: String?
+    var targetPlaceID: Int?
     var tripPurposeValue: String?
     var transportKindValue: String?
+    var trip: Trip!
     
     // MARK: - Outlets -
     @IBOutlet weak var stepperValue: UILabel!
@@ -110,13 +112,54 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        print("*************************************\n\nОтдаю серверу такой запрос на получение товаров:\n\nСтрана: \(country!)\n\nГород: \(city!)\n\nНачало путешествия: \(startTripDate.text!)\n\nЗавершение путешествия: \(endTripDate.text!)\n\nЦель поездки: \(tripPurposeValue!)\n\nТранспорт: \(transportKindValue!)\n\nУчастников всего: \(participants.count)\n\nРаспечатка данных об участниках:\n\t{")
+        //print("*************************************\n\nОтдаю серверу такой запрос на получение товаров:\n\nСтрана: \(country!)\n\nГород: \(city!)\n\nНачало путешествия: \(startTripDate.text!)\n\nЗавершение путешествия: \(endTripDate.text!)\n\nЦель поездки: \(tripPurposeValue!)\n\nТранспорт: \(transportKindValue!)\n\nУчастников всего: \(participants.count)\n\nРаспечатка данных об участниках:\n\t{")
         
         for (index, value) in participants.enumerated() {
             print("Участник № \(index+1) -> Возраст: \(value.age), Пол: \(value.isMan ? "Мужской" : "Женский")")
         }
         
         print("\t}")
+        
+        // Проверка на пустые поля
+        if (targetPlaceTF.text?.isEmpty)! || (startTripDate.text?.isEmpty)! || (endTripDate.text?.isEmpty)! || participants.isEmpty {
+            // Вывод алерта, если поля пустые
+            warningAlert(title: "Отсутствуют данные", message: "Для более точного списка необходимых вещей, заполните все предоставленные поля!")
+        } else {
+            // Сохранение поездки в БД
+            trip = Trip(context: context)
+
+            if let newID = Trip().getTripID(context: context) {
+                trip.idTrip = Int16(newID)
+            }
+            
+            if let targetPlace = TargetPlace.getTargetPlaceBy(id: targetPlaceID!, context: context) {
+                trip.targetPlace = targetPlace
+            }
+            
+//            if let name = nameTF.text {
+//                participant.name = name
+//            }
+//            
+//            if let age = ageTF.text {
+//                participant.age = Int16(age)!
+//            }
+//            
+//            switch segmentedGender.selectedSegmentIndex {
+//            case 0: participant.isMan = true;
+//            case 1: participant.isMan = false;
+//            default: break
+//            }
+//            
+//            if let img = imgUser.image {
+//                let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
+//                participant.image = imageData
+//            }
+//            
+//            self.coreData.saveContext()
+//        }
+//        
+//        back()
+        }
     }
     
     // MARK: - SiSPickerVCDelegate -
@@ -174,14 +217,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         self.navigationController!.pushViewController(VC, animated: true)
     }
     
-//    func openPersonVC(person: SiSPersonModel) {
-//        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSPersonDetailsVC") as! SiSPersonDetailsVC
-//        VC.person = person
-//        VC.delegate = self
-//        self.navigationController!.pushViewController(VC, animated: true)
-//    }
-    
-    func addTargetPlace(country: String, city: String) {
+    func addTargetPlace(country: String, city: String, id: Int) {
+        targetPlaceID = id
         self.country = country
         self.city = city
         self.targetPlaceTF.text = String("\(city), \(country)")

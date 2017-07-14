@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 protocol TargetPlaceDelegate {
-    func addTargetPlace(country: String, city: String)
+    func addTargetPlace(country: String, city: String, id: Int)
 }
 
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -29,6 +29,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     
     var targetsArray = [String]()
     var geocoder = CLGeocoder()
+    var targetID: Int?
     
     var delegate: TargetPlaceDelegate?
     
@@ -89,9 +90,8 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     }
     
     @IBAction func dismissVC(_ sender: Any) {
-        delegate?.addTargetPlace(country: self.targetCountry.text!, city: self.targetCity.text!)
+        delegate?.addTargetPlace(country: self.targetCountry.text!, city: self.targetCity.text!, id: targetID!)
         dismiss(animated: true, completion: nil)
-        //self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Text functions -
@@ -101,13 +101,13 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
         if textField.tag == 1 {
             self.countriesTVActive = true
-            self.targetsArray = CoreDataStack().getAllTargetsCountryFromDB(withName: substring)
+            self.targetsArray = TargetPlace().getAllTargetsCountryFromDB(withName: substring)
         } else if textField.tag == 2 {
             self.countriesTVActive = false
             if (self.targetCountry.text?.characters.count)! > 1 || substring.characters.count > 1 {
-                self.targetsArray = CoreDataStack().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = TargetPlace().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             } else if self.targetCountry.text != "" {
-                self.targetsArray = CoreDataStack().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = TargetPlace().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             }
         }
         
@@ -119,7 +119,8 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     // MARK: - TableView delegate -
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCellX
-        cell.label.text = targetsArray[indexPath.row]
+        let arrayStr = self.targetsArray[indexPath.row].components(separatedBy: ", ")
+        cell.label.text = String(arrayStr[0] + ", " + arrayStr[1])
         return cell
     }
     
@@ -136,6 +137,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             let arrayStr = self.targetsArray[indexPath.row].components(separatedBy: ", ")
             self.targetCity.text = arrayStr[0]
             self.targetCountry.text = arrayStr[1]
+            self.targetID = Int(arrayStr[2])
         }
         self.hideTableView()
         self.targetCountry.endEditing(true)

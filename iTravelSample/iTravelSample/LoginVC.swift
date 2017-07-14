@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 // Keychain Configuration
 struct KeychainConfiguration {
@@ -17,25 +18,27 @@ struct KeychainConfiguration {
 class LoginVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties -
+    var coreData = CoreDataStack()
     var passwordItems: [KeychainPasswordItem] = []
     let createLoginButtonTag = 0
     let loginButtonTag = 1
     let touchMe = TouchIDAuth()
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
+    var array: [User] = []
     
     // MARK: - Outlets -
     @IBOutlet weak var suitLogo: UIImageViewX!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField! {
         didSet {
-            let array = UserDefaults.standard.array(forKey: "usernames") as? [String] ?? [String]()
-            if !array.isEmpty {
-                usernameTextField.text = array.last
-            }
+            // В поле "логин" показываем логин последнего пользователя
+            // В свойство array вытягиваем из БД всех пользователей
+            getAllUsers()
+            usernameTextField.text = getLastUserLogin()
         }
-        
     }
+    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var createInfoLabel: UILabel!
     @IBOutlet var touchIDButton: UIButton!
@@ -97,20 +100,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             !newAccountName.isEmpty &&
                 !newPassword.isEmpty else {
                     
-                    let alertView = UIAlertController(title: "Login Problem",
-                                                      message: "Wrong username or password.",
+                    let alertView = UIAlertController(title: "Ошибка ввода!",
+                                                      message: "Поля e-mail/пароля не могут быть пустыми.",
                                                       preferredStyle:. alert)
-                    let okAction = UIAlertAction(title: "Foiled Again!", style: .default, handler: nil)
+                    let okAction = UIAlertAction(title: "Продолжить", style: .default, handler: nil)
                     alertView.addAction(okAction)
                     present(alertView, animated: true, completion: nil)
                     return
         }
         
         guard (usernameTextField.text?.isValidEmail())! else {
-            let alertView = UIAlertController(title: "E-mail Problem",
-                                              message: "Wrong e-mail.\nYour e-mail should be as example: test@gmail.com",
+            let alertView = UIAlertController(title: "Ошибка ввода e-mail",
+                                              message: "Ошибка e-mail.\nВаш e-mail должен выглядеть, например, так: test@gmail.com",
                                               preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Foiled Again!", style: .default)
+            let okAction = UIAlertAction(title: "Продолжить", style: .default)
             alertView.addAction(okAction)
             present(alertView, animated: true, completion: nil)
             return
@@ -124,30 +127,26 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if sender.tag == createLoginButtonTag {
             
             // Проверяю массив логинов на присутствие такого логина
-            if !isUsernameUsed() {
-                saveUser(newAccountName: newAccountName, newPassword: newPassword)
+            if !isUsernameUsed()! {
                 openUserCreationVC()
             } else {
-                let alertView = UIAlertController(title: "Login Problem",
-                                                  message: "User already exists.",
+                let alertView = UIAlertController(title: "Ошибка входа!",
+                                                  message: "Пользователь с таким именем уже существует.",
                                                   preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Foiled Again!", style: .default)
+                let okAction = UIAlertAction(title: "Продолжить", style: .default)
                 alertView.addAction(okAction)
                 present(alertView, animated: true, completion: nil)
             }
             
         } else if sender.tag == loginButtonTag {
             
-            // 7
-            if checkLogin(username: usernameTextField.text!, password: passwordTextField.text!) {
-                saveUser(newAccountName: usernameTextField.text!, newPassword: passwordTextField.text!)
+            if checkLogin() {
                 openUserTripsVC()
             } else {
-                // 8
-                let alertView = UIAlertController(title: "Login Problem",
-                                                  message: "Wrong username or password.",
+                let alertView = UIAlertController(title: "Ошибка входа!",
+                                                  message: "Введен неверный e-mail или пароль.",
                                                   preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Foiled Again!", style: .default)
+                let okAction = UIAlertAction(title: "Продолжить", style: .default)
                 alertView.addAction(okAction)
                 present(alertView, animated: true, completion: nil)
             }
@@ -157,37 +156,33 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         touchMe.authenticateUser() { message in
             if let message = message {
                 // if the completion is not nil show an alert
-                let alertView = UIAlertController(title: "Error",
+                let alertView = UIAlertController(title: "Ошибка",
                                                   message: message,
                                                   preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Darn!", style: .default)
+                let okAction = UIAlertAction(title: "Ой!", style: .default)
                 alertView.addAction(okAction)
                 self.present(alertView, animated: true)
                 
             } else {
-                // 3
-                self.performSegue(withIdentifier: "dismissLogin", sender: self)
+                self.openUserTripsVC()
             }
         }
     }
     
-    func checkLogin(username: String, password: String) -> Bool {
-        let array = UserDefaults.standard.array(forKey: "usernames") as? [String] ?? [String]()
-        guard array.contains(username) else {
+    func checkLogin() -> Bool {
+        guard isUsernameUsed()! else {
             return false
         }
-        
         do {
             let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: username,
+                                                    account: usernameTextField.text!,
                                                     accessGroup: KeychainConfiguration.accessGroup)
             let keychainPassword = try passwordItem.readPassword()
-            return password == keychainPassword
+            return passwordTextField.text == keychainPassword
         }
         catch {
             fatalError("Error reading password from keychain - \(error)")
         }
-        
         return false
     }
     
@@ -210,52 +205,69 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+        isRegistered()
+    }
+    
     // MARK: - Private methods -
+    func getAllUsers() {
+        let context = coreData.persistentContainer.viewContext
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let users = try context.fetch(request)
+            if users.isEmpty {
+                print("В БД нет пользователей")
+            } else {
+                array = users
+                print("Всего в БД \(users.count) пользователей")
+            }
+        } catch let error as NSError {
+            print(error.userInfo)
+        }
+    }
+    
     func isRegistered() {
-        let array = UserDefaults.standard.array(forKey: "usernames") as? [String] ?? [String]()
-        if array.isEmpty || (usernameTextField.text?.isEmpty)! || !isUsernameUsed() {
+        if array.isEmpty || (usernameTextField.text?.isEmpty)! || !isUsernameUsed()! {
             loginButton.setTitle("Создать", for: .normal)
             loginButton.tag = createLoginButtonTag
             createInfoLabel.text = "Введите e-mail и пароль, чтобы зарегистрироваться в приложении."
-        } else if isUsernameUsed() {
+        } else if isUsernameUsed()! {
             loginButton.setTitle("Войти", for: .normal)
             loginButton.tag = loginButtonTag
             createInfoLabel.text = "Используйте e-mail и пароль, чтобы восстановить историю поездок, участников и собранные чемоданы."
+        }
+    }
+    
+    func isUsernameUsed() -> Bool? {
+        // Проверка используется ли этот логин
+        for user in array {
+            print("user.login = \(String(describing: user.login)) ***** usernameTextField.text = \(String(describing: usernameTextField.text))")
+            if user.login == usernameTextField.text {
+                print("Ввведен логин, который уже использовался")
+                return true
+            }
+        }
+        print("Ввведен новый логин")
+        return false
+    }
+    
+    func getLastUserLogin() -> String? {
+        // Получаем логин крайнего пользователя
+        
+        if array.isEmpty {
+            print("Пользователей нет")
+            return nil
         } else {
-            
-        }
-    }
-    
-    func isUsernameUsed() -> Bool {
-        let array = UserDefaults.standard.array(forKey: "usernames") as? [String] ?? [String]()
-        let hasLoginKey = array.contains(usernameTextField.text!)
-        if !hasLoginKey {
-            return false
-        }
-        return true
-    }
-    
-    func saveUser(newAccountName: String, newPassword: String) {
-        var array = UserDefaults.standard.array(forKey: "usernames") as? [String] ?? [String]()
-        array.append(usernameTextField.text!)
-        UserDefaults.standard.set(array, forKey: "usernames")
-        do {
-            
-            // This is a new account, create a new keychain item with the account name.
-            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: newAccountName,
-                                                    accessGroup: KeychainConfiguration.accessGroup)
-            
-            // Save the password for the new item.
-            try passwordItem.savePassword(newPassword)
-        } catch {
-            fatalError("Error updating keychain - \(error)")
+            print("Логин последнего пользователя .......... \(String(describing: array.last?.login))")
+            return array.last?.login
         }
     }
     
     func openUserCreationVC() {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
         VC.login = usernameTextField.text
+        VC.password = passwordTextField.text
         self.present(VC, animated: true, completion: nil)
     }
     

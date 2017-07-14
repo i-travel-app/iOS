@@ -28,7 +28,7 @@ public class Participant: NSManagedObject {
                 return 1
             }
         } catch {
-            fatalError("Cannot get movie info")
+            fatalError("Cannot get participants info")
         }
         
         return nil
