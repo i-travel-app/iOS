@@ -16,11 +16,14 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var ageTF: UITextField!
     @IBOutlet weak var segmentedGender: UISegmentedControl!
+    @IBOutlet weak var stackView: UIStackView!
     
     // - Properties -
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
     var coreData = CoreDataStack()
+    var user: User!
+    var login: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,14 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         imgUser?.contentMode = .scaleAspectFill
         imgUser?.borderWidth = 1.0
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if UIScreen.main.bounds.size.height > 600.0 {
+            self.stackView.spacing = 50
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -146,40 +157,43 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
     
     @IBAction func saveUser(_ sender: UIButtonX) {
         
-//        if (nameTF.text?.isEmpty)! || (ageTF.text?.isEmpty)! {
-//            warningAlert()
-//        } else {
-//            let moc = coreData.persistentContainer.viewContext
-//            
-//            if isNewParticipant {
-//                if let newID = participant.getParticipantID(context: moc) {
-//                    participant.idUser = Int16(newID)
-//                }
-//            }
-//            
-//            if let name = nameTF.text {
-//                participant.name = name
-//            }
-//            
-//            if let age = ageTF.text {
-//                participant.age = Int16(age)!
-//            }
-//            
-//            switch segmentedGender.selectedSegmentIndex {
-//            case 0: participant.isMan = true;
-//            case 1: participant.isMan = false;
-//            default: break
-//            }
-//            
-//            if let img = imgUser.image {
-//                let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
-//                participant.image = imageData
-//            }
-//            
-//            self.coreData.saveContext()
-//        }
-//        
-//        back()
+        if (nameTF.text?.isEmpty)! || (ageTF.text?.isEmpty)! {
+            warningAlert()
+        } else {
+            let moc = coreData.persistentContainer.viewContext
+            user = User(context: coreData.persistentContainer.viewContext)
+            
+            if let newID = user.getUserID(context: moc) {
+                user.idUser = Int16(newID)
+            }
+            
+            if let eMail = login {
+                user.login = eMail
+            }
+            
+            if let name = nameTF.text {
+                user.name = name
+            }
+            
+            if let age = ageTF.text {
+                user.age = Int16(age)!
+            }
+            
+            switch segmentedGender.selectedSegmentIndex {
+            case 0: user.isMan = true;
+            case 1: user.isMan = false;
+            default: break
+            }
+            
+            if let img = imgUser.image {
+                let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
+                user.image = imageData
+            }
+            
+            self.coreData.saveContext()
+        }
+        
+        openUserTripsVC()
     }
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
@@ -198,8 +212,10 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         self.present(ac, animated: true, completion: nil)
     }
     
-    func back() {
-        _ = self.navigationController?.popViewController(animated: true)
+    func openUserTripsVC() {
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSGeneralViewController") as! SiSGeneralViewController
+        let navController = UINavigationController(rootViewController: VC)
+        self.present(navController, animated: true, completion: nil)
     }
     
     
@@ -218,7 +234,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         let alert = UIAlertController(title: "Поле не может быть пустым!", message: "Поля \"Имя\" и \"Возраст\" не могут быть пустыми для сохранения Ваших данных", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
         
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

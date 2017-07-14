@@ -255,6 +255,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     func openUserCreationVC() {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "NewUserVC") as! NewUserVC
+        VC.login = usernameTextField.text
         self.present(VC, animated: true, completion: nil)
     }
     
