@@ -19,7 +19,7 @@ class ParticipantsTVC: UITableViewController {
     lazy var participants = [Participant]()
     lazy var checkedParticipants = [Participant]()
     lazy var temp = [Participant]()
-    lazy var coreData = CoreDataStack()
+    lazy var coreData = CoreDataStack.instance
     var participantToDelete: Participant?
     var delegate: ParticipantsTVCDelegate?
     

@@ -13,7 +13,7 @@ import CoreData
 public class User: NSManagedObject {
     
     internal func isUserUsed(login: String) -> Bool? {
-        let context = CoreDataStack().persistentContainer.viewContext
+        let context = CoreDataStack.instance.persistentContainer.viewContext
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "login = %@", login)
         do {
@@ -53,6 +53,72 @@ public class User: NSManagedObject {
         }
         
         return nil
+    }
+    
+    static func markUserAsCurrent(byLogin: String, context: NSManagedObjectContext) {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                
+                for user in results {
+                    if user.login == byLogin {
+                        user.isCurrent = true
+                        print("\n\n\n\n\nuser is \(String(describing: user.name)) - \(user.idUser) - \(user.isCurrent ? "isCurrent" : "No, isn't current")")
+                    } else {
+                        user.isCurrent = false
+                        print("\n\n\n\n\nuser is \(String(describing: user.name)) - \(user.idUser) - \(user.isCurrent ? "isCurrent" : "No, isn't current")")
+                    }
+                }
+            } else {
+                print("There are no Users")
+            }
+        } catch {
+            fatalError("Cannot get user info")
+        }
+        
+        CoreDataStack.instance.saveContext()
+    }
+    
+    internal func getCurrentUser(context: NSManagedObjectContext) -> User? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        request.predicate = NSPredicate(format: "isCurrent = %@", NSNumber(value: true))
+        
+        do {
+            let results = try context.fetch(request)
+            
+            if results.count > 0 {
+                let user = results.last!
+                print("\n\n\n\n\nCurrent user is \(String(describing: user.name)) - \(user.idUser)")
+                return user
+            } else {
+                print("There are no current Users")
+            }
+        } catch {
+            fatalError("Cannot get user info")
+        }
+        
+        return nil
+    }
+    
+    static func getAllUsers() -> Int {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let results = try CoreDataStack.instance.persistentContainer.viewContext.fetch(request)
+            
+            if results.count > 0 {
+                print("\n\n\n\n\nUsers are \(String(describing: results.count))")
+                return results.count
+            } else {
+                print("There are no Users")
+                return 0
+            }
+        } catch {
+            fatalError("Cannot get user info")
+        }
+        return 0
     }
 
 }

@@ -11,6 +11,10 @@ import CoreData
 
 class CoreDataStack {
     
+    // Singleton
+    static let instance = CoreDataStack()
+    private init() {}
+    
     // MARK: - Core Data stack
     lazy var applicationDocumentsDirectory: NSURL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -114,7 +118,7 @@ extension CoreDataStack {
     func savePreloadedData(items: [(id:Int, city:String, regionR: String?, regionO: String?, country: String)]) {
         //let context = self.persistentContainer.viewContext
         //let entity = NSEntityDescription.entity(forEntityName: "TargetPlace", in: context)
-        let managedObjectContext = CoreDataStack().persistentContainer.viewContext
+        let managedObjectContext = CoreDataStack.instance.persistentContainer.viewContext
         managedObjectContext.perform({
             do {
             for value in items {

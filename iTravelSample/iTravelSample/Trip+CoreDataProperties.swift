@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  iTravelSample
 //
-//  Created by Stanly Shiyanovskiy on 27.06.17.
+//  Created by Stanly Shiyanovskiy on 15.07.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension Trip {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Trip> {
-        return NSFetchRequest<Trip>(entityName: "Trip");
+        return NSFetchRequest<Trip>(entityName: "Trip")
     }
 
     @NSManaged public var dateCreation: NSDate?
@@ -21,8 +21,11 @@ extension Trip {
     @NSManaged public var idTrip: Int16
     @NSManaged public var idUser: Int16
     @NSManaged public var startDate: NSDate?
+    @NSManaged public var purpose: String?
+    @NSManaged public var kindOfTransport: String?
     @NSManaged public var participants: NSSet?
     @NSManaged public var targetPlace: TargetPlace?
+    @NSManaged public var user: User?
 
 }
 

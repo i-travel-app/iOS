@@ -35,7 +35,7 @@ public class Trip: NSManagedObject {
         return nil
     }
     
-    internal static func getTripsForCurrentUser(context: NSManagedObjectContext) -> [Trip] {
+    static func getTripsForCurrentUser(context: NSManagedObjectContext) -> [Trip] {
         
         // Create Fetch Request
         let fetchRequest: NSFetchRequest<Trip> = Trip.fetchRequest()
@@ -45,8 +45,9 @@ public class Trip: NSManagedObject {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Add Predicate
-        let predicate1 = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
-        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1])
+        //let predicate1 = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
+        //let str = "a@a.ru"
+        //fetchRequest.predicate = NSPredicate(format: "user.login = %@", str)
         
         do {
             let trips = try context.fetch(fetchRequest)

@@ -21,7 +21,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
     // - Properties -
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
-    var coreData = CoreDataStack()
+    var coreData = CoreDataStack.instance
     var user: User!
     var login: String?
     var password: String?
@@ -192,7 +192,11 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
             }
             user.isCurrent = true
             
-            self.coreData.saveContext()
+            do {
+                try moc.save()
+            } catch {
+                fatalError()
+            }
         }
         
         // Сохранение пароля в KeyChain

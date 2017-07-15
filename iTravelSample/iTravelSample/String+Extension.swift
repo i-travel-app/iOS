@@ -12,4 +12,12 @@ extension String {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
+    func toDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone!
+        let date = dateFormatter.date(from: self) //according to date format your date string
+        print(date ?? "") //Convert String to Date
+        return date!
+    }
 }

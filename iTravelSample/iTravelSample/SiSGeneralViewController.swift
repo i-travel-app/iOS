@@ -19,17 +19,26 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         
         // здесь реализуется логика загрузки историии всех поездок пользователя и добавление их в массив cellsArray
-        cellsArray = Trip.getTripsForCurrentUser(context: CoreDataStack().persistentContainer.viewContext)
+        cellsArray = Trip.getTripsForCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext)
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTripAction))
         self.navigationItem.setRightBarButtonItems([addButton], animated: true)
         
         tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        cellsArray = Trip.getTripsForCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext)
+        tableView.reloadData()
+        print("there are \(User.getAllUsers()) in core data")
+        
     }
     
     // MARK: - TableView dataSource -

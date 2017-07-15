@@ -136,30 +136,40 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
                 trip.targetPlace = targetPlace
             }
             
-//            if let name = nameTF.text {
-//                participant.name = name
-//            }
-//            
-//            if let age = ageTF.text {
-//                participant.age = Int16(age)!
-//            }
-//            
-//            switch segmentedGender.selectedSegmentIndex {
-//            case 0: participant.isMan = true;
-//            case 1: participant.isMan = false;
-//            default: break
-//            }
-//            
-//            if let img = imgUser.image {
-//                let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
-//                participant.image = imageData
-//            }
-//            
-//            self.coreData.saveContext()
-//        }
-//        
-//        back()
+            if let startDate = startTripDate.text {
+                trip.startDate = startDate.toDate() as NSDate
+            }
+            
+            if let endDate = endTripDate.text {
+                trip.endDate = endDate.toDate() as NSDate
+            }
+            
+            if let purpose = tripPurposeValue {
+                trip.purpose = purpose
+            }
+            
+            if let kindOfTransport = transportKindValue {
+                trip.kindOfTransport = kindOfTransport
+            }
+            
+            trip.participants = Set(participants) as NSSet
+            
+            trip.dateCreation = Date() as NSDate
+            
+            if let current = User().getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
+                trip.user = current
+                print("current user name \(String(describing: trip.user))")
+                print("there are \(User.getAllUsers) users in core data")
+            }
+            
+            do {
+                try context.save()
+            } catch {
+                fatalError()
+            }
         }
+        
+        back()
     }
     
     // MARK: - SiSPickerVCDelegate -
@@ -239,5 +249,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         case 5: transportKindValue = "Туризм"
         default: break
         }
+    }
+    
+    func back() {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

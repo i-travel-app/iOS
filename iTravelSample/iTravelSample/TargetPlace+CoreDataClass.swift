@@ -13,7 +13,7 @@ import CoreData
 public class TargetPlace: NSManagedObject {
     
     func getAllTargetsFromDB() {
-        let context = CoreDataStack().persistentContainer.viewContext
+        let context = CoreDataStack.instance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
         
         do {
@@ -30,7 +30,7 @@ public class TargetPlace: NSManagedObject {
     
     func getAllTargetsCountryFromDB(withName: String) -> Array<String> {
         var set: Set<String> = []
-        let context = CoreDataStack().persistentContainer.viewContext
+        let context = CoreDataStack.instance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "country BEGINSWITH[c] %@ OR country CONTAINS[c] %@", withName, String(" " + withName))
         do {
@@ -54,7 +54,7 @@ public class TargetPlace: NSManagedObject {
     
     func getAllTargetsCitiesFromDB(withName: String, andCountry: String?) -> Array<String> {
         var set: Set<String> = []
-        let context = CoreDataStack().persistentContainer.viewContext
+        let context = CoreDataStack.instance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
         if (andCountry?.characters.count)! > 1 {
             fetchRequest.predicate = NSPredicate(format: "country BEGINSWITH[c] %@ AND city BEGINSWITH[c] %@", andCountry!, withName)
@@ -88,6 +88,7 @@ public class TargetPlace: NSManagedObject {
         
         // Add Sort Descriptor
         let sortDescriptor = NSSortDescriptor(key: "idTargetPlace", ascending: true)
+        fetchRequest.predicate = NSPredicate(format: "idTargetPlace = %d", id)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {

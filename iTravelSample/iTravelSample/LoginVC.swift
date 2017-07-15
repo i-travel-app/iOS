@@ -18,7 +18,7 @@ struct KeychainConfiguration {
 class LoginVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties -
-    var coreData = CoreDataStack()
+    var coreData = CoreDataStack.instance
     var passwordItems: [KeychainPasswordItem] = []
     let createLoginButtonTag = 0
     let loginButtonTag = 1
@@ -242,13 +242,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func isUsernameUsed() -> Bool? {
         // Проверка используется ли этот логин
         for user in array {
-            print("user.login = \(String(describing: user.login)) ***** usernameTextField.text = \(String(describing: usernameTextField.text))")
+            //print("user.login = \(String(describing: user.login)) ***** usernameTextField.text = \(String(describing: usernameTextField.text))")
             if user.login == usernameTextField.text {
-                print("Ввведен логин, который уже использовался")
+                //print("Ввведен логин, который уже использовался")
                 return true
             }
         }
-        print("Ввведен новый логин")
+        //print("Ввведен новый логин")
         return false
     }
     
@@ -272,6 +272,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func openUserTripsVC() {
+        let moc = CoreDataStack.instance.persistentContainer.viewContext
+        User.markUserAsCurrent(byLogin: usernameTextField.text!, context:moc)
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSGeneralViewController") as! SiSGeneralViewController
         let navController = UINavigationController(rootViewController: VC)
         self.present(navController, animated: true, completion: nil)

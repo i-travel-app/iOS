@@ -22,7 +22,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     var isKBShown: Bool = false
     var kbFrameSize: CGFloat = 0
     var isNewParticipant: Bool = false
-    var coreData = CoreDataStack()
+    var coreData = CoreDataStack.instance
     var participant: Participant!
     
     override func viewDidLoad() {

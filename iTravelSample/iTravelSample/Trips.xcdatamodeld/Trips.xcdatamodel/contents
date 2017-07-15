@@ -21,6 +21,8 @@
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="idTrip" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="idUser" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="kindOfTransport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="trips" inverseEntity="Participant" syncable="YES"/>
         <relationship name="targetPlace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TargetPlace" inverseName="idTrip" inverseEntity="TargetPlace" syncable="YES"/>
@@ -39,7 +41,7 @@
     <elements>
         <element name="Participant" positionX="126" positionY="-13" width="128" height="133"/>
         <element name="TargetPlace" positionX="-234" positionY="-18" width="126" height="133"/>
-        <element name="Trip" positionX="-63" positionY="-16" width="128" height="163"/>
+        <element name="Trip" positionX="-63" positionY="-16" width="128" height="193"/>
         <element name="User" positionX="-65" positionY="-207" width="128" height="163"/>
     </elements>
 </model>
