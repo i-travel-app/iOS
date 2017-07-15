@@ -45,9 +45,7 @@ public class Trip: NSManagedObject {
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Add Predicate
-        //let predicate1 = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
-        //let str = "a@a.ru"
-        //fetchRequest.predicate = NSPredicate(format: "user.login = %@", str)
+        fetchRequest.predicate = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
         
         do {
             let trips = try context.fetch(fetchRequest)

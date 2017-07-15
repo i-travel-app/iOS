@@ -44,7 +44,21 @@ public class Participant: NSManagedObject {
             return results
             
         } catch {
-            fatalError("Cannot get movie info")
+            fatalError("Cannot get participants info")
+        }
+    }
+    internal static func getParticipantsForCurrentUser(context: NSManagedObjectContext) -> [Participant] {
+        let request: NSFetchRequest<Participant> = Participant.fetchRequest()
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sort]
+        request.predicate = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
+        
+        do {
+            let results = try context.fetch(request)
+            return results
+            
+        } catch {
+            fatalError("Cannot get participants info")
         }
     }
     

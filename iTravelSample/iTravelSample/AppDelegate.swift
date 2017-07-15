@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "isPreloaded")
         }
         
+        User.allUsersMakeNoCurrent()
+        
         return true
     }
 

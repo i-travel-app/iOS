@@ -141,7 +141,7 @@ class ParticipantsTVC: UITableViewController {
     
     // MARK: - Private function -
     private func loadData() {
-        participants = Participant.getParticipants(context: coreData.persistentContainer.viewContext)
+        participants = Participant.getParticipantsForCurrentUser(context: coreData.persistentContainer.viewContext)
         print("There are participants: \(participants.count)")
         tableView.reloadData()
     }

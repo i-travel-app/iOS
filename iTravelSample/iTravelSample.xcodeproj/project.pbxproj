@@ -27,6 +27,7 @@
 		5296B0051F01284900840E06 /* Trip+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFFF1F01284900840E06 /* Trip+CoreDataProperties.swift */; };
 		5296B0061F01284900840E06 /* Participant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296B0001F01284900840E06 /* Participant+CoreDataClass.swift */; };
 		5296B0071F01284900840E06 /* Participant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296B0011F01284900840E06 /* Participant+CoreDataProperties.swift */; };
+		52B116C21F1A8A5200F89F56 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B116C11F1A8A5200F89F56 /* Date+Extension.swift */; };
 		52B92CBA1EF064560088F265 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CB91EF064560088F265 /* Utils.swift */; };
 		52B92CBC1EF066D70088F265 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 52B92CBB1EF066D70088F265 /* test.csv */; };
 		52B92CC01EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */; };
@@ -100,6 +101,7 @@
 		5296AFFF1F01284900840E06 /* Trip+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trip+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5296B0001F01284900840E06 /* Participant+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5296B0011F01284900840E06 /* Participant+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		52B116C11F1A8A5200F89F56 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		52B92CB91EF064560088F265 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		52B92CBB1EF066D70088F265 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 		52B92CBF1EF1A4EA0088F265 /* TargetPlaceSelectingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetPlaceSelectingVC.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */,
 				521EBFCC1F1533BA00DB1614 /* String+Extension.swift */,
+				52B116C11F1A8A5200F89F56 /* Date+Extension.swift */,
 				521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */,
 				521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */,
 			);
@@ -498,6 +501,7 @@
 				52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */,
 				521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */,
 				5296B0021F01284900840E06 /* TargetPlace+CoreDataClass.swift in Sources */,
+				52B116C21F1A8A5200F89F56 /* Date+Extension.swift in Sources */,
 				52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */,
 				521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */,
 				52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */,

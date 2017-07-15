@@ -528,6 +528,8 @@
                     <connections>
                         <outlet property="collectionViewPersons" destination="bYG-8u-6lp" id="0Cu-9E-RTe"/>
                         <outlet property="endTripDate" destination="vwX-Rh-MW2" id="YpZ-Ys-fkJ"/>
+                        <outlet property="kindOfTransport" destination="RaY-5m-Lae" id="UuE-eG-jMx"/>
+                        <outlet property="purpose" destination="PgV-jP-rtb" id="MDr-Ow-aHi"/>
                         <outlet property="startTripDate" destination="M91-cJ-JBT" id="8l1-Lj-QqM"/>
                         <outlet property="stepper" destination="uKm-io-GcN" id="H8C-Vr-dQc"/>
                         <outlet property="stepperValue" destination="HCa-Uu-1IC" id="OaE-1j-3Bp"/>

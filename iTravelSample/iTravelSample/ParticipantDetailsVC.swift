@@ -151,11 +151,11 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
     // MARK: - Actions -
     @IBAction func segmentedGender(_ sender: Any) {
         
-        if imgUser.image == UIImage(named: "Man") {
+        if segmentedGender.selectedSegmentIndex == 1 {
             imgUser.image = UIImage(named: "Woman")
             imgUser.borderWidth = 0
             imgUser.contentMode = .scaleAspectFit
-        } else if imgUser.image == UIImage(named: "Woman") {
+        } else {
             imgUser.image = UIImage(named: "Man")
             imgUser.borderWidth = 0
             imgUser.contentMode = .scaleAspectFit
@@ -192,6 +192,12 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
             if let img = imgUser.image {
                 let imageData = NSData(data: UIImageJPEGRepresentation(img, 1.0)!)
                 participant.image = imageData
+            }
+            
+            if let current = User().getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
+                participant.user = current
+                print("current user name \(String(describing: participant.user))")
+                print("there are \(User.getAllUsers) users in core data")
             }
             
             self.coreData.saveContext()

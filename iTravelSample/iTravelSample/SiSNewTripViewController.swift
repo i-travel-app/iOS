@@ -19,8 +19,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     var country: String?
     var city: String?
     var targetPlaceID: Int?
-    var tripPurposeValue: String?
-    var transportKindValue: String?
+    var tripPurposeValue = "Деловая"
+    var transportKindValue = "Самолет"
     var trip: Trip!
     
     // MARK: - Outlets -
@@ -30,6 +30,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var targetPlaceTF: UITextFieldX!
     @IBOutlet weak var startTripDate: UITextFieldX!
     @IBOutlet weak var endTripDate: UITextFieldX!
+    @IBOutlet var purpose: UISegmentedControl!
+    @IBOutlet var kindOfTransport: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,11 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SiSNewTripViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionViewPersons.reloadData()
     }
     
     func back(sender: UIBarButtonItem) {
@@ -107,7 +114,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     // MARK: - UICollectionViewDelegate protocol - 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // open ParticipantDetailVC
+        openParticipantChangesVC(indexPath: indexPath)
         
     }
     
@@ -144,13 +151,8 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
                 trip.endDate = endDate.toDate() as NSDate
             }
             
-            if let purpose = tripPurposeValue {
-                trip.purpose = purpose
-            }
-            
-            if let kindOfTransport = transportKindValue {
-                trip.kindOfTransport = kindOfTransport
-            }
+            trip.purpose = tripPurposeValue
+            trip.kindOfTransport = transportKindValue
             
             trip.participants = Set(participants) as NSSet
             
@@ -158,8 +160,9 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             
             if let current = User().getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
                 trip.user = current
+                let all = User.getAllUsers()
                 print("current user name \(String(describing: trip.user))")
-                print("there are \(User.getAllUsers) users in core data")
+                print("there are \(all) users in core data")
             }
             
             do {
@@ -236,7 +239,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     // MARK: - Actions -
     @IBAction func tripPurposeChanges(_ sender: UISegmentedControl) {
-        tripPurposeValue = sender.titleForSegment(at: sender.selectedSegmentIndex)
+        tripPurposeValue = sender.titleForSegment(at: sender.selectedSegmentIndex)!
     }
     
     @IBAction func transportKindChanges(_ sender: UISegmentedControl) {
@@ -253,5 +256,14 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     func back() {
         _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+    func openParticipantChangesVC(indexPath: IndexPath) {
+        var participant: Participant!
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
+        participant = participants[indexPath.row]
+        VC.isNewParticipant = false
+        VC.participant = participant
+        self.navigationController!.pushViewController(VC, animated: true)
     }
 }

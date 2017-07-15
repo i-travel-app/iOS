@@ -34,10 +34,9 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         cellsArray = Trip.getTripsForCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext)
         tableView.reloadData()
-        print("there are \(User.getAllUsers()) in core data")
+        //print("there are \(User.getAllUsers()) in core data")
         
     }
     
@@ -61,17 +60,24 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // здесь реализуем показ списка истории поездок
-        let cell: UITableViewCell
+        //let cell: UITableViewCell
         if cellsArray.isEmpty {
-            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath as IndexPath)
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath as IndexPath) as UITableViewCell
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .red
             cell.textLabel?.text = "Здесь отображается история Ваших поездок. К сожалению, у Вас не было еще ни одной поездки.\nДобавьте первую, нажав на кнопку ниже."
+            return cell
         } else {
-            cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! SiSTableViewCell
+            let trip = cellsArray[indexPath.row]
+            let tripId = trip.idTrip
+            if let tripCountry = trip.targetPlace?.country, let tripCity = trip.targetPlace?.city, let tripStart = trip.startDate?.toString(), let tripEnd = trip.endDate?.toString(), let participants = trip.participants?.count {
+                cell.labelText?.text = ("Поездка № \(tripId),\n\(tripCountry), \(tripCity),\nc \(tripStart) по \(tripEnd),\nучастников \(participants)")
+            }
+            return cell
         }
-        return cell
+        //return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

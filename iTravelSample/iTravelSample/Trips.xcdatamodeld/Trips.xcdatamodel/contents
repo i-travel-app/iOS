@@ -7,6 +7,7 @@
         <attribute name="isMan" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="trips" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="participants" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="participants" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="TargetPlace" representedClassName=".TargetPlace" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,12 +37,13 @@
         <attribute name="isMan" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Participant" inverseName="user" inverseEntity="Participant" syncable="YES"/>
         <relationship name="trips" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trip" inverseName="user" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Participant" positionX="126" positionY="-13" width="128" height="133"/>
+        <element name="Participant" positionX="259" positionY="-112" width="128" height="148"/>
         <element name="TargetPlace" positionX="-234" positionY="-18" width="126" height="133"/>
         <element name="Trip" positionX="-63" positionY="-16" width="128" height="193"/>
-        <element name="User" positionX="-65" positionY="-207" width="128" height="163"/>
+        <element name="User" positionX="-65" positionY="-286" width="128" height="178"/>
     </elements>
 </model>

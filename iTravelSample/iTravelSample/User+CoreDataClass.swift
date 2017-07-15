@@ -120,5 +120,22 @@ public class User: NSManagedObject {
         }
         return 0
     }
+    
+    static func allUsersMakeNoCurrent() {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let results = try CoreDataStack.instance.persistentContainer.viewContext.fetch(request)
+            if results.count > 0 {
+                for user in results {
+                    user.isCurrent = false
+                }
+            } else {
+                print("There are no Users")
+            }
+        } catch {
+            fatalError("Cannot get user info")
+        }
+    }
 
 }
