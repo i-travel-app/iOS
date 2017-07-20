@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         User.allUsersMakeNoCurrent()
         
+        //APIStack().getThingsByPOST()
+        
         return true
     }
 
