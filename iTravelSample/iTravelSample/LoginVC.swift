@@ -272,11 +272,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func openUserTripsVC() {
+        
+        // check current user isCurrent
         let moc = CoreDataStack.instance.persistentContainer.viewContext
         User.markUserAsCurrent(byLogin: usernameTextField.text!, context:moc)
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSGeneralViewController") as! SiSGeneralViewController
-        let navController = UINavigationController(rootViewController: VC)
-        self.present(navController, animated: true, completion: nil)
+        
+        // open trips view controller or tabbar with it
+        //let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSGeneralViewController") as! SiSGeneralViewController
+       // let navController = UINavigationController(rootViewController: VC)
+        //self.present(navController, animated: true, completion: nil)
+        
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(VC, animated: true, completion: nil)
+        
     }
 }
 

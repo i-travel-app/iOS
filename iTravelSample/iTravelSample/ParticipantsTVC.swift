@@ -28,10 +28,16 @@ class ParticipantsTVC: UITableViewController {
         
         self.title = "Участники поездки"
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
-        let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
-        self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
-        self.navigationItem.setRightBarButtonItems([addButton], animated: true)
+        // check how much views un stack and should we show Back button
+        if let viewControllers = navigationController?.viewControllers {
+            //print(viewControllers.count)
+            if viewControllers.count > 1 {
+                let newBackButton = UIBarButtonItem(title: "<Назад", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
+                self.navigationItem.setLeftBarButtonItems([newBackButton], animated: true)
+            }
+        }
         
+        self.navigationItem.setRightBarButtonItems([addButton], animated: true)
         tableView.tableFooterView = UIView()
         
         loadData()
