@@ -28,7 +28,7 @@ public class TargetPlace: NSManagedObject {
         }
     }
     
-    func getAllTargetsCountryFromDB(withName: String) -> Array<String> {
+    static func getAllTargetsCountryFromDB(withName: String) -> Array<String> {
         var set: Set<String> = []
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()
@@ -52,7 +52,7 @@ public class TargetPlace: NSManagedObject {
         return arr.sorted()
     }
     
-    func getAllTargetsCitiesFromDB(withName: String, andCountry: String?) -> Array<String> {
+    static func getAllTargetsCitiesFromDB(withName: String, andCountry: String?) -> Array<String> {
         var set: Set<String> = []
         let context = CoreDataStack.instance.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<TargetPlace> = TargetPlace.fetchRequest()

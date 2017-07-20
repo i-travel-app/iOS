@@ -101,13 +101,13 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         
         if textField.tag == 1 {
             self.countriesTVActive = true
-            self.targetsArray = TargetPlace().getAllTargetsCountryFromDB(withName: substring)
+            self.targetsArray = TargetPlace.getAllTargetsCountryFromDB(withName: substring)
         } else if textField.tag == 2 {
             self.countriesTVActive = false
             if (self.targetCountry.text?.characters.count)! > 1 || substring.characters.count > 1 {
-                self.targetsArray = TargetPlace().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = TargetPlace.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             } else if self.targetCountry.text != "" {
-                self.targetsArray = TargetPlace().getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
+                self.targetsArray = TargetPlace.getAllTargetsCitiesFromDB(withName: substring, andCountry: self.targetCountry.text!)
             }
         }
         
@@ -120,7 +120,11 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UITableViewCellX
         let arrayStr = self.targetsArray[indexPath.row].components(separatedBy: ", ")
-        cell.label.text = String(arrayStr[0] + ", " + arrayStr[1])
+        if arrayStr.count > 1{
+            cell.label.text = String(arrayStr[0] + ", " + arrayStr[1])
+        } else {
+            cell.label.text = arrayStr[0]
+        }
         return cell
     }
     
