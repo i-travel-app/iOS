@@ -62,6 +62,11 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     override func viewWillLayoutSubviews() {
         imgUser?.layer.cornerRadius = imgUser.frame.size.width / 2
         imgUser?.clipsToBounds = true

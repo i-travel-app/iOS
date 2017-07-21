@@ -90,7 +90,11 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     }
     
     @IBAction func dismissVC(_ sender: Any) {
-        delegate?.addTargetPlace(country: self.targetCountry.text!, city: self.targetCity.text!, id: targetID!)
+        if let country = self.targetCountry.text, country != "" {
+            if let city = self.targetCity.text, city != "" {
+                delegate?.addTargetPlace(country: country, city: city, id: targetID!)
+            }
+        }
         dismiss(animated: true, completion: nil)
     }
     

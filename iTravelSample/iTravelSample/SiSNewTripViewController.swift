@@ -46,6 +46,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionViewPersons.reloadData()
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func back(sender: UIBarButtonItem) {

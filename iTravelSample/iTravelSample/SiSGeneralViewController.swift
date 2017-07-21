@@ -38,6 +38,7 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.reloadData()
         //print("there are \(User.getAllUsers()) in core data")
         
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK: - TableView dataSource -
