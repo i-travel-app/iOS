@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3r-Kk-e54" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1558" y="210"/>
+            <point key="canvasLocation" x="-1557" y="18"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="e0k-zI-XCl">
@@ -992,24 +992,14 @@
             </objects>
             <point key="canvasLocation" x="776.81159420289862" y="875.54347826086962"/>
         </scene>
-        <!--Table View Controller-->
+        <!--ThingsTVC-->
         <scene sceneID="BzX-Lj-KgO">
             <objects>
-                <tableViewController id="l0W-WB-v5w" sceneMemberID="viewController">
+                <tableViewController id="l0W-WB-v5w" customClass="ThingsTVC" customModule="iTravelSample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y59-g5-BvS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XiW-Qt-xFW">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XiW-Qt-xFW" id="yvg-6C-B5l">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="l0W-WB-v5w" id="irH-r1-2we"/>
                             <outlet property="delegate" destination="l0W-WB-v5w" id="W1i-QE-WyI"/>
