@@ -22,6 +22,19 @@
 		526CF1021F273B55004A6C53 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526CF1011F273B55004A6C53 /* UIView+Extension.swift */; };
 		52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */; };
 		52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52894EB01EC9A9400052091E /* SiSPickerVC.swift */; };
+		529073F41F61BFD200E71FD2 /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529073F31F61BFD200E71FD2 /* TabPageViewController.framework */; };
+		529073F71F61C35800E71FD2 /* TabPageViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529073F31F61BFD200E71FD2 /* TabPageViewController.framework */; };
+		529073F81F61C35800E71FD2 /* TabPageViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 529073F31F61BFD200E71FD2 /* TabPageViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		529073FD1F61C8F100E71FD2 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529073FC1F61C8F100E71FD2 /* CustomTabBar.swift */; };
+		529073FF1F61CAD400E71FD2 /* TabPagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529073FE1F61CAD400E71FD2 /* TabPagesVC.swift */; };
+		529074071F631B4D00E71FD2 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529074061F631B4D00E71FD2 /* CAPSPageMenu.swift */; };
+		529074091F631B8100E71FD2 /* PagesThingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529074081F631B8100E71FD2 /* PagesThingsVC.swift */; };
+		5290740B1F631C7300E71FD2 /* CAPSPageMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290740A1F631C7300E71FD2 /* CAPSPageMenuConfiguration.swift */; };
+		5290740D1F631C8300E71FD2 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290740C1F631C8300E71FD2 /* MenuItemView.swift */; };
+		5290740F1F631CA600E71FD2 /* CAPSPageMenu+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290740E1F631CA600E71FD2 /* CAPSPageMenu+Options.swift */; };
+		529074111F631CDD00E71FD2 /* CAPSPageMenu+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529074101F631CDD00E71FD2 /* CAPSPageMenu+UIConfiguration.swift */; };
+		529074131F631DF200E71FD2 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529074121F631DF200E71FD2 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */; };
+		529074151F631DFA00E71FD2 /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529074141F631DFA00E71FD2 /* CAPSPageMenu+UIScrollViewDelegate.swift */; };
 		5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */; };
 		5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */; };
 		5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */; };
@@ -84,6 +97,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		529073F91F61C35800E71FD2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				529073F81F61C35800E71FD2 /* TabPageViewController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		521DA8D21EEC4C7200226AA9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		521DA8D51EEC4DB200226AA9 /* Trips.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trips.xcdatamodel; sourceTree = "<group>"; };
@@ -100,6 +127,17 @@
 		526CF1011F273B55004A6C53 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		52894EAE1EC9A0ED0052091E /* SiSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSCollectionViewCell.swift; sourceTree = "<group>"; };
 		52894EB01EC9A9400052091E /* SiSPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPickerVC.swift; sourceTree = "<group>"; };
+		529073F31F61BFD200E71FD2 /* TabPageViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TabPageViewController.framework; sourceTree = "<group>"; };
+		529073FC1F61C8F100E71FD2 /* CustomTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		529073FE1F61CAD400E71FD2 /* TabPagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabPagesVC.swift; sourceTree = "<group>"; };
+		529074061F631B4D00E71FD2 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		529074081F631B8100E71FD2 /* PagesThingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagesThingsVC.swift; sourceTree = "<group>"; };
+		5290740A1F631C7300E71FD2 /* CAPSPageMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenuConfiguration.swift; sourceTree = "<group>"; };
+		5290740C1F631C8300E71FD2 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		5290740E1F631CA600E71FD2 /* CAPSPageMenu+Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+Options.swift"; sourceTree = "<group>"; };
+		529074101F631CDD00E71FD2 /* CAPSPageMenu+UIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIConfiguration.swift"; sourceTree = "<group>"; };
+		529074121F631DF200E71FD2 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
+		529074141F631DFA00E71FD2 /* CAPSPageMenu+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		5290C3F31ECB217200AA06C4 /* SiSPersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiSPersonModel.swift; sourceTree = "<group>"; };
 		5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantDetailsVC.swift; sourceTree = "<group>"; };
 		5296AFF81F0002DD00840E06 /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -157,7 +195,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529073F41F61BFD200E71FD2 /* TabPageViewController.framework in Frameworks */,
 				577948971EF3D95100C28A6F /* MapKit.framework in Frameworks */,
+				529073F71F61C35800E71FD2 /* TabPageViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +227,13 @@
 				52B116C11F1A8A5200F89F56 /* Date+Extension.swift */,
 				521EBFC81F15336800DB1614 /* KeychainPasswordItem.swift */,
 				521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */,
+				529074061F631B4D00E71FD2 /* CAPSPageMenu.swift */,
+				5290740E1F631CA600E71FD2 /* CAPSPageMenu+Options.swift */,
+				529074101F631CDD00E71FD2 /* CAPSPageMenu+UIConfiguration.swift */,
+				529074121F631DF200E71FD2 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */,
+				529074141F631DFA00E71FD2 /* CAPSPageMenu+UIScrollViewDelegate.swift */,
+				5290740A1F631C7300E71FD2 /* CAPSPageMenuConfiguration.swift */,
+				5290740C1F631C8300E71FD2 /* MenuItemView.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -205,7 +252,10 @@
 				5296AFF51EFECEA200840E06 /* ParticipantDetailsVC.swift */,
 				521EBFC61F15326F00DB1614 /* LoginVC.swift */,
 				5728E7091F1614B3008271BB /* NewUserVC.swift */,
+				529073FC1F61C8F100E71FD2 /* CustomTabBar.swift */,
+				529073FE1F61CAD400E71FD2 /* TabPagesVC.swift */,
 				52F5128E1EBB79BD002413CF /* Main.storyboard */,
+				529074081F631B8100E71FD2 /* PagesThingsVC.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -309,6 +359,7 @@
 		577948951EF3D95100C28A6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529073F31F61BFD200E71FD2 /* TabPageViewController.framework */,
 				577948961EF3D95100C28A6F /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -339,6 +390,7 @@
 				52F512831EBB79BD002413CF /* Sources */,
 				52F512841EBB79BD002413CF /* Frameworks */,
 				52F512851EBB79BD002413CF /* Resources */,
+				529073F91F61C35800E71FD2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -487,21 +539,28 @@
 				572D40941EFD1CDE0079ECB4 /* ParticipantsTVC.swift in Sources */,
 				52F512B91EBB9420002413CF /* SiSTableViewController.swift in Sources */,
 				52E2538E1EC4BA7F00A76CA2 /* SiSNewTripViewController.swift in Sources */,
+				529074091F631B8100E71FD2 /* PagesThingsVC.swift in Sources */,
+				529074111F631CDD00E71FD2 /* CAPSPageMenu+UIConfiguration.swift in Sources */,
 				5296B0031F01284900840E06 /* TargetPlace+CoreDataProperties.swift in Sources */,
 				52E2537E1EC4A73100A76CA2 /* UIButtonX.swift in Sources */,
 				52B92CBA1EF064560088F265 /* Utils.swift in Sources */,
+				5290740F1F631CA600E71FD2 /* CAPSPageMenu+Options.swift in Sources */,
 				52894EAF1EC9A0ED0052091E /* SiSCollectionViewCell.swift in Sources */,
 				5296B0061F01284900840E06 /* Participant+CoreDataClass.swift in Sources */,
 				52E253721EC4A39B00A76CA2 /* SiSGeneralViewController.swift in Sources */,
+				529073FF1F61CAD400E71FD2 /* TabPagesVC.swift in Sources */,
 				526CF1021F273B55004A6C53 /* UIView+Extension.swift in Sources */,
 				52E253821EC4A73100A76CA2 /* UITextFieldX.swift in Sources */,
 				52E253851EC4A73100A76CA2 /* UIViewX.swift in Sources */,
 				523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */,
 				52E253811EC4A73100A76CA2 /* UISliderX.swift in Sources */,
 				5226AE541F19035100F29368 /* User+CoreDataProperties.swift in Sources */,
+				5290740B1F631C7300E71FD2 /* CAPSPageMenuConfiguration.swift in Sources */,
+				5290740D1F631C8300E71FD2 /* MenuItemView.swift in Sources */,
 				57154ABE1ECAFB4000A0398E /* SiSPersonDetailsVC.swift in Sources */,
 				5296AFF91F0002DD00840E06 /* UITextField+Extension.swift in Sources */,
 				5728E70A1F1614B3008271BB /* NewUserVC.swift in Sources */,
+				529073FD1F61C8F100E71FD2 /* CustomTabBar.swift in Sources */,
 				52894EB11EC9A9400052091E /* SiSPickerVC.swift in Sources */,
 				52E253841EC4A73100A76CA2 /* UIViewControllerX.swift in Sources */,
 				521EBFC71F15326F00DB1614 /* LoginVC.swift in Sources */,
@@ -510,6 +569,7 @@
 				5296AFF61EFECEA200840E06 /* ParticipantDetailsVC.swift in Sources */,
 				52E253801EC4A73100A76CA2 /* UILabelX.swift in Sources */,
 				5296B0041F01284900840E06 /* Trip+CoreDataClass.swift in Sources */,
+				529074071F631B4D00E71FD2 /* CAPSPageMenu.swift in Sources */,
 				526CF0FC1F273431004A6C53 /* ThingsTVC.swift in Sources */,
 				52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */,
 				52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */,
@@ -519,6 +579,7 @@
 				52B116C21F1A8A5200F89F56 /* Date+Extension.swift in Sources */,
 				52F5128D1EBB79BD002413CF /* ViewController.swift in Sources */,
 				521DA8D61EEC4DB200226AA9 /* Trips.xcdatamodeld in Sources */,
+				529074131F631DF200E71FD2 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */,
 				52F5128B1EBB79BD002413CF /* AppDelegate.swift in Sources */,
 				5290C3F41ECB217200AA06C4 /* SiSPersonModel.swift in Sources */,
 				5296B0051F01284900840E06 /* Trip+CoreDataProperties.swift in Sources */,
@@ -527,6 +588,7 @@
 				521EBFCA1F15336800DB1614 /* KeychainPasswordItem.swift in Sources */,
 				521EBFCD1F1533BA00DB1614 /* String+Extension.swift in Sources */,
 				526CF1001F273AA9004A6C53 /* ThingsTVHeader.swift in Sources */,
+				529074151F631DFA00E71FD2 /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +743,10 @@
 				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -698,6 +764,10 @@
 				CODE_SIGN_ENTITLEMENTS = iTravelSample/iTravelSample.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = iTravelSample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

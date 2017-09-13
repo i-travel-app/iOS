@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import TabPageViewController
 //
 // MARK: - Section Data Structure
 //
@@ -65,6 +65,23 @@ class ThingsTVC: UITableViewController {
         // add gestures to drag & drop functionality
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(ThingsTVC.longPressGestureRecognized(_:)))
         tableView.addGestureRecognizer(longpress)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let navigationHeight = topLayoutGuide.length
+        tableView.contentInset.top = navigationHeight + TabPageOption().tabHeight
+    }
+    
+    fileprivate func updateNavigationBarOrigin(velocity: CGPoint) {
+        guard let tabPageViewController = parent as? TabPageViewController else { return }
+        
+        if velocity.y > 0.5 {
+            tabPageViewController.updateNavigationBarHidden(true, animated: true)
+        } else if velocity.y < -0.5 {
+            tabPageViewController.updateNavigationBarHidden(false, animated: true)
+        }
     }
     
     func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
@@ -250,6 +267,22 @@ extension ThingsTVC {
         }
     }
     
+}
+
+//
+// MARK: - UIScrollViewDelegate
+//
+extension ThingsTVC {
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        updateNavigationBarOrigin(velocity: velocity)
+    }
+    
+    override func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        guard let tabpageViewController = parent as? TabPageViewController else { return }
+        
+        tabpageViewController.showNavigationBar()
+    }
 }
 
 //
