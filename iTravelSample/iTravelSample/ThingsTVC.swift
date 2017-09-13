@@ -40,8 +40,6 @@ class ThingsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Вещи в поездку"
-        
         // Auto resizing the height of the cell
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension

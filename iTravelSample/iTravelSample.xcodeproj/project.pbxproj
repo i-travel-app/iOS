@@ -15,6 +15,7 @@
 		521EBFCB1F15336800DB1614 /* TouchIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */; };
 		521EBFCD1F1533BA00DB1614 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EBFCC1F1533BA00DB1614 /* String+Extension.swift */; };
 		5226AE541F19035100F29368 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5226AE531F19035100F29368 /* User+CoreDataProperties.swift */; };
+		523A9CD51F69A6BF00929A32 /* RecommendedThingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523A9CD41F69A6BF00929A32 /* RecommendedThingsTVC.swift */; };
 		523B4C771EF3015400B68532 /* UITableViewCellX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523B4C761EF3015400B68532 /* UITableViewCellX.swift */; };
 		526CF0FC1F273431004A6C53 /* ThingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526CF0FB1F273431004A6C53 /* ThingsTVC.swift */; };
 		526CF0FE1F2738EB004A6C53 /* ThingTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526CF0FD1F2738EB004A6C53 /* ThingTVCell.swift */; };
@@ -120,6 +121,7 @@
 		521EBFC91F15336800DB1614 /* TouchIDAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchIDAuthentication.swift; sourceTree = "<group>"; };
 		521EBFCC1F1533BA00DB1614 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5226AE531F19035100F29368 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		523A9CD41F69A6BF00929A32 /* RecommendedThingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedThingsTVC.swift; sourceTree = "<group>"; };
 		523B4C761EF3015400B68532 /* UITableViewCellX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCellX.swift; sourceTree = "<group>"; };
 		526CF0FB1F273431004A6C53 /* ThingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingsTVC.swift; sourceTree = "<group>"; };
 		526CF0FD1F2738EB004A6C53 /* ThingTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThingTVCell.swift; sourceTree = "<group>"; };
@@ -254,8 +256,9 @@
 				5728E7091F1614B3008271BB /* NewUserVC.swift */,
 				529073FC1F61C8F100E71FD2 /* CustomTabBar.swift */,
 				529073FE1F61CAD400E71FD2 /* TabPagesVC.swift */,
-				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 				529074081F631B8100E71FD2 /* PagesThingsVC.swift */,
+				523A9CD41F69A6BF00929A32 /* RecommendedThingsTVC.swift */,
+				52F5128E1EBB79BD002413CF /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				529074071F631B4D00E71FD2 /* CAPSPageMenu.swift in Sources */,
 				526CF0FC1F273431004A6C53 /* ThingsTVC.swift in Sources */,
 				52E253861EC4A73100A76CA2 /* UIViewXRadialGradient.swift in Sources */,
+				523A9CD51F69A6BF00929A32 /* RecommendedThingsTVC.swift in Sources */,
 				52E2537F1EC4A73100A76CA2 /* UIImageViewX.swift in Sources */,
 				52E2538C1EC4B16C00A76CA2 /* SiSTripModel.swift in Sources */,
 				521DA8D81EEC53A000226AA9 /* APIStack.swift in Sources */,

@@ -22,15 +22,15 @@ class PagesThingsVC: UIViewController, CAPSPageMenuDelegate {
         // Array to keep track of controllers in page menu
         var controllerArray : [UIViewController] = []
         
-        let vc1 = UIViewController()
-        vc1.view.backgroundColor = .red
-        vc1.title = "vc1"
+        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecommendedThingsTVC")
+        //vc1.view.backgroundColor = .red
+        vc1.title = "Советуем"
         let vc2 = UIViewController()
         vc2.view.backgroundColor = .green
-        vc2.title = "vc2"
+        vc2.title = "Удалено"
         let vc3 = UIViewController()
         vc3.view.backgroundColor = .blue
-        vc3.title = "vc3"
+        vc3.title = "Взяли"
         
         controllerArray.append(vc1)
         controllerArray.append(vc2)
@@ -43,7 +43,12 @@ class PagesThingsVC: UIViewController, CAPSPageMenuDelegate {
             .menuItemSeparatorPercentageHeight(0.1),
             .menuHeight(40),
             .scrollMenuBackgroundColor(Constants.blueColor),
-            .centerMenuItems(false)
+            .centerMenuItems(false),
+            .selectedMenuItemLabelColor(UIColor.white),
+            .unselectedMenuItemLabelColor(UIColor.white),
+            .selectionIndicatorColor(UIColor.white),
+            .bottomMenuHairlineColor(Constants.blueColor)
+
         ]
         
         // Initialize page menu with controller array, frame, and optional parameters

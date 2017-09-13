@@ -26,7 +26,6 @@ class ParticipantsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Участники поездки"
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openParticipantCreationVC))
         // check how much views un stack and should we show Back button
         if let viewControllers = navigationController?.viewControllers {
