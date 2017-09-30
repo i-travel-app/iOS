@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TabPageViewController
 
 class CustomTabBar: UITabBarController, UITabBarControllerDelegate {
 
@@ -20,17 +19,6 @@ class CustomTabBar: UITabBarController, UITabBarControllerDelegate {
     // UITabBarDelegate
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
-//        if item.title == "Вещи" {
-//            let tc = TabPageViewController.create()
-//            let vc1 = UIViewController()
-//            vc1.view.backgroundColor = UIColor.red
-//            let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThingsTVC")
-//            tc.tabItems = [(vc1, "First"), (vc2, "Second")]
-//            var option = TabPageOption()
-//            option.tabWidth = view.frame.width / CGFloat(tc.tabItems.count)
-//            option.hidesTopViewOnSwipeType = .all
-//            tc.option = option
-//        }
         print("Selected item")
     }
     

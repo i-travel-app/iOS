@@ -12,7 +12,7 @@ import CoreData
 
 public class Trip: NSManagedObject {
     
-    internal func getTripID(context: NSManagedObjectContext) -> Int? {
+    static func getTripID(context: NSManagedObjectContext) -> Int? {
         let request: NSFetchRequest<Trip> = Trip.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "idTrip", ascending: true)
         request.sortDescriptors = [sortDescriptor]
@@ -51,6 +51,33 @@ public class Trip: NSManagedObject {
             let trips = try context.fetch(fetchRequest)
             for trip in trips {
                 print(trip.targetPlace?.country ?? "no name")
+            }
+            return trips
+            
+        } catch {
+            fatalError("Cannot get trip info")
+        }
+    }
+    
+    static func getCurrentTrips(context: NSManagedObjectContext) -> [Trip] {
+        
+        // Create Fetch Request
+        let fetchRequest: NSFetchRequest<Trip> = Trip.fetchRequest()
+        
+        // Add Sort Descriptor
+        let sortDescriptor = NSSortDescriptor(key: "idTrip", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // Add Predicate
+        //fetchRequest.predicate = NSPredicate(format: "user.isCurrent = %@", NSNumber(value: true))
+        fetchRequest.predicate = NSPredicate(format: "user.isCurrent = %@ AND endDate >= %@", NSNumber(value: true), NSDate())
+        
+        do {
+            let trips = try context.fetch(fetchRequest)
+            for trip in trips {
+                print(trip.targetPlace?.country ?? "no name")
+                print((trip.user?.isCurrent)! ? "Current" : "No current")
+                //print(trip.startDate?.toString())
             }
             return trips
             

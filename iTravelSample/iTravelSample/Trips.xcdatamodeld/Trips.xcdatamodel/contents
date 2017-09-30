@@ -17,10 +17,15 @@
         <attribute name="regionR" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="idTrip" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trip" inverseName="targetPlace" inverseEntity="Trip" syncable="YES"/>
     </entity>
-    <entity name="Things" representedClassName="Things" syncable="YES" codeGenerationType="class">
+    <entity name="Things" representedClassName=".Things" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="trip" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Trip" inverseName="deletedThings" inverseEntity="Trip" syncable="YES"/>
+        <relationship name="array" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ThingsArray" inverseName="things" inverseEntity="ThingsArray" syncable="YES"/>
+    </entity>
+    <entity name="ThingsArray" representedClassName=".ThingsArray" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="things" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Things" inverseName="array" inverseEntity="Things" syncable="YES"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="thingsArrays" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName=".Trip" syncable="YES">
         <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -30,10 +35,9 @@
         <attribute name="kindOfTransport" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="deletedThings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Things" inverseName="trip" inverseEntity="Things" syncable="YES"/>
         <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="trips" inverseEntity="Participant" syncable="YES"/>
-        <relationship name="recommendedThings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Things" syncable="YES"/>
         <relationship name="targetPlace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TargetPlace" inverseName="idTrip" inverseEntity="TargetPlace" syncable="YES"/>
+        <relationship name="thingsArrays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ThingsArray" inverseName="trip" inverseEntity="ThingsArray" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="trips" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
@@ -50,8 +54,9 @@
     <elements>
         <element name="Participant" positionX="259" positionY="-117" width="128" height="148"/>
         <element name="TargetPlace" positionX="-234" positionY="-18" width="126" height="133"/>
-        <element name="Trip" positionX="-63" positionY="-16" width="128" height="223"/>
+        <element name="Things" positionX="405" positionY="92" width="128" height="88"/>
+        <element name="Trip" positionX="-63" positionY="-16" width="128" height="208"/>
         <element name="User" positionX="-65" positionY="-286" width="128" height="178"/>
-        <element name="Things" positionX="268" positionY="92" width="128" height="88"/>
+        <element name="ThingsArray" positionX="196" positionY="108" width="128" height="88"/>
     </elements>
 </model>

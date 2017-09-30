@@ -94,7 +94,7 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
-    func addNewTripAction() {
+    @objc func addNewTripAction() {
         // открываем контроллер для создания новой поездки
         let viewController = self.storyboard?.instantiateViewController(withIdentifier: "SiSNewTripViewController") as! SiSNewTripViewController
         self.navigationController!.pushViewController(viewController, animated: true)

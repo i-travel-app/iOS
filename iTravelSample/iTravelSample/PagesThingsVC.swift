@@ -8,36 +8,67 @@
 
 import UIKit
 
-class PagesThingsVC: UIViewController, CAPSPageMenuDelegate {
+class PagesThingsVC: UIViewController, CAPSPageMenuDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    var trips: [Trip]? {
+        didSet {
+            trips = Trip.getCurrentTrips(context: CoreDataStack.instance.persistentContainer.viewContext)
+        }
+    }
+    var currentTrip: Trip?
     
     var pageMenu : CAPSPageMenu?
+    var tap: UITapGestureRecognizer!
+    var isTableViewShow = false
+    
+    @IBOutlet weak var tableView: TripsTableView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint?
+    
+    var blackView: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Вещи"
+        let menuImg = UIImage(named: "menu")
+        let menuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        menuButton.setBackgroundImage(menuImg, for: .normal)
+        menuButton.addTarget(self, action: #selector(PagesThingsVC.tapped), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: menuButton)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        trips = { trips }()
+        
+        if currentTrip == nil {
+            currentTrip = trips?.last
+        }
+        let str = currentTrip == nil ? "Вещи" : "№\((currentTrip?.idTrip)!) - \((currentTrip?.targetPlace?.city)!), \((currentTrip?.targetPlace?.country)!)"
+        navigationItem.title = str
+        tabBarController?.tabBar.isHidden = false
         
         self.view.backgroundColor = Constants.blueColor
-
-        // Array to keep track of controllers in page menu
+        
         var controllerArray : [UIViewController] = []
         
-        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecommendedThingsTVC")
-        //vc1.view.backgroundColor = .red
+        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RecommendedThingsVC") as! RecommendedThingsVC
         vc1.title = "Советуем"
-        let vc2 = UIViewController()
-        vc2.view.backgroundColor = .green
-        vc2.title = "Удалено"
-        let vc3 = UIViewController()
-        vc3.view.backgroundColor = .blue
-        vc3.title = "Взяли"
+        vc1.currentTrip = currentTrip
+        
+        let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChoosedThingsVC") as! ChoosedThingsVC
+        vc2.title = "Подготовили"
+        vc2.currentTrip = currentTrip
+        
+        let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InSuitThingsVC") as! InSuitThingsVC
+        vc3.title = "Уже взяли"
+        vc3.currentTrip = currentTrip
         
         controllerArray.append(vc1)
         controllerArray.append(vc2)
         controllerArray.append(vc3)
         
-        // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
-        // Example:
         let parameters: [CAPSPageMenuOption] = [
             .useMenuLikeSegmentedControl(true),
             .menuItemSeparatorPercentageHeight(0.1),
@@ -48,19 +79,20 @@ class PagesThingsVC: UIViewController, CAPSPageMenuDelegate {
             .unselectedMenuItemLabelColor(UIColor.white),
             .selectionIndicatorColor(UIColor.white),
             .bottomMenuHairlineColor(Constants.blueColor)
-
+            
         ]
-        
-        // Initialize page menu with controller array, frame, and optional parameters
+
         let topFramesHeight = (navigationController?.navigationBar.frame.size.height)! + 20
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRect(x:0.0, y:topFramesHeight, width:self.view.frame.width, height:self.view.frame.height), pageMenuOptions: parameters)
+
         
-        // Lastly add page menu as subview of base view controller view
-        // or use pageMenu controller in you view hierachy as desired
         self.view.addSubview(pageMenu!.view)
         
-        // Optional delegate
         pageMenu!.delegate = self
+        
+        self.heightConstraint?.constant = CGFloat((trips?.count)!) * 44.0
+        self.tableView.alpha = 0
+        
     }
     
     // MARK: - CASPageMenuDelegate -
@@ -71,5 +103,65 @@ class PagesThingsVC: UIViewController, CAPSPageMenuDelegate {
     func didMoveToPage(_ controller: UIViewController, index: Int){
     
     }
-
+    
+    // MARK: - Gestures
+    @objc func tapped() {
+        print("tap")
+        
+        if blackView == nil {
+            blackView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+            blackView?.backgroundColor = UIColor.lightGray
+            blackView?.alpha = 0
+            self.view.addSubview(blackView!)
+        }
+        
+        if !isTableViewShow && !(trips?.isEmpty)! {
+            UIView.animate(withDuration: 0.3) {
+                self.tableView.alpha = 1
+                self.blackView?.alpha = 0.5
+                self.isTableViewShow = true
+                self.view.bringSubview(toFront: self.blackView!)
+                self.view.bringSubview(toFront: self.tableView)
+            }
+        } else {
+            hideTableView()
+        }
+    }
+    
+    // MARK: - TableView
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return trips!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let trip = trips![indexPath.row]
+        let cell = UITableViewCell()
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.text = "\(trip.targetPlace!.city!), \(trip.targetPlace!.country!), \(trip.startDate!.toString())"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        currentTrip = trips?[indexPath.row]
+        
+        hideTableView()
+    }
+    
+    func hideTableView() {
+        if self.isTableViewShow {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.blackView?.alpha = 0
+                self.tableView.alpha = 0
+            }, completion: { (finish) in
+                
+                self.isTableViewShow = false
+            })
+        }
+        
+        self.viewWillAppear(true)
+        self.view.layoutSubviews()
+    }
 }

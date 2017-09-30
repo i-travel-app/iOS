@@ -97,7 +97,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrame = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         kbFrameSize = kbFrame.height
@@ -110,7 +110,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.isKBShown = true
     }
     
-    func kbWillHide() {
+    @objc func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
                 self.view.center.y += (UIScreen.main.bounds.size.height > 600.0 ? self.kbFrameSize : (self.kbFrameSize - 40))
@@ -199,7 +199,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
                 participant.image = imageData
             }
             
-            if let current = User().getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
+            if let current = User.getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
                 participant.user = current
                 print("current user name \(String(describing: participant.user))")
                 print("there are \(User.getAllUsers) users in core data")
@@ -211,7 +211,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         back()
     }
     
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
         let ac = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Камера", style: .default) { (action) in
@@ -227,7 +227,7 @@ class ParticipantDetailsVC: UIViewController, UITextFieldDelegate, UIImagePicker
         self.present(ac, animated: true, completion: nil)
     }
     
-    func back() {
+    @objc func back() {
         _ = self.navigationController?.popViewController(animated: true)
     }
     

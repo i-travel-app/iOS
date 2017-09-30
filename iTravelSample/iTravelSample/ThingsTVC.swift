@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TabPageViewController
 //
 // MARK: - Section Data Structure
 //
@@ -68,21 +67,21 @@ class ThingsTVC: UITableViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let navigationHeight = topLayoutGuide.length
-        tableView.contentInset.top = navigationHeight + TabPageOption().tabHeight
+        //let navigationHeight = topLayoutGuide.length
+        //tableView.contentInset.top = navigationHeight + TabPageOption().tabHeight
     }
     
     fileprivate func updateNavigationBarOrigin(velocity: CGPoint) {
-        guard let tabPageViewController = parent as? TabPageViewController else { return }
+        //guard let tabPageViewController = parent as? TabPageViewController else { return }
         
         if velocity.y > 0.5 {
-            tabPageViewController.updateNavigationBarHidden(true, animated: true)
+            //tabPageViewController.updateNavigationBarHidden(true, animated: true)
         } else if velocity.y < -0.5 {
-            tabPageViewController.updateNavigationBarHidden(false, animated: true)
+            //tabPageViewController.updateNavigationBarHidden(false, animated: true)
         }
     }
     
-    func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func longPressGestureRecognized(_ gestureRecognizer: UIGestureRecognizer) {
         let longPress = gestureRecognizer as! UILongPressGestureRecognizer
         let state = longPress.state
         let locationInView = longPress.location(in: tableView)
@@ -277,9 +276,9 @@ extension ThingsTVC {
     }
     
     override func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        guard let tabpageViewController = parent as? TabPageViewController else { return }
+        //guard let tabpageViewController = parent as? TabPageViewController else { return }
         
-        tabpageViewController.showNavigationBar()
+        //tabpageViewController.showNavigationBar()
     }
 }
 

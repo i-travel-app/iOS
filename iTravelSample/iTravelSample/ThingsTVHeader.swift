@@ -85,7 +85,7 @@ class ThingsTVHeader: UITableViewHeaderFooterView {
     //
     // Trigger toggle section when tapping on the header
     //
-    func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
+    @objc func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
         guard let cell = gestureRecognizer.view as? ThingsTVHeader else {
             return
         }

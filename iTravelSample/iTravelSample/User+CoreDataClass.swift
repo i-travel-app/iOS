@@ -81,7 +81,7 @@ public class User: NSManagedObject {
         CoreDataStack.instance.saveContext()
     }
     
-    internal func getCurrentUser(context: NSManagedObjectContext) -> User? {
+    static func getCurrentUser(context: NSManagedObjectContext) -> User? {
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "isCurrent = %@", NSNumber(value: true))
         

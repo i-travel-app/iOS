@@ -65,7 +65,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrame = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         kbFrameSize = kbFrame.height
@@ -79,7 +79,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.isKBShown = true
     }
     
-    func kbWillHide() {
+    @objc func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
                 self.view.frame.origin.y += self.kbFrameSize

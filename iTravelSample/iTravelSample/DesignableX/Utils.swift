@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct Constants {
-    static let blueColor = UIColor.init(colorLiteralRed: 72/255, green: 179/255, blue: 229/255, alpha: 1)
+    static let blueColor = UIColor(displayP3Red: 72/255, green: 179/255, blue: 229/255, alpha: 1)
 }
 
 // Clean string 

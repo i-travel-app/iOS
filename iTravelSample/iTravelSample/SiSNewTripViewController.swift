@@ -32,6 +32,7 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBOutlet weak var endTripDate: UITextFieldX!
     @IBOutlet var purpose: UISegmentedControl!
     @IBOutlet var kindOfTransport: UISegmentedControl!
+    @IBOutlet weak var saveBtnTopConstr: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +45,25 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // отключаю возможность добавления учатников
+        collectionViewPersons.isHidden = true
+        stepper.isHidden = true
+        stepperValue.isHidden = true
+        
         super.viewWillAppear(animated)
         collectionViewPersons.reloadData()
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    func back(sender: UIBarButtonItem) {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if collectionViewPersons.isHidden {
+            saveBtnTopConstr.constant = max((saveBtnTopConstr.constant - collectionViewPersons.frame.height - stepper.frame.height), (UIScreen.main.bounds.height - 25 - 80 - 64))
+            
+        }
+    }
+    
+    @objc func back(sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Данные не будут сохранены", message: "В случае выхода из этого меню, Ваши данные не сохранятся! Введите детали поездки и нажмите кнопку \"Сохранить\" для сохранения поездки.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) ->
             Void in
@@ -122,22 +136,36 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     @IBAction func dismiss(_ sender: Any) {
         //print("*************************************\n\nОтдаю серверу такой запрос на получение товаров:\n\nСтрана: \(country!)\n\nГород: \(city!)\n\nНачало путешествия: \(startTripDate.text!)\n\nЗавершение путешествия: \(endTripDate.text!)\n\nЦель поездки: \(tripPurposeValue!)\n\nТранспорт: \(transportKindValue!)\n\nУчастников всего: \(participants.count)\n\nРаспечатка данных об участниках:\n\t{")
         
-        for (index, value) in participants.enumerated() {
-            print("Участник № \(index+1) -> Возраст: \(value.age), Пол: \(value.isMan ? "Мужской" : "Женский")")
-        }
+        //for (index, value) in participants.enumerated() {
+           // print("Участник № \(index+1) -> Возраст: \(value.age), Пол: \(value.isMan ? "Мужской" : "Женский")")
+        //}
         
-        print("\t}")
+        //print("\t}")
         
         // Проверка на пустые поля
-        if (targetPlaceTF.text?.isEmpty)! || (startTripDate.text?.isEmpty)! || (endTripDate.text?.isEmpty)! || participants.isEmpty {
+        if (targetPlaceTF.text?.isEmpty)! || (startTripDate.text?.isEmpty)! || (endTripDate.text?.isEmpty)! {
             // Вывод алерта, если поля пустые
             warningAlert(title: "Отсутствуют данные", message: "Для более точного списка необходимых вещей, заполните все предоставленные поля!")
         } else {
             // Сохранение поездки в БД
+            if context == nil {
+                context = CoreDataStack.instance.persistentContainer.viewContext
+            }
+            
+            let newID = Trip.getTripID(context: context)
+            
             trip = Trip(context: context)
+            let recommended = ThingsArray(context: context)
+            recommended.title = "recommended"
 
-            if let newID = Trip().getTripID(context: context) {
-                trip.idTrip = Int16(newID)
+            let choosed = ThingsArray(context: context)
+            choosed.title = "choosed"
+
+            let inSuit = ThingsArray(context: context)
+            inSuit.title = "inSuit"
+
+            if let value = newID {
+                trip.idTrip = Int16(value)
             }
             
             if let targetPlace = TargetPlace.getTargetPlaceBy(id: targetPlaceID!, context: context) {
@@ -155,16 +183,22 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             trip.purpose = tripPurposeValue
             trip.kindOfTransport = transportKindValue
             
-            trip.participants = Set(participants) as NSSet
+            if !participants.isEmpty {
+                trip.participants = Set(participants) as NSSet
+            }
             
             trip.dateCreation = Date() as NSDate
             
-            if let current = User().getCurrentUser(context: CoreDataStack.instance.persistentContainer.viewContext) {
+            if let current = User.getCurrentUser(context: context) {
                 trip.user = current
                 let all = User.getAllUsers()
                 print("current user name \(String(describing: trip.user))")
                 print("there are \(all) users in core data")
             }
+            
+            trip.addToThingsArrays(recommended)
+            trip.addToThingsArrays(choosed)
+            trip.addToThingsArrays(inSuit)
             
             do {
                 try context.save()
@@ -257,6 +291,13 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     
     func back() {
         _ = self.navigationController?.popViewController(animated: true)
+        //self.tabBarController?.selectedIndex = 1
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        tabbarVC.selectedIndex = 1
+        self.present(tabbarVC, animated: false, completion: nil)
+        
     }
     
     func openParticipantChangesVC(indexPath: IndexPath) {

@@ -12,6 +12,12 @@ let BASE_URL = "http://77.220.215.26:8080/"
 
 
 class APIStack {
+    
+    // Singleton
+    static let instance = APIStack()
+    private init() {}
+    
+    
     // Обращаемся к серверу в первую загрузку для получения idUser и последующей идентификации хозяина программы!!!
     
     func getThings() {
@@ -41,7 +47,8 @@ class APIStack {
         task.resume()
     }
     
-    func getThingsByPOST() {
+    func getThingsByPOST(weather: Int, sex: Int, tripKind: Int, callback:@escaping ([String])->()) {
+        
         // Create the URLSession on the default configuration
         let defaultSession = URLSession.shared
         
@@ -50,16 +57,11 @@ class APIStack {
         var urlRequest = URLRequest(url: url!)
         
         // Convert POST string parameters to data using UTF8 Encoding
+        // weather winter = 1, sex.man = 1, trip.kind.relax = 1
         let customDict = [
-            "country" : "Ukraine",
-            "city": "Texas",
-            "transport" : "Auto",
-            "data1" : "1-02-2107",
-            "data2": "1-02-2107",
-            "Peopl": [
-                "age": 12,
-                "sex": "m"
-            ]
+            "id_weather" : String(weather),
+            "id_sex": String(sex),
+            "id_tip" : String(tripKind)
             ] as Dictionary<String, Any>
         
         do {
@@ -85,9 +87,10 @@ class APIStack {
             
             do {
                 //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String] {
                     print(json)
                     // handle json...
+                    callback(json)
                 }
                 
             } catch let error {
@@ -95,6 +98,7 @@ class APIStack {
             }
         }
         task.resume()
+        
     }
 }
 

@@ -46,6 +46,7 @@ class ParticipantsTVC: UITableViewController {
         super.viewWillAppear(animated)
         checkedParticipants.removeAll()
         loadData()
+        tabBarController?.tabBar.isHidden = false
         tableView.reloadData()
     }
     
@@ -163,12 +164,12 @@ class ParticipantsTVC: UITableViewController {
     
     
     // Переходы по контроллерам
-    func back() {
+    @objc func back() {
         delegate?.checkedParticipants(context: coreData.persistentContainer.viewContext, array: checkedParticipants)
         _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func openParticipantCreationVC() {
+    @objc func openParticipantCreationVC() {
         let VC = self.storyboard?.instantiateViewController(withIdentifier: "ParticipantDetailsVC") as! ParticipantDetailsVC
         VC.isNewParticipant = true
         self.navigationController!.pushViewController(VC, animated: true)

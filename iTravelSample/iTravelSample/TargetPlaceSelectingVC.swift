@@ -78,7 +78,7 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.kbFrameSize = kbFrameSize
@@ -257,8 +257,10 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             let annotation = MKPointAnnotation()
             annotation.title = address
             
+            
             guard let location = placemark.location else { return }
             annotation.coordinate = location.coordinate
+            print(annotation.coordinate)
             
             self.map.showAnnotations([annotation], animated: true)
             self.map.selectAnnotation(annotation, animated: true)

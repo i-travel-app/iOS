@@ -86,7 +86,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func kbWillShow(_ notification: Notification) {
+    @objc func kbWillShow(_ notification: Notification) {
         let userInfo = notification.userInfo
         let kbFrame = (userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         kbFrameSize = kbFrame.height
@@ -98,7 +98,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         self.isKBShown = true
     }
     
-    func kbWillHide() {
+    @objc func kbWillHide() {
         UIView.animate(withDuration:0.3) {
             if self.isKBShown {
                 self.view.frame.origin.y += self.kbFrameSize
@@ -215,7 +215,7 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
         openUserTripsVC()
     }
     
-    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
         let ac = UIAlertController(title: "Источник фотографии", message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Камера", style: .default) { (action) in
@@ -232,9 +232,8 @@ class NewUserVC: UIViewController, UITextFieldDelegate, UIImagePickerControllerD
     }
     
     func openUserTripsVC() {
-        let VC = self.storyboard?.instantiateViewController(withIdentifier: "SiSGeneralViewController") as! SiSGeneralViewController
-        let navController = UINavigationController(rootViewController: VC)
-        self.present(navController, animated: true, completion: nil)
+        let VC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+        self.present(VC, animated: true, completion: nil)
     }
     
     

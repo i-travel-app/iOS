@@ -143,7 +143,7 @@ extension CoreDataStack {
         })
         
         // пытаюсь проверить наполнение кордаты
-        TargetPlace().getAllTargetsFromDB()
+        //TargetPlace().getAllTargetsFromDB()
     }
     
     // MARK - Participants methods - 
