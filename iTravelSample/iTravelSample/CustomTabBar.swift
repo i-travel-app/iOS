@@ -19,7 +19,7 @@ class CustomTabBar: UITabBarController, UITabBarControllerDelegate {
     // UITabBarDelegate
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
-        print("Selected item")
+        
     }
     
     // UITabBarControllerDelegate

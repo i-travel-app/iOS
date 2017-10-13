@@ -47,7 +47,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         isRegistered()
-        touchIDButton.isHidden = !touchMe.canEvaluatePolicy()
+        touchIDButton.isHidden = true//!touchMe.canEvaluatePolicy()
         registerForKeyboardNotifications()
     }
     
@@ -254,14 +254,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     func getLastUserLogin() -> String? {
         // Получаем логин крайнего пользователя
-        
-        if array.isEmpty {
+        guard let userLogin = UserDefaults.standard.string(forKey: "last_user_session") else {
             print("Пользователей нет")
             return nil
-        } else {
-            print("Логин последнего пользователя .......... \(String(describing: array.last?.login))")
-            return array.last?.login
         }
+
+        print("Логин последнего пользователя .......... \(userLogin)")
+        return userLogin
     }
     
     func openUserCreationVC() {

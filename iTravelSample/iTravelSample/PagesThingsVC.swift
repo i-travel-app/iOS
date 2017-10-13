@@ -57,17 +57,20 @@ class PagesThingsVC: UIViewController, CAPSPageMenuDelegate, UITableViewDelegate
         vc1.title = "Советуем"
         vc1.currentTrip = currentTrip
         
-        let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChoosedThingsVC") as! ChoosedThingsVC
-        vc2.title = "Подготовили"
-        vc2.currentTrip = currentTrip
-        
-        let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InSuitThingsVC") as! InSuitThingsVC
-        vc3.title = "Уже взяли"
-        vc3.currentTrip = currentTrip
-        
         controllerArray.append(vc1)
-        controllerArray.append(vc2)
-        controllerArray.append(vc3)
+        
+        if currentTrip != nil {
+            let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ChoosedThingsVC") as! ChoosedThingsVC
+            vc2.title = "Подготовили"
+            vc2.currentTrip = currentTrip
+            
+            let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "InSuitThingsVC") as! InSuitThingsVC
+            vc3.title = "Уже взяли"
+            vc3.currentTrip = currentTrip
+            
+            controllerArray.append(vc2)
+            controllerArray.append(vc3)
+        }
         
         let parameters: [CAPSPageMenuOption] = [
             .useMenuLikeSegmentedControl(true),

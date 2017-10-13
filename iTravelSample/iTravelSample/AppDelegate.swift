@@ -35,9 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(true, forKey: "isPreloaded")
         }
         
-        User.allUsersMakeNoCurrent()
-        
         //APIStack().getThingsByPOST()
+//        APIStack.instance.getCityData(latitude: "48.515530", longitude: "32.277012") { (weatherArray) in
+//            print("weatherArray recieved and its count is \(weatherArray.count)")
+//        }
         
         return true
     }

@@ -2,7 +2,7 @@
 //  Trip+CoreDataProperties.swift
 //  iTravelSample
 //
-//  Created by Stanly Shiyanovskiy on 30.09.17.
+//  Created by Stanly Shiyanovskiy on 01.10.17.
 //  Copyright © 2017 Stanly Shiyanovskiy. All rights reserved.
 //
 //
@@ -28,6 +28,7 @@ extension Trip {
     @NSManaged public var targetPlace: TargetPlace?
     @NSManaged public var thingsArrays: NSSet?
     @NSManaged public var user: User?
+    @NSManaged public var weather: NSSet?
 
 }
 
@@ -62,5 +63,22 @@ extension Trip {
 
     @objc(removeThingsArrays:)
     @NSManaged public func removeFromThingsArrays(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for weather
+extension Trip {
+
+    @objc(addWeatherObject:)
+    @NSManaged public func addToWeather(_ value: Weather)
+
+    @objc(removeWeatherObject:)
+    @NSManaged public func removeFromWeather(_ value: Weather)
+
+    @objc(addWeather:)
+    @NSManaged public func addToWeather(_ values: NSSet)
+
+    @objc(removeWeather:)
+    @NSManaged public func removeFromWeather(_ values: NSSet)
 
 }

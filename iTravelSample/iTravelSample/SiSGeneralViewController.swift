@@ -67,14 +67,14 @@ class SiSGeneralViewController: UIViewController, UITableViewDelegate, UITableVi
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = .red
-            cell.textLabel?.text = "Здесь отображается история Ваших поездок. К сожалению, у Вас не было еще ни одной поездки.\nДобавьте первую, нажав на кнопку ниже."
+            cell.textLabel?.text = "Здесь отображается история Ваших поездок. К сожалению, у Вас не было еще ни одной поездки.\nДобавьте первую, нажав на значок + в правом углу."
             return cell
         } else {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! SiSTableViewCell
             let trip = cellsArray[indexPath.row]
             let tripId = trip.idTrip
             if let tripCountry = trip.targetPlace?.country, let tripCity = trip.targetPlace?.city, let tripStart = trip.startDate?.toString(), let tripEnd = trip.endDate?.toString(), let participants = trip.participants?.count {
-                cell.labelText?.text = ("Поездка № \(tripId),\n\(tripCountry), \(tripCity),\nc \(tripStart) по \(tripEnd),\nучастников \(participants)")
+                cell.labelText?.text = ("Поездка № \(tripId),\n\(tripCountry), \(tripCity),\nc \(tripStart) по \(tripEnd)")
             }
             return cell
         }

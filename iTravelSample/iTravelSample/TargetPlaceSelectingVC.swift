@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 protocol TargetPlaceDelegate {
-    func addTargetPlace(country: String, city: String, id: Int)
+    func addTargetPlace(country: String, city: String, id: Int, latitude: String, longitude: String)
 }
 
 class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -18,6 +18,8 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     var countriesTVActive = false
     var kbFrameSize: CGRect?
     var target: String?
+    var latitude: String?
+    var longitude: String?
     
     @IBOutlet weak var bottomConstant: NSLayoutConstraint!
     @IBOutlet weak var targetCountry: UITextFieldX!
@@ -26,6 +28,11 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     @IBOutlet weak var tableViewTopConstr: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var saveBtn: UIButtonX! {
+        didSet {
+            saveBtn.isEnabled = false
+        }
+    }
     
     var targetsArray = [String]()
     var geocoder = CLGeocoder()
@@ -90,9 +97,10 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
     }
     
     @IBAction func dismissVC(_ sender: Any) {
+        guard saveBtn.isEnabled else { return }
         if let country = self.targetCountry.text, country != "" {
             if let city = self.targetCity.text, city != "" {
-                delegate?.addTargetPlace(country: country, city: city, id: targetID!)
+                delegate?.addTargetPlace(country: country, city: city, id: targetID!, latitude: latitude!, longitude: longitude!)
             }
         }
         dismiss(animated: true, completion: nil)
@@ -262,6 +270,9 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             annotation.coordinate = location.coordinate
             print(annotation.coordinate)
             
+            self.latitude = String(annotation.coordinate.latitude)
+            self.longitude = String(annotation.coordinate.longitude)
+            
             self.map.showAnnotations([annotation], animated: true)
             self.map.selectAnnotation(annotation, animated: true)
             let span = MKCoordinateSpanMake(30, 30)
@@ -269,6 +280,14 @@ class TargetPlaceSelectingVC: UIViewController, UITextFieldDelegate, UITableView
             self.map.setRegion(region, animated: true)
             self.map.isZoomEnabled = true
             self.map.isScrollEnabled = true
+            
+            self.showSaveBtn()
+        }
+    }
+    
+    func showSaveBtn() {
+        UIView.animate(withDuration: 0.3) {
+            self.saveBtn.isEnabled = true
         }
     }
 

@@ -103,9 +103,9 @@ class RecommendedThingsVC: UIViewController, UITableViewDelegate, UITableViewDat
             // try to get all things for this trip from DB
             if things != nil {
                 
-                for arr in things! {
+                //for arr in things! {
                     //print((arr ).title)
-                }
+                //}
                 
                 recommnededThings = things!
                 updateUI()
@@ -146,7 +146,26 @@ class RecommendedThingsVC: UIViewController, UITableViewDelegate, UITableViewDat
     
     // MARK: - Private methods -
     func askServerToGetThings() {
-        APIStack.instance.getThingsByPOST(weather: 1, sex: 1, tripKind: 1, callback: { (values) in
+        var weather = 0
+        if currentTrip.weather?.count != 0 {
+            var sumTemp = 0.0
+            for temp in (currentTrip?.weather)! {
+                let weather = temp as! Weather
+                sumTemp += weather.temperature
+            }
+            
+            let averageTemp = Int(sumTemp)/(currentTrip.weather?.count)!
+            if averageTemp < 5 {
+                weather = 1
+            } else {
+                weather = averageTemp > 15 ? 2 : 2 // пока ставлю либо зима, либо лето, если добавим демисезон, то это тернар нужно будет преобразовать!
+            }
+        }
+        
+        let userGender = (currentTrip.user?.isMan)! ? 1 : 2
+        let tripKindValue = currentTrip.purpose == "Деловая" ? 1 : 2
+        
+        APIStack.instance.getThingsByPOST(weather: weather, sex: userGender, tripKind: tripKindValue, callback: { (values) in
             if !values.isEmpty {
                 for value in values {
                     // check if thing is in DB, if no - add it

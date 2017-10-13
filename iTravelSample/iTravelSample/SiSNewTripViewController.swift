@@ -18,10 +18,13 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     var context: NSManagedObjectContext!
     var country: String?
     var city: String?
+    var latitude: String?
+    var longitude: String?
     var targetPlaceID: Int?
     var tripPurposeValue = "Деловая"
     var transportKindValue = "Самолет"
     var trip: Trip!
+    var weatherArray = [Weather]()
     
     // MARK: - Outlets -
     @IBOutlet weak var stepperValue: UILabel!
@@ -134,14 +137,6 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        //print("*************************************\n\nОтдаю серверу такой запрос на получение товаров:\n\nСтрана: \(country!)\n\nГород: \(city!)\n\nНачало путешествия: \(startTripDate.text!)\n\nЗавершение путешествия: \(endTripDate.text!)\n\nЦель поездки: \(tripPurposeValue!)\n\nТранспорт: \(transportKindValue!)\n\nУчастников всего: \(participants.count)\n\nРаспечатка данных об участниках:\n\t{")
-        
-        //for (index, value) in participants.enumerated() {
-           // print("Участник № \(index+1) -> Возраст: \(value.age), Пол: \(value.isMan ? "Мужской" : "Женский")")
-        //}
-        
-        //print("\t}")
-        
         // Проверка на пустые поля
         if (targetPlaceTF.text?.isEmpty)! || (startTripDate.text?.isEmpty)! || (endTripDate.text?.isEmpty)! {
             // Вывод алерта, если поля пустые
@@ -170,6 +165,11 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
             
             if let targetPlace = TargetPlace.getTargetPlaceBy(id: targetPlaceID!, context: context) {
                 trip.targetPlace = targetPlace
+            }
+            
+            // добавление погоды в свойство поездки
+            if !self.weatherArray.isEmpty {
+                self.trip.weather = NSSet(array: weatherArray)
             }
             
             if let startDate = startTripDate.text {
@@ -265,10 +265,15 @@ class SiSNewTripViewController: UIViewController, UITextFieldDelegate, UICollect
         self.navigationController!.pushViewController(VC, animated: true)
     }
     
-    func addTargetPlace(country: String, city: String, id: Int) {
+    func addTargetPlace(country: String, city: String, id: Int, latitude: String, longitude: String) {
         targetPlaceID = id
         self.country = country
         self.city = city
+        self.latitude = latitude
+        self.longitude = longitude
+        APIStack.instance.getCityData(latitude: latitude, longitude: longitude) { (weather) in
+            self.weatherArray = weather
+        }
         self.targetPlaceTF.text = String("\(city), \(country)")
     }
     

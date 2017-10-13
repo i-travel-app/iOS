@@ -100,5 +100,90 @@ class APIStack {
         task.resume()
         
     }
+    
+    // MARK: - Weather -
+    
+    func getCityData(latitude: String, longitude: String, completion: @escaping (_ array: [Weather]) -> ()) {
+        
+        let moc = CoreDataStack.instance.persistentContainer.viewContext
+        
+        let url: URL = URL(string: "https://api.openweathermap.org/data/2.5/forecast/daily?lat=\(latitude)&lon=\(longitude)&cnt=16&appid=f98e9a4853b6542f39b4d4bd709c0f99")!
+        
+        let defaultSession = URLSession.shared
+        let urlRequest = URLRequest(url: url)
+        let task = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
+            
+            guard error == nil else { return }
+            
+            do {
+                let jsonDictionary = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String:Any]
+                
+                let datas = jsonDictionary["list"] as! NSArray
+                
+                var array = [Weather]()
+                
+                for (index, _) in datas.enumerated() {
+                    
+                    let cityData = datas[index] as! [String:Any]
+                    
+                    // получение описания погоды
+                    let descArr = cityData["weather"] as! [[String:Any]]
+                    let title = descArr[0]["description"] as! String
+                    
+                    // получение температуры в цельсиях
+                    var celsius = 0.0
+                    if let temp = cityData["temp"] as? [String:Double] {
+                        let tempMax = temp["max"]!
+                        let tempMin = temp["min"]!
+                        celsius = ((tempMax+tempMin)/2) - 273.15
+                    }
+                    
+                    // получение показателя облачности
+                    let cloudNum =  cityData["clouds"] as! NSNumber
+                    let cloudString = "\(cloudNum)"
+                    
+                    // получение данных о скорости ветра
+                    let windNum = cityData["speed"] as! NSNumber
+                    let windString = "\(windNum)"
+                    
+                    // получение данных об объеме осадков за последние 3 часа
+                    var rainString:String = "0.0"
+                    if let rain = cityData["rain"] as? Double {
+                        rainString = NSString(format: "%.3f", rain) as String
+                    }
+                    
+                    // получение даты, на которую собран прогноз
+                    let date = cityData["dt"] as! Double
+                    
+                    // сохранение погоды в БД и массиве погод
+                    let weather = Weather(context: moc)
+                    weather.day = date
+                    weather.title = title
+                    weather.rain = rainString
+                    weather.wind = windString
+                    weather.cloud = cloudString
+                    weather.temperature = celsius
+                    
+                    do {
+                        try moc.save()
+                    } catch {
+                        fatalError()
+                    }
+                    
+                    array.append(weather)
+                    
+                    DispatchQueue.main.async(execute: {
+                        completion(array)
+                    })
+                    
+                }
+                
+            } catch {
+                print("invalid json query")
+            }
+        }
+        
+        task.resume()
+    }
 }
 
